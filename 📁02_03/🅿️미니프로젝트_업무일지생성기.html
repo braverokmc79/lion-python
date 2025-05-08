@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🅿️미니프로젝트_업무일지생성기.md</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      font-family:"Noto Sans KR", sans-serif;
+      line-height: 1.6;      
+      font-optical-sizing: auto;
+      font-weight: 400;
+     font-style: normal;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<p>프로젝트 코드명: WorkLogCard_PY_v2
+프로젝트 유형:  업무일지 생성기</p>
+<pre><code class="hljs language-python">코드명: WorkLogCard_PY_v2
+사용언어 Python: PY
+버전 번호 : v2
+</code></pre>
+<h3>🖥️ 프로젝트 개요</h3>
+<pre><code>사용자로부터 작성일자, 담당업무, 업무내용을 입력 받아 문자열 
+가공을 통해 업무일지를 출력합니다. 문자열 슬라이싱, 대소문자 처리, 
+공백 제거, 문자열 길이 구하기, 포맷 정리 등을 통해 콘솔에서 깔끔한 
+업무일지를 생성합니다.
+</code></pre>
+<p>◽ 프로젝트를 통해 적용되는 내용:</p>
+<ul>
+<li>문자열 연결 (<code>+</code>, f-string)</li>
+<li>슬라이싱과 인덱싱</li>
+<li>문자열 길이 측정 (<code>len()</code>)</li>
+<li>이스케이프 문자 (<code>\n</code>, <code>\t</code>)</li>
+<li>여러 줄 문자열 출력 (<code>&quot;&quot;&quot;...&quot;&quot;&quot;</code>)</li>
+<li>문자열 메서드: <code>strip()</code>, <code>capitalize()</code>, <code>[:n]</code></li>
+<li>IndexError 예외 방지 처리</li>
+</ul>
+<h3>📄 기능 요구사항 (Functional Requirements):</h3>
+<ul>
+<li><strong>FR-01</strong>: 작성일자, 담당업무, 업무내용을 사용자로부터 입력 받는다.</li>
+<li><strong>FR-02</strong>: 업무내용이 20자 이상이면 앞의 20글자까지만 출력한다.</li>
+<li><strong>FR-03</strong>: 담당업무는 첫 글자만 대문자로 출력한다.</li>
+<li><strong>FR-04</strong>: 업무일지 카드 형식으로 보기 좋게 출력한다.</li>
+</ul>
+<h3>📄 비기능 요구사항 (Non-Functional Requirements):</h3>
+<ul>
+<li>줄바꿈과 탭으로 보기 좋은 출력 구성</li>
+<li>업무내용과 담당업무의 문자열 길이 출력 포함</li>
+<li>입력 문자열에 불필요한 공백 제거 (<code>strip()</code>)</li>
+<li>IndexError나 출력 오류 방지</li>
+</ul>
+<h3>🔀 작업 가이드</h3>
+<p>1️⃣ 사용자 입력 처리</p>
+<pre><code class="hljs language-python">date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 작성일을 입력하세요 (예: 2025-05-06): &quot;</span>)
+task = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당 업무를 입력하세요: &quot;</span>)
+content = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 내용을 입력하세요: &quot;</span>)
+name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당자 이름을 입력하세요: &quot;</span>)
+</code></pre>
+<p>2️⃣ 문자열 처리</p>
+<ul>
+<li>앞뒤 공백 제거 (실수 방지용)</li>
+<li>문자열 가공</li>
+</ul>
+<hr>
+<p>🖨️ 출력결과 (예시)</p>
+<pre><code class="hljs language-python">==============================
+📋 업무일지 카드
+------------------------------
+작성일자: <span class="hljs-number">2025</span>-05-06
+담당 업무: 장고개발
+업무 내용: 오늘 수행한 업무는 API 개발이였다.
+업무 내용 길이: <span class="hljs-number">21</span>자
+담당 업무 길이: <span class="hljs-number">4</span>자
+담당자 이름: 이유정
+==============================
+</code></pre>
+<p>✅ 정답 코드 및 해설</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 사용자 입력</span>
+date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 작성일을 입력하세요 (예: 2025-05-06): &quot;</span>)
+task = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당 업무를 입력하세요: &quot;</span>)
+content = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 내용을 입력하세요: &quot;</span>)
+name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당자 이름을 입력하세요: &quot;</span>)
+
+<span class="hljs-comment"># 문자열 처리</span>
+task = task.strip()
+content = content.strip()
+task_len = <span class="hljs-built_in">len</span>(task)
+content_len = <span class="hljs-built_in">len</span>(content)
+
+<span class="hljs-comment"># 최대 100자 까지만 자르기</span>
+content = content[:<span class="hljs-number">100</span>]
+
+content_wrapped = (
+	content[<span class="hljs-number">0</span>:<span class="hljs-number">20</span>] + <span class="hljs-string">&quot;\n&quot;</span> +
+	content[<span class="hljs-number">20</span>:<span class="hljs-number">40</span>] + <span class="hljs-string">&quot;\n&quot;</span> +
+	content[<span class="hljs-number">40</span>:<span class="hljs-number">60</span>] + <span class="hljs-string">&quot;\n&quot;</span> +
+	content[<span class="hljs-number">60</span>:<span class="hljs-number">80</span>] + <span class="hljs-string">&quot;\n&quot;</span> +
+	content[<span class="hljs-number">80</span>:<span class="hljs-number">100</span>] 
+).strip()
+
+<span class="hljs-comment"># 출력</span>
+card = <span class="hljs-string">f&quot;&quot;&quot;
+==============================
+📋 업무일지 카드
+------------------------------
+작성일자: <span class="hljs-subst">{date}</span>
+담당 업무: <span class="hljs-subst">{task}</span>
+업무 내용: <span class="hljs-subst">{content_wrapped}</span>
+업무 내용 길이: <span class="hljs-subst">{task_len}</span>자
+담당 업무 길이: <span class="hljs-subst">{content_len}</span>자
+담당자 이름: <span class="hljs-subst">{name}</span>
+==============================
+&quot;&quot;&quot;</span>
+
+<span class="hljs-built_in">print</span>(card)
+
+
+</code></pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</body>
+</html>

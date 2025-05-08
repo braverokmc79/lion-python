@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>📜우선순의 및 예외 Error.md</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      font-family:"Noto Sans KR", sans-serif;
+      line-height: 1.6;      
+      font-optical-sizing: auto;
+      font-weight: 400;
+     font-style: normal;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<h3>🔹 연산자의 우선순위</h3>
+<pre><code>하나의 계산식에 여러 연산자가 섞여 있을 때,  
+어떤 연산을 먼저 계산할지 정해진 규칙을 말합니다.
+</code></pre>
+<p>🔍 해석:
+수학에서도 &quot;괄호 먼저&quot;, &quot;곱셈 먼저&quot; 같은 계산 순서가 있듯이,<br>
+파이썬도 똑같이 연산자마다 우선 계산해야 할 순서가 정해져 있습니다.</p>
+<h6>‼️ 우선순위 순서 (중요한 순서부터)</h6>
+<table>
+<thead>
+<tr>
+<th>순위</th>
+<th>연산자</th>
+<th>의미</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>괄호 <code>()</code></td>
+<td>그룹 묶기</td>
+<td>가장 먼저 계산</td>
+</tr>
+<tr>
+<td>2</td>
+<td>거듭제곱 <code>**</code></td>
+<td>제곱</td>
+<td>곱하기보다 먼저 계산</td>
+</tr>
+<tr>
+<td>3</td>
+<td>곱셈/나눗셈/몫/나머지 <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></td>
+<td>곱하거나 나누기</td>
+<td>덧셈/뺄셈보다 우선</td>
+</tr>
+<tr>
+<td>4</td>
+<td>덧셈/뺄셈 <code>+</code>, <code>-</code></td>
+<td>더하고 빼기</td>
+<td>가장 마지막 계산</td>
+</tr>
+<tr>
+<td>✅ 외우기 쉽게!!  괄호( ) → 거듭제곱 <code>**</code> → 곱나몫나 <code>*,/,//,%</code> → 덧뺄 <code>+ -</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>&lt;/&gt;예시코드:  아래 코드를 연산하면?</p>
+<pre><code class="hljs language-python">result = <span class="hljs-number">2</span> + <span class="hljs-number">3</span> * <span class="hljs-number">4</span>
+<span class="hljs-built_in">print</span>(result) <span class="hljs-comment"># 14</span>
+</code></pre>
+<p>&lt;/&gt;예시코드:  그러나 괄호를 사용하면?</p>
+<pre><code class="hljs language-python">result = (<span class="hljs-number">2</span> + <span class="hljs-number">3</span>) * <span class="hljs-number">4</span>
+<span class="hljs-built_in">print</span>(result) <span class="hljs-comment"># 20</span>
+</code></pre>
+<p>&lt;/&gt;예시코드: 괄호 없이 복합 연산</p>
+<pre><code class="hljs language-python">result = <span class="hljs-number">2</span> + <span class="hljs-number">3</span> * <span class="hljs-number">4</span> - <span class="hljs-number">1</span> ** <span class="hljs-number">2</span> 
+<span class="hljs-comment"># 1 * 1 = 1</span>
+<span class="hljs-comment"># 3 * 4 =12 </span>
+<span class="hljs-comment"># 2 + 12 -1 = 13</span>
+
+<span class="hljs-built_in">print</span>(resul) <span class="hljs-comment"># 13</span>
+</code></pre>
+<p>&lt;/&gt;예시코드: 괄호를 이용해 우선순위 변경</p>
+<pre><code class="hljs language-python">result = (<span class="hljs-number">2</span> + <span class="hljs-number">3</span>) * (<span class="hljs-number">4</span> - <span class="hljs-number">1</span>) ** <span class="hljs-number">2</span>
+
+<span class="hljs-comment"># (2+3)</span>
+<span class="hljs-comment"># 4-1</span>
+<span class="hljs-comment"># 5* 9 = 45</span>
+
+<span class="hljs-built_in">print</span>(resul) <span class="hljs-comment"># 45</span>
+</code></pre>
+<hr>
+<h6>◽ 에러 메시지 종류</h6>
+<table>
+<thead>
+<tr>
+<th>코드</th>
+<th>에러 종류</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>print(1 / 0)</code></td>
+<td><code>ZeroDivisionError</code></td>
+<td>0으로 나누면 안 돼요! (수학에서도 정의되지 않음)</td>
+</tr>
+<tr>
+<td><code>print(&quot;hi&quot; + 3)</code></td>
+<td><code>TypeError</code></td>
+<td>문자열과 숫자는 서로 더할 수 없어요 (타입이 안 맞음)</td>
+</tr>
+<tr>
+<td><code>int(&quot;abc&quot;)</code></td>
+<td><code>ValueError</code></td>
+<td>문자 <code>&quot;abc&quot;</code>는 숫자로 바꿀 수 없어요</td>
+</tr>
+<tr>
+<td><code>print(x)</code></td>
+<td><code>NameError</code></td>
+<td><code>x</code>라는 변수를 만들지 않았는데 쓰려고 해서 오류예요</td>
+</tr>
+<tr>
+<td><code>lst = [1]; print(lst[5])</code></td>
+<td><code>IndexError</code></td>
+<td>리스트에 5번째 값이 없어요 (범위 밖)</td>
+</tr>
+<tr>
+<td><code>d = {}; print(d[&quot;key&quot;])</code></td>
+<td><code>KeyError</code></td>
+<td>딕셔너리에 <code>&quot;key&quot;</code>라는 항목이 없어요</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>🔹 TypeError 예외</h3>
+<p>✅ 예외 처리란?
+프로그램을 실행할 때 예상치 못한 에러(오류)가 발생할 수 있는데,  그때 프로그램이 멈추지 않고 안전하게 처리할 수 있도록 만드는 기능입니다.</p>
+<p>◽ <code>TypeError</code> 예외</p>
+<p>&lt;/&gt;예시코드: 숫자와 문자열 연산 에러</p>
+<pre><code class="hljs language-python">	<span class="hljs-comment"># 숫자와 문자열은 연산할수 없어요.</span>
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hi&quot;</span> + <span class="hljs-number">3</span>)  <span class="hljs-comment"># TypeError</span>
+	
+	<span class="hljs-comment"># 예외처리로 에러 해결</span>
+	<span class="hljs-keyword">try</span>:
+		<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hi&quot;</span> + <span class="hljs-number">3</span>)
+	<span class="hljs-keyword">except</span> TypeError:
+		<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;숫자와 문자열은 연산할수 없어요.&quot;</span>)
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">TypeError: can only concatenate <span class="hljs-built_in">str</span> (<span class="hljs-keyword">not</span> <span class="hljs-string">&quot;int&quot;</span>) to <span class="hljs-built_in">str</span>
+</code></pre>
+<p>💡 기억하기
+에러를 미리 대비해서, 사용자가 잘못 입력해도 프로그램이 멈추지 않고<br>
+친절한 메시지를 출력합니다.</p>
+<hr>
+<p>◽ ZeroDivisionError 예외</p>
+<p>&lt;/&gt;예시코드:  0으로 나누기</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> / <span class="hljs-number">0</span>)
+</code></pre>
+<p>❌ 🖨️ 출력결과: (Error발생)</p>
+<pre><code class="hljs language-python">ZeroDivisionError: division by zero
+</code></pre>
+<p>🔍 해설:
+10을 0으로 나누려고 하면 수학적으로 정의되지 않아서
+<strong>ZeroDivisionError</strong> 에러가 발생합니다.</p>
+<p>⭕ 안전하게 처리하려면? 예외처리를 해줍니다.</p>
+<p>&lt;/&gt;예시코드:  0으로 나누기 안전하게 처리하기</p>
+<pre><code class="hljs language-python">	<span class="hljs-keyword">try</span>: <span class="hljs-comment"># 이 안의 코드를 실행해본다(시도할때)</span>
+	    <span class="hljs-built_in">print</span>(<span class="hljs-number">10</span> / <span class="hljs-number">0</span>) <span class="hljs-comment"># ❌ 여기서 오류 발생 (ZeroDivisionError)</span>
+	<span class="hljs-keyword">except</span> ZeroDivisionError: <span class="hljs-comment">#예외일때</span>
+	    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;0으로 나눌 수 없습니다.&quot;</span>) <span class="hljs-comment"># 예외 메시지를 출력</span>
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">0</span>으로 나눌 수 없습니다.
+</code></pre>
+<p>🔍 해설:
+<code>try</code> 블록에서 에러가 발생하면,
+<code>except</code> 블록으로 넘어가서
+에러 메시지를 출력하고 프로그램은 멈추지 않습니다!</p>
+<hr>
+<p>◽ 디버깅: 에러를 찾고 고치는 과정에서 자주 사용하는 방법</p>
+<p>&lt;/&gt; 예시코드: <code>Exception as e</code> 사용</p>
+<pre><code class="hljs language-python">	<span class="hljs-keyword">try</span>:
+	    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hi&quot;</span> + <span class="hljs-number">3</span>)
+	<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+	    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;에러 종류:&quot;</span>, <span class="hljs-built_in">type</span>(e).__name__)
+	    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;에러 메시지:&quot;</span>, e)
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">	에러 종류: TypeError
+	에러 메시지: can only concatenate <span class="hljs-built_in">str</span> (<span class="hljs-keyword">not</span> <span class="hljs-string">&quot;int&quot;</span>) to <span class="hljs-built_in">str</span>
+</code></pre>
+<p>💡 이렇게 하면 어떤 에러든 에러 이름과 메시지를 자동으로 확인할 수 있어요!</p>
+<hr>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">try</span>:
+	data = {
+		<span class="hljs-string">&quot;user&quot;</span>: {
+			<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tom&quot;</span>,
+			<span class="hljs-string">&quot;score&quot;</span>: <span class="hljs-number">100</span>
+		}
+	}
+	average = data.get(<span class="hljs-string">&quot;user&quot;</span>).get(<span class="hljs-string">&quot;total&quot;</span>) / <span class="hljs-number">0</span>
+<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;에러종류:&quot;</span>, <span class="hljs-built_in">type</span>(e).__name__ )
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;에러 메시지:&quot;</span>, e)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">에러 종류: TypeError 
+에러 메시지: unsupported operand <span class="hljs-built_in">type</span>(s) <span class="hljs-keyword">for</span> /: <span class="hljs-string">&#x27;NoneType&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;int&#x27;</span>
+</code></pre>
+<p>💡 None / 0 에러발생:
+total를 찾을수가 없어서 None
+None/0  타입이 다르다</p>
+<p>💡 왜 <code>ZeroDivisionError</code>가 아니고 <code>TypeError</code>인가요?
+0으로 나누면 <code>ZeroDivisionError</code>가 납니다.
+그런데 여기서는 먼저 <code>&quot;total&quot;</code> 키가 없어서 <code>None</code>이 나오고, 그걸 나누려고 했기 때문에,  &quot;0으로 나누기 전에&quot; 먼저 <code>None / 0</code>이라는 잘못된 연산이 발생합니다. 그래서 먼저 발생한 <code>TypeError</code>가 발생된 겁니다.</p>
+<hr>
+<p>조건문(<code>if</code>)과 예외처리(<code>try-except</code>)는 목적이 다릅니다.<br>
+파이썬에서는 &quot;예상할 수 있는 상황은 <code>if</code>, 예상할 수 없는 에러는 <code>try-except</code>&quot;로 구분해서 사용하는 것이 가장 바람직합니다.</p>
+<hr>
+<p>1️⃣ 조건문으로 처리 (예방 중심)</p>
+<pre><code class="hljs language-python">user = {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tom&quot;</span>}
+
+<span class="hljs-keyword">if</span> <span class="hljs-string">&quot;age&quot;</span> <span class="hljs-keyword">in</span> user:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이:&quot;</span>, user[<span class="hljs-string">&quot;age&quot;</span>])
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이 정보 없음&quot;</span>)
+</code></pre>
+<p>✅ <strong>결과</strong>: 안전하게 실행됨<br>
+<code>&quot;age&quot;</code> 키가 없더라도 미리 확인해서 에러 없음</p>
+<hr>
+<p>2️⃣ 예외처리로 처리 (복구 중심)</p>
+<pre><code class="hljs language-python">user = {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tom&quot;</span>}
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이:&quot;</span>, user[<span class="hljs-string">&quot;age&quot;</span>])
+<span class="hljs-keyword">except</span> KeyError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이 정보 없음&quot;</span>)
+</code></pre>
+<p>✅ <strong>결과</strong>: 똑같이 잘 실행됨<br>
+하지만 <code>KeyError</code>가 <strong>실제로 발생한 후에</strong> 처리함</p>
+<hr>
+<p>◽ try 블록에는 에러가 발생할 가능성이 있는 코드를 적습니다.</p>
+<p>&lt;/&gt; 하나더 예시</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">try</span>:
+    x = <span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;10&quot;</span>)     <span class="hljs-comment"># 정수 변환 → 성공</span>
+    y = <span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;hello&quot;</span>)  
+    <span class="hljs-comment"># 문자열을 숫자로 변환 → 💥 여기서 ValueError 발생 가능</span>
+    
+    result = x / y  <span class="hljs-comment"># 이 줄은 실행되지 않음 (앞에서 에러났으므로)</span>
+    
+<span class="hljs-keyword">except</span> ValueError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;숫자로 변환할 수 없습니다.&quot;</span>)
+</code></pre>
+<hr>
+<h3>🔹 문자열 연산자와의 우선순위 비교</h3>
+<p>❓  문자열 연산 vs 숫자 연산, 왜 주의해야 할까?
+파이썬은 <strong>왼쪽에서 오른쪽</strong>으로 연산을 진행하며,<br>
+덧셈(+) 연산자는 숫자용 + 문자열용이 각각 다르게 정의되어 있습니다.
+따라서 문자열과 숫자를 섞은 계산식에서는 연산 순서나 괄호가 없으면 예상치 못한 에러가 발생할 수 있습니다.</p>
+<p>🔍 해설:
+문자열과 숫자는 절대 자동으로 변환되지 않습니다.
+문자열 + 숫자 + 문자열처럼 혼합된 수식에서는 왼쪽부터 순서대로 평가되므로,  <code>str()</code>, 괄호, f-string 같은 처리 없이는 <strong>TypeError</strong>가 자주 발생합니다.</p>
+<p>&lt;/&gt;예시코드: 올바른 형변환 후 문자열 연결 (복합 구조)</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;Eve&quot;</span>
+score1 = <span class="hljs-number">85</span>
+score2 = <span class="hljs-number">90</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;학생: &quot;</span> + name + <span class="hljs-string">&quot; / 총점: &quot;</span> + <span class="hljs-built_in">str</span>(score1 + score2) + <span class="hljs-string">&quot;점&quot;</span>)
+<span class="hljs-comment">#만약 str(score1) + str(score2) 이렇게쓰면 8590 으로나오나요? 8590</span>
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">학생: Eve / 총점: <span class="hljs-number">175</span>점
+</code></pre>
+<p>🔍 해설:
+<code>score1 + score2</code>를 먼저 계산한 뒤, <code>str()</code>로 형변환
+이후 문자열끼리 연결되므로 오류 없이 실행</p>
+<hr>
+<p>조건:
+단, 금액과 세금은 변수에 넣어서 출력해주세요.
+추가, f-string으로 사용해서도 출력해보세요.</p>
+<p>&lt;/&gt; 수정 예시 1: <code>str()</code>로 형변환</p>
+<pre><code class="hljs language-python">price = <span class="hljs-number">1200</span>
+tax = <span class="hljs-number">100</span>
+
+total = price + tax -&gt; <span class="hljs-number">1300</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;총 결제 금액: &quot;</span> + <span class="hljs-built_in">str</span>(total) + <span class="hljs-string">&quot;원&quot;</span>)
+</code></pre>
+<p>&lt;/&gt; 수정 예시 2: <code>f-string</code> 사용</p>
+<pre><code class="hljs language-python">price = <span class="hljs-number">1200</span>
+tax = <span class="hljs-number">100</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;총 결제 금액: <span class="hljs-subst">{price + tax}</span>원&#x27;</span>)
+</code></pre>
+<hr>
+<p>📝 문제1] 아래 코드를 실행하면 오류가 발생합니다. 오류 원인을 파악하고, <code>총점이 150점 이상이면 &quot;우수&quot;</code>를 출력하도록 수정하세요.</p>
+<pre><code class="hljs language-python">student = {
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Mina&quot;</span>,
+    <span class="hljs-string">&quot;math&quot;</span>: <span class="hljs-number">80</span>,
+    <span class="hljs-string">&quot;english&quot;</span>: <span class="hljs-number">75</span>
+}
+
+<span class="hljs-keyword">if</span> student[<span class="hljs-string">&quot;math&quot;</span>] + student[<span class="hljs-string">&quot;english&quot;</span>] &gt;= <span class="hljs-number">150</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;이름: &quot;</span> + student[<span class="hljs-string">&quot;name&quot;</span>] + <span class="hljs-string">&quot;, 총점: &quot;</span> + student[<span class="hljs-string">&quot;math&quot;</span>] + student[<span class="hljs-string">&quot;english&quot;</span>])
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">student = {
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Mina&quot;</span>,
+    <span class="hljs-string">&quot;math&quot;</span>: <span class="hljs-number">80</span>,
+    <span class="hljs-string">&quot;english&quot;</span>: <span class="hljs-number">75</span>
+}
+
+total = student[<span class="hljs-string">&quot;math&quot;</span>] + student[<span class="hljs-string">&quot;english&quot;</span>]
+
+<span class="hljs-keyword">if</span> total &gt;= <span class="hljs-number">150</span>:
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;이름: <span class="hljs-subst">{student[<span class="hljs-string">&quot;name&quot;</span>]}</span>, 총점: <span class="hljs-subst">{total}</span> -&gt; 우수&#x27;</span>)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">이름: Mina, 총점: <span class="hljs-number">155</span> → 우수
+</code></pre>
+<hr>
+<p>🌟사전지식:
+어떤수라도 2로 나누면 나머지가 0 또는 1로 떨어진다.</p>
+<pre><code class="hljs language-python">num = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자를 입력하세요.&quot;</span>))
+
+<span class="hljs-comment"># 짝수입니다.</span>
+<span class="hljs-comment"># 홀수입니다.</span>
+</code></pre>
+<p>✅ 정답:</p>
+<pre><code class="hljs language-python">num = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자를 입력하세요.&quot;</span>)) <span class="hljs-comment"># 31</span>
+
+<span class="hljs-keyword">if</span> num % <span class="hljs-number">2</span>  == <span class="hljs-number">0</span> <span class="hljs-comment"># 짝수니?</span>
+<span class="hljs-comment"># -&gt; num / 2 ---나머지는?</span>
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;홀수입니다.&quot;</span>)
+</code></pre>
+<hr>
+<p>어떤수 % 7 ---- 0~6</p>
+<p>weekdays = [&quot;일&quot;, &quot;월&quot;, &quot;화&quot;, &quot;수&quot;, &quot;목&quot;, &quot;금&quot;, &quot;토&quot;]</p>
+<p>input =(&quot;오늘은 무슨 요일인가요? (예: 월, 화, 수, 목, 금, 토, 일)&quot;)
+변수명. index( ) 인덱스 번호가 호출됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>요일</th>
+<th>숫자</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>일요일</td>
+<td>0</td>
+</tr>
+<tr>
+<td>월요일</td>
+<td>1</td>
+</tr>
+<tr>
+<td>화요일</td>
+<td>2</td>
+</tr>
+<tr>
+<td>수요일</td>
+<td>3</td>
+</tr>
+<tr>
+<td>목요일</td>
+<td>4</td>
+</tr>
+<tr>
+<td>금요일</td>
+<td>5</td>
+</tr>
+<tr>
+<td>토요일</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>오늘은 { } 요일 이고,
+{&quot;21&quot; } 일 후에는 { }요일입니다.</p>
+<p>✅ 정답코드: 다른분들 코드도 참고해주세요.</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 요일을 숫자로 매칭하는 리스트</span>
+weekdays = [<span class="hljs-string">&quot;일&quot;</span>, <span class="hljs-string">&quot;월&quot;</span>, <span class="hljs-string">&quot;화&quot;</span>, <span class="hljs-string">&quot;수&quot;</span>, <span class="hljs-string">&quot;목&quot;</span>, <span class="hljs-string">&quot;금&quot;</span>, <span class="hljs-string">&quot;토&quot;</span>]
+
+<span class="hljs-comment"># 사용자 입력</span>
+today_name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;오늘은 무슨 요일인가요? (예: 월, 화, 수): &quot;</span>)
+after_days = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;며칠 후를 계산할까요? (예: 5): &quot;</span>))
+
+<span class="hljs-comment"># 요일 계산</span>
+today = weekdays.index(today_name) <span class="hljs-comment"># 일~토 문자열</span>
+day_index = (today + after_days) % <span class="hljs-number">7</span> <span class="hljs-comment"># 0~6</span>
+
+<span class="hljs-comment"># 결과 출력</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;오늘은 <span class="hljs-subst">{weekdays[today]}</span>요일입니다.&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{after_days}</span>일 후는 <span class="hljs-subst">{weekdays[day_index]}</span>요일입니다.&quot;</span>)
+</code></pre>
+<p>&lt;/&gt; 세일님코드:</p>
+<pre><code class="hljs language-python">weekdays = [<span class="hljs-string">&quot;일&quot;</span>, <span class="hljs-string">&quot;월&quot;</span>, <span class="hljs-string">&quot;화&quot;</span>, <span class="hljs-string">&quot;수&quot;</span>, <span class="hljs-string">&quot;목&quot;</span>, <span class="hljs-string">&quot;금&quot;</span>, <span class="hljs-string">&quot;토&quot;</span>] 
+
+today_weekday = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;오늘은 무슨 요일인가요? &quot;</span>) 
+after_day = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;몇일 후 요일이 궁금하신가요? &quot;</span>)) 
+
+next_weekday = weekdays[(weekdays.index(today_weekday) + after_day) % <span class="hljs-number">7</span>] 
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;&quot;&quot; 오늘은 <span class="hljs-subst">{today_weekday}</span>요일이고, <span class="hljs-subst">{after_day}</span>일 후에는 <span class="hljs-subst">{next_weekday}</span>요일입니다. &quot;&quot;&quot;</span>)
+</code></pre>
+<p>&lt;/&gt;정훈님 코드:</p>
+<pre><code class="hljs language-python">weekdays = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자를 입력하세요.&quot;</span>))
+<span class="hljs-keyword">if</span> weekdays &gt;= <span class="hljs-number">7</span>: 
+	weekdays = weekdays % <span class="hljs-number">7</span> days= [<span class="hljs-string">&quot;일요일&quot;</span>,<span class="hljs-string">&quot;월요일&quot;</span>,<span class="hljs-string">&quot;화요일&quot;</span>,<span class="hljs-string">&quot;수요일&quot;</span>,<span class="hljs-string">&quot;목요일&quot;</span>,<span class="hljs-string">&quot;금요일&quot;</span>,<span class="hljs-string">&quot;토요일&quot;</span>] 
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;오늘은 &quot;</span>, days[weekdays], <span class="hljs-string">&quot;이고&quot;</span>) 
+weekdays2 = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자를 입력하세요.&quot;</span>)) 
+weekdays= weekdays2+weekdays 
+
+<span class="hljs-keyword">if</span> weekdays &gt;= <span class="hljs-number">7</span>: 
+	weekdays = weekdays % <span class="hljs-number">7</span> 
+
+<span class="hljs-built_in">print</span>(weekdays2,<span class="hljs-string">&quot;일 후에는&quot;</span>,days[weekdays],<span class="hljs-string">&quot;요일입니다.&quot;</span>)
+</code></pre>
+<p>&lt;/&gt; 원욱님 코드:</p>
+<pre><code class="hljs language-python">weekdays = [<span class="hljs-string">&quot;일&quot;</span>, <span class="hljs-string">&quot;월&quot;</span>, <span class="hljs-string">&quot;화&quot;</span>, <span class="hljs-string">&quot;수&quot;</span>, <span class="hljs-string">&quot;목&quot;</span>, <span class="hljs-string">&quot;금&quot;</span>, <span class="hljs-string">&quot;토&quot;</span>] 
+day = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;오늘은 무슨 요일인가요? 번호를 눌러주세요. &quot;</span> <span class="hljs-string">&quot;0. 일요일&quot;</span> + <span class="hljs-string">&quot; 1. 월요일&quot;</span> + <span class="hljs-string">&quot; 2. 화요일&quot;</span> + <span class="hljs-string">&quot;3. 수요일&quot;</span> + <span class="hljs-string">&quot; 4. 목요일&quot;</span> + <span class="hljs-string">&quot;5. 금요일&quot;</span> + <span class="hljs-string">&quot; 6. 토요일&quot;</span>)) 
+
+addday = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;몇 일 후의 요일을 알고싶으신지 숫자를 눌러주세요. &quot;</span> )) 
+futureday = (day + addday) % <span class="hljs-number">7</span> 
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;오늘은 <span class="hljs-subst">{weekdays[day]}</span>요일이고, <span class="hljs-subst">{addday}</span>일 후에는 <span class="hljs-subst">{weekdays[futureday]}</span>요일입니다.&#x27;</span>)
+</code></pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</body>
+</html>

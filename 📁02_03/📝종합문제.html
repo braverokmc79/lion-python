@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>📝종합문제.md</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      font-family:"Noto Sans KR", sans-serif;
+      line-height: 1.6;      
+      font-optical-sizing: auto;
+      font-weight: 400;
+     font-style: normal;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<p>📝 문제1] 문자열 이어붙이기 vs 숫자 더하기
+두 숫자를 입력받아, 문자열로 이어붙이기와 숫자 덧셈 결과를 출력해보세요.</p>
+<p>🖨️ 출력 결과 예시:</p>
+<pre><code class="hljs language-python">입력A&gt; <span class="hljs-number">3</span>
+입력B&gt; <span class="hljs-number">5</span>
+문자열 자료: <span class="hljs-number">35</span>
+숫자 자료: <span class="hljs-number">8</span>
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">a = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;입력A&gt; &quot;</span>)
+b = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;입력B&gt; &quot;</span>)
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;문자열 자료:&quot;</span>, a + b)        <span class="hljs-comment"># 문자열 이어붙이기</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;숫자 자료:&quot;</span>, <span class="hljs-built_in">int</span>(a) + <span class="hljs-built_in">int</span>(b))  <span class="hljs-comment"># 숫자 덧셈</span>
+</code></pre>
+<hr>
+<p>📝 문제2] 두 자리 숫자 나누기
+두 자리 숫자(예: 45)를 입력받아, 각 자리의 숫자를 분리하여 더한 결과를 출력하세요.</p>
+<pre><code class="hljs language-python">힌트: 문자열 인덱싱 사용
+예시 입력: <span class="hljs-number">45</span> → <span class="hljs-number">4</span> + <span class="hljs-number">5</span> = <span class="hljs-number">9</span>
+</code></pre>
+<p>🖨️ 출력 결과 예시:</p>
+<pre><code class="hljs language-python">두 자리 숫자 입력&gt; <span class="hljs-number">45</span>
+각 자리 수의 합: <span class="hljs-number">9</span>
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">num = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;두 자리 숫자 입력&gt; &quot;</span>)   <span class="hljs-comment"># 예: &quot;45&quot;</span>
+<span class="hljs-comment"># 문자열 인덱싱으로 각 자리 접근</span>
+digit1 = <span class="hljs-built_in">int</span>(num[<span class="hljs-number">0</span>])  <span class="hljs-comment"># &#x27;4&#x27; → 4</span>
+digit2 = <span class="hljs-built_in">int</span>(num[<span class="hljs-number">1</span>])  <span class="hljs-comment"># &#x27;5&#x27; → 5</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;각 자리 수의 합:&quot;</span>, digit1 + digit2)  <span class="hljs-comment"># 4 + 5 → 9</span>
+</code></pre>
+<p>🔍 해설:
+<code>num[0]</code>, <code>num[1]</code>을 통해 문자열에서 각 자릿수를 가져옵니다.
+각각을 정수형으로 변환하여 더합니다.</p>
+<hr>
+<p>📝 문제3] 각각을 정수형으로 변환하여 더합니다.
+두 숫자를 입력받아 덧셈, 뺄셈, 곱셈, 나눗셈 결과를 출력하세요.</p>
+<p>🖨️ 출력 결과 예시:</p>
+<pre><code class="hljs language-python">입력A&gt; <span class="hljs-number">12</span>
+입력B&gt; <span class="hljs-number">4</span>
+더하기: <span class="hljs-number">16</span>
+빼기: <span class="hljs-number">8</span>
+곱하기: <span class="hljs-number">48</span>
+나누기: <span class="hljs-number">3.0</span>
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">a = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;입력A&gt; &quot;</span>))
+b = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;입력B&gt; &quot;</span>))
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;더하기:&quot;</span>, a + b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;빼기:&quot;</span>, a - b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;곱하기:&quot;</span>, a * b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나누기:&quot;</span>, a / b)
+</code></pre>
+<hr>
+<p>📝 문제4] 문자열을 정수로 변환하기
+문자열 <code>&quot;100&quot;</code>을 정수로 바꾸고, 자료형과 함께 출력하세요.</p>
+<p>🖨️ 출력 결과 예시:</p>
+<pre><code class="hljs language-python">&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt; <span class="hljs-number">100</span>
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">num = <span class="hljs-built_in">int</span>(<span class="hljs-string">&quot;100&quot;</span>)         <span class="hljs-comment"># 문자열을 정수로 바꿈 </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(num), num)    <span class="hljs-comment"># 출력: &lt;class &#x27;int&#x27;&gt; 100</span>
+</code></pre>
+<p>🔍 해설:<br>
+<code>&quot;100&quot;</code>은 문자열이므로, <code>int()</code> 함수를 사용하여 정수로 변환합니다.</p>
+<hr>
+<p>📝 문제5] 문자열을 실수로 변환하고 곱하기
+<code>&quot;3.14&quot;</code>를 숫자로 바꾸고 <code>2</code>를 곱한 결과를 출력하세요.</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">6.28</span>
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">pi = <span class="hljs-built_in">float</span>(<span class="hljs-string">&quot;3.14&quot;</span>)            <span class="hljs-comment"># 문자열을 실수로 바꿈 </span>
+<span class="hljs-built_in">print</span>(pi * <span class="hljs-number">2</span>)                 <span class="hljs-comment"># 출력: 6.28</span>
+</code></pre>
+<p>🔍 해설:<br>
+<code>&quot;3.14&quot;</code>는 문자이지만 <code>float()</code> 함수로 실수형으로 변환하여, 곱셈 연산이 가능합니다.</p>
+<hr>
+<p>📝 문제6] 사용자 입력 받아 곱하기
+사용자에게 두 숫자를  입력받고, 실수로 바꾼 다음 곱한 결과를 출력하세요.</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">입력<span class="hljs-number">1</span>&gt; <span class="hljs-number">1.5</span>
+입력<span class="hljs-number">2</span>&gt; <span class="hljs-number">2</span>
+곱한 값은 <span class="hljs-number">3.0</span> 입니다.
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">a = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;입력1&gt; &quot;</span>))   <span class="hljs-comment"># 사용자 입력을 실수로 변환 </span>
+b = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;입력2&gt; &quot;</span>))   <span class="hljs-comment"># 사용자 입력을 실수로 변환 </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;곱한 값은&quot;</span>, a * b, <span class="hljs-string">&quot;입니다.&quot;</span>)
+</code></pre>
+<p>🔍 해설:<br>
+<code>input()</code>으로 입력받은 값을 <code>float()</code>으로 변환하여 소수점까지 정확하게 곱셈 결과를 구할 수 있습니다.</p>
+<hr>
+<h1>💭직접 풀어보세요.</h1>
+<h5>◽ inch 단위를 cm 단위로 변경하기</h5>
+<p>📝 문제1]  출력결과와 같이 f-string을 이용하여 보기 좋게 문장을 출력하세요.</p>
+<p>1 inch = 2.54</p>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">10</span>인치는 <span class="hljs-number">25.4</span>cm 입니다.
+</code></pre>
+<p>✅ 정답:</p>
+<pre><code class="hljs language-python">inch = <span class="hljs-number">10</span>
+cm = inch * <span class="hljs-number">2.54</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{inch}</span>인치는 <span class="hljs-subst">{cm}</span>cm 입니다.&quot;</span>)
+</code></pre>
+<p>🔍 설명:
+<code>inch = 10</code>
+&quot;10인치&quot;를 변수에 저장합니다. 인치(inch)는 길이의 단위예요.
+<code>cm = inch * 2.54</code>
+1인치는 2.54cm이니까, 10인치를 센티미터로 바꾸려면  10 * 2.54 = <strong>25.4</strong>가 돼요.
+<code>print(f&quot;{inch}인치는 {cm}cm 입니다.&quot;)</code>
+f-string을 이용해서 보기 좋게 문장을 출력합니다.</p>
+<hr>
+<p>📝 문제2] 사용자에게 인치 값을 직접 입력받게 하여 출력결과 처럼 나오게 수정해보세요.</p>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">인치를 입력하세요: <span class="hljs-number">5</span>
+<span class="hljs-number">5.0</span>인치는 <span class="hljs-number">12.7</span>cm 입니다.
+</code></pre>
+<p>✅ 정답:</p>
+<pre><code class="hljs language-python">inch = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;인치를 입력하세요: &quot;</span>)  <span class="hljs-comment"># str형 (문자)</span>
+inch = <span class="hljs-built_in">float</span>(inch)                  <span class="hljs-comment"># 실수형으로 바꾸기</span>
+cm = inch * <span class="hljs-number">2.54</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{inch}</span>인치는 <span class="hljs-subst">{cm}</span>cm 입니다.&quot;</span>)
+</code></pre>
+<p>🔍 설명:
+<code>input(&quot;인치를 입력하세요: &quot;)</code>
+사용자가 직접 값을 입력할 수 있도록 해요. 예를 들어 <strong>5</strong>라고 입력하면 <code>&quot;5&quot;</code>라는 <strong>문자</strong>로 저장돼요.
+<code>float(inch)</code>
+입력한 문자열 <code>&quot;5&quot;</code>는 계산이 안 되기 때문에 숫자(소수 가능)로 바꿔줘요.
+<code>cm = inch * 2.54</code>
+입력한 숫자를 센티미터로 변환해요.
+<code>print(...)</code>
+변환된 결과를 출력해줘요.</p>
+<hr>
+<p>📝 문제3]  사용자로부터 숫자를 입력받아 사칙연산(덧셈, 뺄셈, 곱셈, 나눗셈) 결과를 출력하세요</p>
+<p>🖨️ 출력예시:</p>
+<pre><code class="hljs language-python">첫 번째 숫자&gt; <span class="hljs-number">5</span>
+두 번째 숫자&gt; <span class="hljs-number">6</span>
+덧셈 결과: <span class="hljs-number">11.0</span>
+뺄셈 결과: -<span class="hljs-number">1.0</span>
+곱셈 결과: <span class="hljs-number">30.0</span>
+나눗셈 결과: <span class="hljs-number">0.8333333333333334</span>
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">input_a = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;첫 번째 숫자&gt; &quot;</span>))
+input_b = <span class="hljs-built_in">float</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;두 번째 숫자&gt; &quot;</span>))
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;덧셈 결과:&quot;</span>, input_a + input_b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;뺄셈 결과:&quot;</span>, input_a - input_b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;곱셈 결과:&quot;</span>, input_a * input_b)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나눗셈 결과:&quot;</span>, input_a / input_b)
+</code></pre>
+<hr>
+<p>📝 문제4] 아래 내용을 참조해여 원주율, 반지름, 원의 둘레, 원의 넓이를 출력하세요.</p>
+<p>원주율 = 3.14159265
+반지름 = 10
+원의 둘레 - 공식: 2πr
+원의 넓이 - 공식: πr²</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">PI = <span class="hljs-number">3.14159265</span> 
+r = <span class="hljs-number">10</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;원주율 =&quot;</span>, PI)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;반지름 =&quot;</span>, r)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;원의 둘레 =&quot;</span>, <span class="hljs-number">2</span> * PI * r)  
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;원의 넓이 =&quot;</span>, PI * r * r)   
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">원주율 = <span class="hljs-number">3.14159265</span>
+반지름 = <span class="hljs-number">10</span>
+원의 둘레 = <span class="hljs-number">62.831853</span>
+원의 넓이 = <span class="hljs-number">314.159265</span>
+</code></pre>
+<hr>
+<p>📝 문제1] 숫자 두 개를 문자열로 합쳐 출력하기
+숫자 <code>5</code>와 <code>7</code>을 이용해 <code>&quot;5 + 7 = 12&quot;</code> 형태로 출력하세요.</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">a = <span class="hljs-number">5</span> b = <span class="hljs-number">7</span> 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{} + {} = {}&quot;</span>.<span class="hljs-built_in">format</span>(a, b, a + b))
+</code></pre>
+<p>🖨️ <strong>출력 결과:</strong></p>
+<pre><code class="hljs language-python"><span class="hljs-number">5</span> + <span class="hljs-number">7</span> = <span class="hljs-number">12</span>
+</code></pre>
+<p>🔍 해설:
+<code>{}</code> 3개를 준비하고,
+<code>.format(a, b, a+b)</code>로 각각 <strong>첫 번째</strong>, <strong>두 번째</strong>, <strong>세 번째</strong> 자리에 값을 삽입합니다.
+<code>a+b</code>는 숫자 덧셈 결과(12)가 되어 마지막 <code>{}</code>에 들어갑니다.</p>
+<hr>
+<p>📝 문제2] 문자열과 변수 함께 출력하기
+이름이 &quot;지민&quot;이고 나이가 21살일 때,  &quot;지민님의 나이는 21살입니다.&quot; 를 출력하세요.</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;지민&quot;</span>
+age = <span class="hljs-number">20</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{}님의 나이는 {}살입니다.&quot;</span>.<span class="hljs-built_in">format</span>(name, age))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">지민님의 나이는 <span class="hljs-number">21</span>살입니다.
+</code></pre>
+<p>🔍 해설:
+<code>{}</code>를 사용하여 문장 안에 <code>name</code>, <code>age</code> 변수를 삽입합니다.
+중간에 따옴표나 + 연산자를 쓰지 않아도 자연스럽게 이어집니다.</p>
+<hr>
+<p>📝 문제3] 사용자 입력으로 문장 만들기
+사용자에게 과일 이름과 개수를 입력받아  &quot;사과를 3개 샀어요.&quot; 처럼 출력하세요.</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">fruit = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;과일 이름: &quot;</span>)    <span class="hljs-comment"># 예: 사과</span>
+count = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;개수: &quot;</span>)         <span class="hljs-comment"># 예: 3</span>
+
+<span class="hljs-built_in">print</span>(fruit)
+<span class="hljs-built_in">print</span>(count)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{}를 {}개 샀어요.&quot;</span>.<span class="hljs-built_in">format</span>(fruit, count))
+</code></pre>
+<p>🖨️ 예시 실행:</p>
+<pre><code class="hljs language-python">과일 이름: 사과 
+개수: <span class="hljs-number">3</span> 
+사과를 <span class="hljs-number">3</span>개 샀어요.
+</code></pre>
+<p>🔍 해설:
+<code>input()</code> 함수는 항상 문자열(str)로 입력값을 받습니다.
+별도의 변환 없이 <code>format()</code> 함수에 그대로 전달할 수 있습니다.
+<code>{}</code>를 통해 과일 이름과 개수를 순서대로 자연스럽게 넣어 출력합니다.</p>
+<hr>
+<p>📝 문제1] <code>IndexError</code> 수정하기<br>
+아래의 코드는 <code>IndexError</code>가 발생하는데 오류가 발생하지 않도록 수정하세요.</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;제품명: {}, 가격: {}, 수량: {}&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;노트북&quot;</span>, <span class="hljs-number">150</span>만원))
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;제품명:{},가격:{},수량:{}&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;노트북&quot;</span>,<span class="hljs-string">&quot;150만원&quot;</span>,<span class="hljs-string">&quot;3개&quot;</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">제품명: 노트북, 가격: <span class="hljs-number">150</span>만원, 수량: <span class="hljs-number">3</span>개
+</code></pre>
+<p>🔍 해설:
+원본 코드에서는 값이 2개뿐이라 마지막 <code>{}</code>에서 에러가 발생했습니다.
+수정된 코드에서는 <code>.format()</code>에 총 3개의 값을 제공하여 <code>{}</code>의 개수와 맞췄습니다.</p>
+<hr>
+<p>📝 문제2] 적절한 값 삽입하기<br>
+아래 문장을 출력하기 위한 format() 코드를 작성해보세요.</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot;서울에서 부산까지 거리는 약 400km입니다.&quot;</span>
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{}에서 {}까지 거리는 약 {}km입니다.&quot;</span>.<span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;서울&quot;</span>, <span class="hljs-string">&quot;부산&quot;</span>, <span class="hljs-number">400</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">서울에서 부산까지 거리는 약 400km입니다.
+</code></pre>
+<p>🔍 해설:
+<code>{}</code>는 총 3개, <code>.format()</code>에도 총 3개의 값이 정확하게 맞추어 들어갑니다.
+순서대로 도시이름과 거리 숫자를 넣어주어 자연스러운 문장을 만듭니다.</p>
+<p>💬 보충설명 (현업 팁):<br>
+<code>format()</code>을 사용할 때는 작성한 문장과 값이 많아질수록 개수가 맞지 않는 실수가 쉽게 발생하므로,<br>
+코드를 작성한 뒤 반드시 테스트를 통해 확인하는 습관을 갖는 것이 중요합니다.</p>
+<hr>
+<p>📝 문제1]  위 코드의 출력 결과는?</p>
+<pre><code class="hljs language-python">num = <span class="hljs-number">52.0</span> 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Fixed point: {:.3f}&quot;</span>.<span class="hljs-built_in">format</span>(num))
+</code></pre>
+<p>① <code>52</code><br>
+② <code>52.0</code><br>
+③ <code>52.000000</code><br>
+④ <code>52.000</code></p>
+<p><strong>✅ 정답:</strong> ④ <code>52.000</code></p>
+<hr>
+<p>📝 문제2] 아래 중 출력 결과로 알맞은 것은?</p>
+<pre><code class="hljs language-python">num = <span class="hljs-number">52.273</span> 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{:.2f}&quot;</span>.<span class="hljs-built_in">format</span>(num)) 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{:g}&quot;</span>.<span class="hljs-built_in">format</span>(num))
+</code></pre>
+<p>① <code>52.27</code> / <code>52.273</code><br>
+② <code>52.27</code> / <code>52.27</code><br>
+③ <code>52.27</code> / <code>52.3</code><br>
+④ <code>52.27</code> / <code>52</code></p>
+<p><strong>✅ 정답:</strong> ① <code>52.27</code> / <code>52.273</code></p>
+<p>💬 <code>:.2f</code>는 소수점 2자리까지<br>
+💬 <code>:g</code>는 가능한 한 간단한 형식이기 때문에 불필요한 0은 생략, 이 경우 그대로 <code>52.273</code> 입니다.</p>
+<hr>
+<p>📝 문제3] 지수 표현과 일반 표현 비교, 출력 결과 중 맞는 것은?</p>
+<pre><code class="hljs language-python">num = <span class="hljs-number">0.000012345</span> 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{:e}&quot;</span>.<span class="hljs-built_in">format</span>(num)) 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{:g}&quot;</span>.<span class="hljs-built_in">format</span>(num))
+</code></pre>
+<p>① <code>0.000012345</code> / <code>0.000012345</code><br>
+② <code>1.234500e-05</code> / <code>1.2345e-05</code><br>
+③ <code>12345e-9</code> / <code>12.345</code><br>
+④ <code>1.23</code> / <code>0.000012345</code></p>
+<p><strong>✅ 정답:</strong> ② <code>1.234500e-05</code> / <code>1.2345e-05</code></p>
+<p>💬 <code>:e</code>는 <strong>지수 표기 (e-지수)</strong><br>
+💬 <code>:g</code>도 작거나 크면 지수 표기로 표현하지만 <strong>간단한 형식으로</strong> 보여줌
+(소수점 생략 등)</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</body>
+</html>

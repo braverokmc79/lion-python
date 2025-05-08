@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>📜변수와 입력.md</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      font-family:"Noto Sans KR", sans-serif;
+      line-height: 1.6;      
+      font-optical-sizing: auto;
+      font-weight: 400;
+     font-style: normal;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<h3>🔹 변수 만들기/사용하기</h3>
+<pre><code>변수(variable)는 값을 저장해두고, 나중에 이름으로 꺼내서 사용합니다.
+쉽게 말하면 &quot;값에 붙이는 이름표&quot;라고 생각하면 됩니다.
+</code></pre>
+<p>&lt;/&gt; 예시코드: 변수 만들고 출력하기</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;Eunice&quot;</span>  <span class="hljs-comment"># 이름 저장</span>
+age = <span class="hljs-number">20</span>        <span class="hljs-comment"># 나이 저장</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;이름:&quot;</span>, name)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이:&quot;</span>, age)
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">이름: Eunice
+나이: <span class="hljs-number">20</span>
+</code></pre>
+<hr>
+<h3>🔹 변수 사용 범위와 예시</h3>
+<p>✅ 1. 기본 자료형 담기</p>
+<pre><code class="hljs language-python">x = <span class="hljs-number">10</span>
+y = <span class="hljs-number">3.14</span>
+name = <span class="hljs-string">&quot;Eunice&quot;</span>
+is_valid = <span class="hljs-literal">True</span>
+
+<span class="hljs-built_in">print</span>(x, y, name, is_valid)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">10</span> <span class="hljs-number">3.14</span> Eunice <span class="hljs-literal">True</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>변수는 숫자, 문자열, 불리언과 같은 기본 데이터를 담을 수 있습니다.</li>
+<li><code>x</code>, <code>y</code>, <code>name</code>, <code>is_valid</code>는 각각 정수, 실수, 문자열, 참/거짓 값</li>
+</ul>
+<hr>
+<p>✅ 2. 컬렉션 자료형 담기</p>
+<pre><code class="hljs language-python">lst = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+tpl = (<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>)
+dct = {<span class="hljs-string">&quot;a&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&quot;b&quot;</span>: <span class="hljs-number">2</span>}
+st = {<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+
+<span class="hljs-built_in">print</span>(lst)
+<span class="hljs-built_in">print</span>(tpl)
+<span class="hljs-built_in">print</span>(dct)
+<span class="hljs-built_in">print</span>(st)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+(<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>)
+{<span class="hljs-string">&#x27;a&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;b&#x27;</span>: <span class="hljs-number">2</span>}
+{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>}
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>리스트, 튜플, 딕셔너리, 집합 등 복합 데이터도 변수에 저장 가능합니다.</li>
+</ul>
+<p>📘 용어정리:</p>
+<ul>
+<li>컬렉션(Collection): 여러 개의 값을 하나로 묶는 자료형의 <strong>총칭</strong> (리스트, 튜플, 딕셔너리, 세트 모두 포함)</li>
+<li>시퀀스(Sequence): 값들이 순서(index)를 가지고 있는 컬렉션 (리스트, 튜플, 문자열 등)</li>
+<li>비시퀀스형: 순서 없음, 대신 <strong>키 기반 접근</strong> 또는 중복 불가 (딕셔너리, 집합 등)</li>
+</ul>
+<hr>
+<p>✅ 3. 함수를 변수에 저장</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">greet</span>(<span class="hljs-params">name</span>):
+    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;Hello, <span class="hljs-subst">{name}</span>!&quot;</span>
+
+say_hello = greet
+<span class="hljs-built_in">print</span>(say_hello(<span class="hljs-string">&quot;Eunice&quot;</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Hello, Eunice!
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>함수 <code>greet</code>를 <code>say_hello</code>라는 변수에 저장해서 다른 이름으로 호출 가능</li>
+<li>파이썬은 함수를 일급 객체로 다루므로 변수에 담을 수 있습니다.</li>
+</ul>
+<hr>
+<p>✅ 4. lambda (익명 함수)</p>
+<pre><code class="hljs language-python">double = <span class="hljs-keyword">lambda</span> x: x * <span class="hljs-number">2</span>
+<span class="hljs-built_in">print</span>(double(<span class="hljs-number">5</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">10</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>lambda</code>는 간단한 함수를 한 줄로 정의할 때 사용</li>
+<li><code>double</code>은 입력값을 2배로 곱해주는 함수</li>
+</ul>
+<hr>
+<p>✅ 5. 클래스를 변수에 저장</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Cat</span>:
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sound</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Meow&quot;</span>
+
+Pet = Cat  <span class="hljs-comment"># 클래스 자체를 변수에 저장</span>
+c = Pet()
+<span class="hljs-built_in">print</span>(c.sound())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Meow
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>클래스 자체도 변수에 저장 가능 (<code>Pet = Cat</code>)</li>
+<li><code>Pet()</code>은 <code>Cat()</code>과 동일한 역할 수행</li>
+</ul>
+<hr>
+<p>✅ 6. 클래스 인스턴스를 변수에 저장</p>
+<pre><code class="hljs language-python">dog = Cat()
+<span class="hljs-built_in">print</span>(dog.sound())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Meow
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>Cat()</code>은 객체(인스턴스)를 생성하고 <code>dog</code>이라는 변수에 저장</li>
+<li>객체는 <code>.</code>을 사용하여 함수(메서드)를 호출할 수 있음</li>
+</ul>
+<hr>
+<p>✅ 7. 모듈을 변수로 사용</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">import</span> math
+
+m = math
+<span class="hljs-built_in">print</span>(m.sqrt(<span class="hljs-number">16</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">4.0</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>math</code> 모듈을 <code>m</code>이라는 변수에 저장해서 사용할 수 있음</li>
+<li><code>math.sqrt()</code> 대신 <code>m.sqrt()</code>로 접근</li>
+</ul>
+<hr>
+<p>✅ 8. 함수 안에서 함수 반환 (클로저)</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">outer</span>():
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">inner</span>():
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;I&#x27;m inner&quot;</span>
+    <span class="hljs-keyword">return</span> inner
+
+f = outer()
+<span class="hljs-built_in">print</span>(f())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">I<span class="hljs-string">&#x27;m inner
+</span></code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>함수 안에서 함수를 정의하고 리턴 → 이를 클로저(closure)라고 함</li>
+<li><code>outer()</code> 실행 결과로 반환된 <code>inner</code> 함수가 <code>f</code>에 저장됨</li>
+</ul>
+<hr>
+<p>✅ 9. 표현식을 변수에 저장 (조건문, 리스트 내포)</p>
+<pre><code class="hljs language-python">age = <span class="hljs-number">19</span>
+status = <span class="hljs-string">&quot;성인&quot;</span> <span class="hljs-keyword">if</span> age &gt;= <span class="hljs-number">20</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;미성년자&quot;</span>
+<span class="hljs-built_in">print</span>(status)
+
+squares = [x**<span class="hljs-number">2</span> <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>)]
+<span class="hljs-built_in">print</span>(squares)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">미성년자
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">9</span>, <span class="hljs-number">16</span>]
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>삼항 조건문</code>으로 조건 결과를 저장</li>
+<li><code>리스트 내포</code>로 계산 결과를 리스트에 저장</li>
+</ul>
+<hr>
+<p>✅ 10. 데코레이터처럼 함수 래핑해서 저장</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator</span>(<span class="hljs-params">fn</span>):
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">wrapper</span>():
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Before&quot;</span>)
+        fn()
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;After&quot;</span>)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">hello</span>():
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello&quot;</span>)
+
+hello = decorator(hello)
+hello()
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Before
+Hello
+After
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>함수 <code>hello</code>를 <code>decorator</code>로 감싸고 변수에 다시 저장</li>
+<li>변수는 이렇게 포장된 함수도 저장할 수 있음</li>
+</ul>
+<hr>
+<p>✅ 11. 타입도 변수에 저장 가능</p>
+<pre><code class="hljs language-python">to_int = <span class="hljs-built_in">int</span>
+<span class="hljs-built_in">print</span>(to_int(<span class="hljs-string">&quot;123&quot;</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">123</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>int</code>, <code>str</code>, <code>float</code> 같은 타입(자료형 변환 함수)도 변수에 담아 사용할 수 있음</li>
+</ul>
+<hr>
+<p>✅ 12. 메서드를 변수에 저장</p>
+<pre><code class="hljs language-python">obj = Cat()
+speak = obj.sound
+<span class="hljs-built_in">print</span>(speak())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Meow
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>객체의 메서드를 <code>speak</code>에 저장해도 <strong>함수처럼 호출 가능</strong></li>
+<li><code>obj.sound()</code>와 동일</li>
+</ul>
+<hr>
+<h6>✅ 총정리 표</h6>
+<table>
+<thead>
+<tr>
+<th>가능한 저장 대상</th>
+<th>예시 변수</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>숫자/문자/불리언</td>
+<td><code>x = 10</code></td>
+<td>기본 자료형</td>
+</tr>
+<tr>
+<td>리스트/딕셔너리 등</td>
+<td><code>lst = [1, 2, 3]</code></td>
+<td>컬렉션</td>
+</tr>
+<tr>
+<td>함수</td>
+<td><code>say_hello = greet</code></td>
+<td>함수 자체 저장 가능</td>
+</tr>
+<tr>
+<td>람다식</td>
+<td><code>double = lambda x: x*2</code></td>
+<td>간단 함수</td>
+</tr>
+<tr>
+<td>클래스</td>
+<td><code>Pet = Cat</code></td>
+<td>클래스 자체 저장 가능</td>
+</tr>
+<tr>
+<td>인스턴스</td>
+<td><code>cat = Cat()</code></td>
+<td>객체 저장</td>
+</tr>
+<tr>
+<td>모듈</td>
+<td><code>m = math</code></td>
+<td>모듈 참조 저장</td>
+</tr>
+<tr>
+<td>표현식 결과</td>
+<td><code>squares = [x**2 for x in range(5)]</code></td>
+<td>결과 저장</td>
+</tr>
+<tr>
+<td>메서드</td>
+<td><code>speak = obj.sound</code></td>
+<td>메서드 저장</td>
+</tr>
+<tr>
+<td>자료형 함수</td>
+<td><code>to_int = int</code></td>
+<td>타입 자체 저장 가능</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3>🔹 복합 대입 연산자</h3>
+<pre><code>기존 변수의 값에 더하거나(+), 빼거나(-), 곱하거나(*), 나누는(/) 
+연산을 짧고 간단하게 표현하는 방법입니다.
+</code></pre>
+<p>✏️ 해석:<br>
+&quot;변수 = 변수 + 숫자&quot; 이렇게 길게 쓰지 말고,<br>
+&quot;변수 += 숫자&quot; 처럼 한 번에 적자!</p>
+<h6>◽ 대표 복합 대입 연산자 표</h6>
+<table>
+<thead>
+<tr>
+<th>연산자</th>
+<th>의미</th>
+<th>긴 표현</th>
+<th>짧은 표현</th>
+<th>예시 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+=</code></td>
+<td>더하고 저장</td>
+<td><code>x = x + 2</code></td>
+<td><code>x += 2</code></td>
+<td>x = 3 → 5</td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td>빼고 저장</td>
+<td><code>x = x - 1</code></td>
+<td><code>x -= 1</code></td>
+<td>x = 3 → 2</td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td>곱하고 저장</td>
+<td><code>x = x * 3</code></td>
+<td><code>x *= 3</code></td>
+<td>x = 3 → 9</td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td>나누고 저장</td>
+<td><code>x = x / 2</code></td>
+<td><code>x /= 2</code></td>
+<td>x = 3 → 1.5</td>
+</tr>
+</tbody>
+</table>
+<p>&lt;/&gt; 예시코드: 더하고 저장 (<code>+=</code>)</p>
+<pre><code class="hljs language-python">score = <span class="hljs-number">10</span>
+score += <span class="hljs-number">5</span>
+
+<span class="hljs-built_in">print</span>(score) <span class="hljs-comment"># 15</span>
+</code></pre>
+<p>&lt;/&gt; 예시코드: 빼고 저장 (<code>-=</code>)</p>
+<pre><code class="hljs language-python">	num = <span class="hljs-number">8</span>
+	num -= <span class="hljs-number">3</span>  <span class="hljs-comment"># num에서 3을 뺌</span>
+	<span class="hljs-built_in">print</span>(num) <span class="hljs-comment"># 5</span>
+</code></pre>
+<p>&lt;/&gt; 예시코드: 곱하고 저장 (<code>*=</code>)</p>
+<pre><code class="hljs language-python">count = <span class="hljs-number">4</span> 
+count *= <span class="hljs-number">3</span>  <span class="hljs-comment"># count에 3을 곱함 </span>
+
+<span class="hljs-built_in">print</span>(count) <span class="hljs-comment"># 12</span>
+</code></pre>
+<p>&lt;/&gt; 예시코드: 나누고 저장 (<code>/=</code>)</p>
+<pre><code class="hljs language-python">length = <span class="hljs-number">9</span> 
+length /= <span class="hljs-number">3</span>  <span class="hljs-comment"># length를 3으로 나눔 </span>
+
+<span class="hljs-built_in">print</span>(length) <span class="hljs-comment"># 3.0</span>
+</code></pre>
+<p>🔍 해설:
+9 / 3 = 3.0 ( 나누기는 항상 소수점으로 결과가 나옴)</p>
+<hr>
+<p>📝 문제1 ] 다음 코드의 출력 결과는 무엇일까요?</p>
+<pre><code class="hljs language-python">a = <span class="hljs-number">10</span>
+b = <span class="hljs-number">3</span>
+
+a += b  <span class="hljs-comment"># a = 10 + 3 == 13 </span>
+b *= <span class="hljs-number">2</span>  <span class="hljs-comment"># b = 3 * 2 == 6 </span>
+a //= b <span class="hljs-comment"># a = 13 // 6  == 2</span>
+b **= <span class="hljs-number">2</span> <span class="hljs-comment"># b = 6 * 6 == 36</span>
+a %= <span class="hljs-number">5</span> <span class="hljs-comment"># a = 2 % 5 == 2</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;a = <span class="hljs-subst">{a}</span>&quot;</span>) <span class="hljs-comment"># 2</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;b = <span class="hljs-subst">{b}</span>&quot;</span>)
+</code></pre>
+<p>📝 문제2 ] 다음 코드의 출력 결과는 무엇일까요?</p>
+<pre><code class="hljs language-python">x = <span class="hljs-number">8</span>
+y = <span class="hljs-number">4</span>
+
+x *= y
+y -= <span class="hljs-number">1</span>
+x /= y 
+y **= <span class="hljs-number">2</span>
+x += y 
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;x = <span class="hljs-subst">{x}</span>&quot;</span>)  <span class="hljs-comment"># x = 19.666666666666668</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;y = <span class="hljs-subst">{y}</span>&quot;</span>)  <span class="hljs-comment"># y = 9</span>
+</code></pre>
+<hr>
+<h3>🔹 사용자 입력: <code>input()</code></h3>
+<pre><code>사용자에게 직접 값을 입력 받는 함수
+사용자가 입력한 값은 보기에는 숫자처럼 보여도, 사실은 글자(문자열)
+입니다. 그래서 숫자 계산을 하려면 '숫자로 변환(int)'을 해줘야 한다.
+</code></pre>
+<p>&lt;/&gt; 예시코드: 기본 사용법</p>
+<pre><code class="hljs language-python">	name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;당신의 이름은? &quot;</span>)
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;안녕하세요,&quot;</span>, name + <span class="hljs-string">&quot;님!&quot;</span>)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">당신의 이름은? 홍길동
+안녕하세요, 홍길동님!
+</code></pre>
+<p>🔍 해설:
+<code>input()</code> 함수는 사용자가 입력할 때까지 기다립니다.
+사용자가 &quot;홍길동&quot;이라고 입력하면 <code>name</code> 변수에 <code>&quot;홍길동&quot;</code>이라는 문자열이 저장됩니다.
+<code>print()</code>에서는 문자열끼리 이어붙이기(<code>+</code>)가 가능해서 문제 없이 출력됩니다.</p>
+<hr>
+<p>&lt;/&gt; 예시코드:  숫자 입력 시 주의 (자료형 변환 필요)</p>
+<pre><code class="hljs language-python">	age = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>)
+	<span class="hljs-built_in">print</span>(age, <span class="hljs-built_in">type</span>(age))  <span class="hljs-comment"># 입력값 확인</span>
+	age = <span class="hljs-built_in">int</span>(age)         <span class="hljs-comment"># 문자열을 정수(int)로 변환</span>
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;10년 후 나이:&quot;</span>, age + <span class="hljs-number">10</span>)          
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">나이를 입력하세요: <span class="hljs-number">20</span>
+<span class="hljs-string">&quot;20&quot;</span> &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;str&#x27;</span>&gt;
+<span class="hljs-number">10</span>년 후 나이: <span class="hljs-number">30</span>
+</code></pre>
+<p>🔍 해설:
+<code>input()</code>으로 입력받으면 20이  숫자처럼 보이는 것도 사실은 문자열이고,
+숫자처럼 계산하려면 <code>int(age)</code>로 <strong>정수형(int)</strong> 으로 변환해줘야 합니다.
+변환을 하지 않고 문자열 +</p>
+<hr>
+<p>📝 문제1] 문자열 + 숫자 에러
+다음 코드에서 어떤 문제가 발생하며, 어떻게 코드를 수정해야 할까요?</p>
+<pre><code class="hljs language-python">age = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;10년 후 나이:&quot;</span>, age + <span class="hljs-number">10</span>)
+</code></pre>
+<p>❌문제 발생 이유
+<code>input()</code>은 문자열을 반환하기 때문에 <code>&quot;20&quot; + 10</code>은 타입이 다르며,
+문자열과 숫자는 덧셈(<code>+</code>)이 불가능해서 TypeError가 발생합니다.</p>
+<p>⌨️ 코드수정:</p>
+<pre><code class="hljs language-python">age = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>)
+age = <span class="hljs-built_in">int</span>(age)  <span class="hljs-comment"># 정수형으로 변환</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;10년 후 나이:&quot;</span>, age + <span class="hljs-number">10</span>)
+</code></pre>
+<hr>
+<p>📝 문제2] 숫자에 50 더하기
+사용자가 입력한 숫자에 50을 더해서 출력하세요.</p>
+<pre><code class="hljs language-python">num = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자를 입력하세요: &quot;</span>)
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">num = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자를 입력하세요: &quot;</span>)
+num = <span class="hljs-built_in">int</span>(num)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;50 더한 값:&quot;</span>, num + <span class="hljs-number">50</span>)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">숫자를 입력하세요: <span class="hljs-number">30</span>
+<span class="hljs-number">50</span> 더한 값: <span class="hljs-number">80</span>
+</code></pre>
+<hr>
+<p>📝 문제3] 문자열 연결 출력하기
+사용자에게 이름과 나이를 입력받아 다음과 같이 출력되도록 하세요:</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">이름: 홍길동
+나이: <span class="hljs-number">20</span>
+홍길동님의 나이는 <span class="hljs-number">20</span>살입니다.
+</code></pre>
+<p>✅정답:</p>
+<pre><code class="hljs language-python">name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;이름: &quot;</span>)
+age = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이: &quot;</span>)
+<span class="hljs-built_in">print</span>(name + <span class="hljs-string">&quot;님의 나이는 &quot;</span> + age + <span class="hljs-string">&quot;살입니다.&quot;</span>)
+</code></pre>
+<p>🔍 해설:
+<code>name</code>, <code>age</code> 모두 문자열(str) 상태이므로
+문자열끼리는 <code>+</code>로 이어 붙일 수 있습니다.
+그래서 별다른 변환 없이 바로 연결해서 출력할수 있습니다.</p>
+<hr>
+<h3>🔹문자열을 숫자로 바꾸기</h3>
+<pre><code>파이썬에서 숫자처럼 생긴 문자열(String)을 실제 숫자(Number)로 
+바꿔서 계산할 수 있습니다.
+int() → 정수로 변환, float() → 소수로 변환 
+</code></pre>
+<h5>◽  <code>ValueError</code> 예외</h5>
+<pre><code>숫자로 바꿀 수 없는 글자를 숫자로 변환하려 하면 에러가 발생합니다.  
+이 문제를 대비하려면 미리 예외처리를 해야 합니다.
+</code></pre>
+<p>&lt;/&gt; 예시코드:  ❌ <code>ValueError</code> 발생 예시</p>
+<pre><code class="hljs language-python">	age = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>)  <span class="hljs-comment"># 예: &quot;스물다섯&quot;</span>
+	<span class="hljs-built_in">print</span>(<span class="hljs-built_in">int</span>(age))  <span class="hljs-comment"># ❌ ValueError 발생</span>
+</code></pre>
+<p>❌ 🖨️ 출력 결과: 에러출력</p>
+<pre><code class="hljs language-python">ValueError: invalid literal <span class="hljs-keyword">for</span> <span class="hljs-built_in">int</span>() <span class="hljs-keyword">with</span> base <span class="hljs-number">10</span>: <span class="hljs-string">&#x27;스물다섯&#x27;</span>
+</code></pre>
+<p>⭕ &lt;/&gt; 코드수정: 예외처리(<code>try ~ except</code>)로 안전하게 처리하기</p>
+<pre><code class="hljs language-python">	<span class="hljs-keyword">try</span>:
+    age = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>))
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;입력한 나이:&quot;</span>, age)
+	<span class="hljs-keyword">except</span> ValueError:
+	    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;❗ 숫자로만 입력해주시기 바랍니다.&quot;</span>)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">나이를 입력하세요: 스물다섯
+❗ 숫자로만 입력해주시기 바랍니다.
+</code></pre>
+<p>🔍 해설:
+<code>try</code>:  블록 안에서 에러가 발생하면,
+<code>except</code>:  블록으로 넘어가서 친절한 안내 문구를 출력하고 프로그램이 멈추지 않게 처리합니다.</p>
+<hr>
+<h3>🔹 숫자와 문자열 변환</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>정수 변환</td>
+<td><code>int()</code></td>
+</tr>
+<tr>
+<td>실수 변환</td>
+<td><code>float()</code></td>
+</tr>
+<tr>
+<td>문자열 변환</td>
+<td><code>str()</code></td>
+</tr>
+<tr>
+<td>자료형 확인</td>
+<td><code>type()</code></td>
+</tr>
+<tr>
+<td>💬 보충설명:</td>
+<td></td>
+</tr>
+<tr>
+<td>글자처럼 생긴 숫자는 <code>int()</code>나 <code>float()</code>로 변환해야 계산이 가능합니다.</td>
+<td></td>
+</tr>
+<tr>
+<td>반대로, 숫자를 글자로 출력하거나 이어 붙일 때는 <code>str()</code>로 변환해야 합니다.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</body>
+</html>

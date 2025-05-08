@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>📜자료형과 문자열.md</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+      font-family:"Noto Sans KR", sans-serif;
+      line-height: 1.6;      
+      font-optical-sizing: auto;
+      font-weight: 400;
+     font-style: normal;
+    }
+    pre {
+      overflow-x: auto;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<h1>자료형과 기본자료형</h1>
+<h3>🔹 자료형이란?</h3>
+<pre><code>자료형(Data Type)은 컴퓨터가 처리하는 데이터의 종류를 말합니다. 
+컴퓨터는 데이터의 형태에 따라 저장하는 방식과 처리하는 방법이 다르기 
+때문에, 각 데이터가 어떤 형태인지 구분할 필요가 있습니다.
+</code></pre>
+<p>◽대표적인 파이썬의 기본 자료형</p>
+<table>
+<thead>
+<tr>
+<th>분류</th>
+<th>자료형</th>
+<th>설명</th>
+<th>예시</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>숫자형</td>
+<td>int</td>
+<td>정수형 (소수점 없음)</td>
+<td>25, -10, 1000000</td>
+<td>나이, 개수 등 사용</td>
+</tr>
+<tr>
+<td></td>
+<td>float</td>
+<td>실수형 (소수점 있음)</td>
+<td>3.14, -0.5, 175.5</td>
+<td>키, 온도 등 사용</td>
+</tr>
+<tr>
+<td></td>
+<td>complex number</td>
+<td>복소수 (실수부 + 허수부)</td>
+<td>2 + 3j, 1 - 4j</td>
+<td>과학 계산 등</td>
+</tr>
+<tr>
+<td>텍스트형</td>
+<td>str</td>
+<td>문자열 (텍스트 데이터)</td>
+<td>&quot;Hello&quot;, '파이썬'</td>
+<td>따옴표로 감쌈</td>
+</tr>
+<tr>
+<td>논리형</td>
+<td>bool</td>
+<td>불리언 (참/거짓)</td>
+<td>True, False</td>
+<td>조건문에 자주 사용</td>
+</tr>
+<tr>
+<td>특수형</td>
+<td>NoneType</td>
+<td>값이 없음</td>
+<td>None</td>
+<td>초기화 시 자주 사용</td>
+</tr>
+<tr>
+<td>컬렉션형</td>
+<td>list</td>
+<td>순서 있고, 변경 가능</td>
+<td>[1, 2, 3], [&quot;a&quot;, &quot;b&quot;]</td>
+<td>각진괄호 [] 사용</td>
+</tr>
+<tr>
+<td></td>
+<td>tuple</td>
+<td>순서 있고, 변경 불가</td>
+<td>(1, 2), (&quot;a&quot;, &quot;b&quot;)</td>
+<td>둥근괄호 () 사용</td>
+</tr>
+<tr>
+<td></td>
+<td>dict</td>
+<td>키-값 쌍으로 저장</td>
+<td>{&quot;이름&quot;: &quot;홍길동&quot;, &quot;나이&quot;: 25}</td>
+<td>구부렁괄호 {}, 키:값 형식</td>
+</tr>
+<tr>
+<td></td>
+<td>set</td>
+<td>중복 없는 값들의 모음</td>
+<td>{1, 2, 3, 3} → {1, 2, 3}</td>
+<td>순서 없음, 중괄호 사용</td>
+</tr>
+</tbody>
+</table>
+<p>💬보충설명:
+( ) :  ==Round brackets== <s>Parentheses</s> 소괄호
+{ } :  ==Curly braces== 또는 <s>Braces</s> 중괄호
+[ ] : ==Square brackets== <s>Brackets</s> 대괄호</p>
+<hr>
+<p>◽숫자형 (Numeric Types)
+◽정수 (<code>int</code>)
+소수점이 없는 정수형 숫자예요.<br>
+예: 나이, 개수, 점수 등</p>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python">age = <span class="hljs-number">25</span>
+temperature = -<span class="hljs-number">5</span>
+
+<span class="hljs-built_in">print</span>(age)
+<span class="hljs-built_in">print</span>(temperature)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">25</span>
+-<span class="hljs-number">5</span>
+</code></pre>
+<p>◽실수 (<code>float</code>)
+소수점이 <strong>있는</strong> 숫자예요.<br>
+예: 키, 원주율, 온도 등</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">PI = <span class="hljs-number">3.14159</span> <span class="hljs-comment"># 상수</span>
+height = <span class="hljs-number">175.5</span>
+<span class="hljs-built_in">print</span>(PI)
+<span class="hljs-built_in">print</span>(height)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">3.14159</span> 
+<span class="hljs-number">175.5</span>
+</code></pre>
+<p>◽복소수 (<code>complex number</code>)
+복합적인 수라는 뜻으로 실수 + 허수(j)로 이루어진 숫자예요. 허수는 실수로 표현할 수 없는 수를 말합니다. 복소수는 공학, 전기공학, 물리학 등 다양한 분야에서 파동, 회전, 벡터 등을 표현할 때 유용하게 사용됩니다.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">z = <span class="hljs-number">2</span> + <span class="hljs-number">3j</span>
+<span class="hljs-built_in">print</span>(z)
+<span class="hljs-built_in">print</span>(z.real)  <span class="hljs-comment"># real part 실수부: 일반적인 숫자</span>
+<span class="hljs-built_in">print</span>(z.imag)  <span class="hljs-comment"># imaginary part 허수부: 제복하면 음수가 되는수 </span>
+<span class="hljs-comment"># i또는 j는 √-1을 의미하는 허수 단위(상식으로 알아두기 활용은 안함)</span>
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python">(<span class="hljs-number">2</span>+<span class="hljs-number">3j</span>)
+<span class="hljs-number">2.0</span>
+<span class="hljs-number">3.0</span>
+</code></pre>
+<p>◽문자열 (<code>str</code>)
+글자, 문장 같은 <strong>텍스트 데이터</strong>를 담아요.<br>
+작은따옴표(') 또는 큰따옴표(&quot;)로 감싸서 사용해요.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;홍길동&quot;</span>
+greeting = <span class="hljs-string">&#x27;안녕하세요!&#x27;</span>
+<span class="hljs-built_in">print</span>(name)
+<span class="hljs-built_in">print</span>(greeting)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python">홍길동
+안녕하세요!
+</code></pre>
+<p>◽불리언 (<code>bool</code>)
+참(<code>True</code>) 또는 거짓(<code>False</code>)을 나타내는 자료형이에요.<br>
+조건문, 판단 로직 등에 자주 사용돼요.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">is_student = <span class="hljs-literal">True</span>
+has_passport = <span class="hljs-literal">False</span>
+<span class="hljs-built_in">print</span>(is_student)
+<span class="hljs-built_in">print</span>(has_passport)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-literal">True</span>
+<span class="hljs-literal">False</span>
+</code></pre>
+<p>◽None 타입 (<code>NoneType</code>)
+&quot;아직 값이 없다&quot;는 <strong>특별한 의미</strong>를 가집니다.<br>
+변수 초기화 시 자주 사용돼요.
+&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">result = <span class="hljs-literal">None</span>
+<span class="hljs-built_in">print</span>(result)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-literal">None</span>
+</code></pre>
+<p>🧾 보충설명:
+result =0, reuslt =None 은 다르다.
+0부터 시작, 값이 없다.</p>
+<hr>
+<p>🟥컬렉션 자료형 (Collection Types)</p>
+<p>◽리스트 (<code>list</code>)
+순서가 있고, 값을 ==변경 가능==한 자료 모음입니다.<br>
+각진 괄호 <code>[]</code>로 만듭니다.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">fruits = [<span class="hljs-string">&quot;사과&quot;</span>, <span class="hljs-string">&quot;바나나&quot;</span>, <span class="hljs-string">&quot;체리&quot;</span>] 
+<span class="hljs-built_in">print</span>(fruits)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python">[<span class="hljs-string">&#x27;사과&#x27;</span>, <span class="hljs-string">&#x27;바나나&#x27;</span>, <span class="hljs-string">&#x27;체리&#x27;</span>]
+</code></pre>
+<p>◽튜플 (<code>tuple</code>)
+순서가 있지만, 값을 ==변경할 수 없는== 자료형입니다.<br>
+둥근괄호 <code>()</code>로 만듭니다.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">point = (<span class="hljs-number">10</span>, <span class="hljs-number">20</span>) 
+<span class="hljs-built_in">print</span>(point)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python">(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>)
+</code></pre>
+<p>◽딕셔너리 (<code>dict</code>)
+==키-값== 쌍으로 이루어진 자료형입니다.<br>
+구부렁괄호 <code>{}</code>와 콜론 <code>:</code>으로 표현합니다.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">person = {<span class="hljs-string">&quot;이름&quot;</span>: <span class="hljs-string">&quot;홍길동&quot;</span>, <span class="hljs-string">&quot;나이&quot;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&quot;직업&quot;</span>: <span class="hljs-string">&quot;학생&quot;</span>}
+<span class="hljs-built_in">print</span>(person)
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python">{<span class="hljs-string">&#x27;이름&#x27;</span>: <span class="hljs-string">&#x27;홍길동&#x27;</span>, <span class="hljs-string">&#x27;나이&#x27;</span>: <span class="hljs-number">25</span>, <span class="hljs-string">&#x27;직업&#x27;</span>: <span class="hljs-string">&#x27;학생&#x27;</span>}
+</code></pre>
+<p>◽집합 (<code>set</code>)
+==중복을 허용하지 않는== 자료 모음입니다.<br>
+구부렁괄호 <code>{}</code>를 사용하지만, 순서가 없습니다.</p>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">unique_numbers = {<span class="hljs-number">1</span>, <span class="hljs-string">&quot;수영&quot;</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-string">&quot;수영&quot;</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span>} 
+<span class="hljs-built_in">print</span>(unique_numbers)
+</code></pre>
+<p>🖨️출력결과: set은 중복 제거(필터링)은 탁월하지만 순서는 전혀 보장하지 않음</p>
+<pre><code class="hljs language-python">{<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-string">&#x27;수영&#x27;</span>}
+</code></pre>
+<p>💡꿀팁:
+리스트는 수정 가능 (fruits[0] = 100 가능)
+튜플은 수정 불가 (coordinates[0] = 100 하면 오류)
+딕셔너리는 키(Key)를 이용해서 값에 접근 (person['a']는 1 반환)</p>
+<hr>
+<h3>🔹자료를 알아야 하는 이유</h3>
+<p>프로그래밍에서 데이터의 종류, 즉 <strong>데이터 타입</strong>을 명확히 이해하는 것은 매우 중요합니다. 데이터 타입에 따라 수행할 수 있는 연산과 처리 방식이 달라지기 때문입니다.</p>
+<hr>
+<h4>1️⃣ 올바른 도구 선택하기</h4>
+<p>일상생활에서 각 작업에 맞는 도구를 사용하듯이, 프로그래밍에서도 각 데이터에 맞는 <strong>자료형</strong>을 선택해야 합니다.</p>
+<h5>🐣 예시:</h5>
+<p>물을 담으려면 컵이 필요하고, 음식을 자르려면 칼이 필요합니다.<br>
+마찬가지로, 숫자를 계산하려면 <code>숫자형(int, float)</code>이 필요하고, 이름을 저장하려면 <code>문자열(str)</code>이 필요합니다.</p>
+<h5>❌ 잘못된 자료형 사용</h5>
+<pre><code class="hljs language-python">price = <span class="hljs-string">&quot;10000&quot;</span>  <span class="hljs-comment"># 문자열로 저장</span>
+discount = price - <span class="hljs-number">1000</span>  <span class="hljs-comment"># 오류 발생! 문자열에서 숫자를 뺄 수 없음</span>
+</code></pre>
+<p>🖨️<strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">TypeError: unsupported operand <span class="hljs-built_in">type</span>(s) <span class="hljs-keyword">for</span> -: <span class="hljs-string">&#x27;str&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&#x27;int&#x27;</span>
+</code></pre>
+<h5>⭕ 올바른 자료형 사용</h5>
+<pre><code class="hljs language-python">price = <span class="hljs-number">10000</span>  <span class="hljs-comment"># 숫자로 저장</span>
+discount = price - <span class="hljs-number">1000</span>  <span class="hljs-comment"># 9000으로 정상 계산</span>
+<span class="hljs-built_in">print</span>(discount)
+</code></pre>
+<p>🖨️<strong>출력결과:</strong></p>
+<pre><code class="hljs language-python"><span class="hljs-number">9000</span>
+</code></pre>
+<hr>
+<h4>2️⃣ 효율적인 메모리 사용</h4>
+<p>각 자료형은 컴퓨터 메모리를 다르게 사용합니다. 적절한 자료형을 선택하면 메모리를 효율적으로 사용할 수 있습니다.</p>
+<h5>🐣 예시:</h5>
+<p>작은 가방에 꼭 필요한 것만 담는 것과 같습니다. 1부터 10까지 표현할 때는 큰 숫자를 저장할 수 있는 공간보다 작은 공간이 효율적입니다.</p>
+<hr>
+<h4>3️⃣ 가능한 작업 파악하기</h4>
+<p>자료형마다 할 수 있는 작업(연산)이 다릅니다.</p>
+<h5>🐣 예시:</h5>
+<pre><code>종이는 접을 수 있지만, 유리는 접을 수 없습니다. 문자열은 합치기나 반복은 가능하지만, 나눗셈은 할 수 없습니다.
+</code></pre>
+<p>⭕&lt;/&gt; 예시코드: 문자열끼리는 더할 수 있음</p>
+<pre><code class="hljs language-python">이름 = <span class="hljs-string">&quot;홍&quot;</span> + <span class="hljs-string">&quot;길동&quot;</span> <span class="hljs-comment"># &quot;홍길동&quot;</span>
+<span class="hljs-built_in">print</span>(이름)
+
+<span class="hljs-comment"># 출력결과</span>
+홍길동
+</code></pre>
+<p>❌&lt;/&gt; 예시코드: 하지만 문자열과 숫자는 더할 수 없음</p>
+<pre><code class="hljs language-python">결과 = <span class="hljs-string">&quot;나이: &quot;</span> + <span class="hljs-number">25</span> <span class="hljs-comment"># 오류 발생!</span>
+<span class="hljs-built_in">print</span>(결과)
+
+<span class="hljs-comment"># 출력결과:</span>
+TypeError: can only concatenate <span class="hljs-built_in">str</span> (<span class="hljs-keyword">not</span> <span class="hljs-string">&quot;int&quot;</span>) to <span class="hljs-built_in">str</span>
+</code></pre>
+<hr>
+<h4>4️⃣  오류 예방하기</h4>
+<pre><code>올바른 자료형을 사용하면 많은 오류를 미리 방지할 수 있습니다.
+</code></pre>
+<h5>🐣 예시:</h5>
+<pre><code>물이 담긴 컵을 쏟으면 바닥이 젖지만, 디지털 기기를 쏟으면 고장납니다. 그렇듯, 프로그램에서도 잘못된 자료형을 사용하면 예상치 못한 결과가 나올 수 있습니다.
+</code></pre>
+<p>⭕&lt;/&gt; 예시코드: 올바른 코드</p>
+<pre><code class="hljs language-python">사용자_입력 = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>) <span class="hljs-comment"># 입력값은 문자열로 들어옴</span>
+미래_나이 = <span class="hljs-built_in">int</span>(사용자_입력) + <span class="hljs-number">10</span> <span class="hljs-comment"># 형변환을 통해 35로 정상 계산</span>
+<span class="hljs-built_in">print</span>(미래_나이)
+
+<span class="hljs-comment"># 출력결과</span>
+예시: <span class="hljs-number">30</span>
+</code></pre>
+<p>❌&lt;/&gt; 예시코드:오류가 발생할 수 있는 코드</p>
+<pre><code class="hljs language-python">사용자_입력 = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;나이를 입력하세요: &quot;</span>) <span class="hljs-comment"># 사용자가 &quot;25&quot;라고 입력 </span>
+미래_나이 = 사용자_입력 + <span class="hljs-number">10</span> <span class="hljs-comment"># 오류 발생! &quot;25&quot; + 10은 불가능</span>
+<span class="hljs-built_in">print</span>(미래_나이)
+
+<span class="hljs-comment"># 출력결과</span>
+TypeError: can only concatenate <span class="hljs-built_in">str</span> (<span class="hljs-keyword">not</span> <span class="hljs-string">&quot;int&quot;</span>) to <span class="hljs-built_in">str</span>
+</code></pre>
+<hr>
+<h4>5️⃣  데이터 조직화하기</h4>
+<pre><code>복잡한 정보를 체계적으로 관리하려면 적합한 자료형이 필요합니다.
+</code></pre>
+<h5>🐣예시:</h5>
+<pre><code>슈퍼마켓에서 물건은 종류별로 다른 진열대에 정리됩니다. 프로그래밍에서도 관련 데이터를 적절히 구조화하면 관리가 쉬워집니다.
+</code></pre>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 학생 정보 관리 </span>
+<span class="hljs-comment"># 리스트 사용 </span>
+student1 = [<span class="hljs-string">&quot;홍길동&quot;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&quot;A반&quot;</span>, <span class="hljs-literal">True</span>] <span class="hljs-comment"># 이름, 나이, 반, 출석여부 </span>
+
+<span class="hljs-comment"># 딕셔너리 사용 (더 명확함) &quot;key&quot;:&quot;value&quot;구조</span>
+student2 = { 
+    <span class="hljs-string">&quot;이름&quot;</span>: <span class="hljs-string">&quot;홍길동&quot;</span>, 
+    <span class="hljs-string">&quot;나이&quot;</span>: <span class="hljs-number">20</span>, 
+    <span class="hljs-string">&quot;반&quot;</span>: <span class="hljs-string">&quot;A반&quot;</span>, 
+    <span class="hljs-string">&quot;출석여부&quot;</span>: <span class="hljs-literal">True</span> 
+}
+</code></pre>
+<p>🖨️출력결과: 리스트 데이터 꺼내기 및 출력결과</p>
+<pre><code class="hljs language-python">student1 = [<span class="hljs-string">&quot;홍길동&quot;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&quot;A반&quot;</span>, <span class="hljs-literal">True</span>]
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;이름:&quot;</span>, student1[<span class="hljs-number">0</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이:&quot;</span>, student1[<span class="hljs-number">1</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;반:&quot;</span>, student1[<span class="hljs-number">2</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;출석여부:&quot;</span>, student1[<span class="hljs-number">3</span>])
+
+<span class="hljs-comment"># 출력결과</span>
+이름: 홍길동
+나이: <span class="hljs-number">20</span>
+반: A반
+출석여부: <span class="hljs-literal">True</span>
+</code></pre>
+<p>✅인덱스의 동작 방식: 번호를 찾아갑니다.</p>
+<pre><code class="hljs language-python">student1[<span class="hljs-number">0</span>] -&gt; <span class="hljs-string">&quot;홍길동&quot;</span> (<span class="hljs-built_in">str</span>)
+student1[<span class="hljs-number">1</span>] -&gt; <span class="hljs-number">20</span>      (<span class="hljs-built_in">int</span>)
+student1[<span class="hljs-number">2</span>] -&gt; <span class="hljs-string">&quot;A반&quot;</span>   (<span class="hljs-built_in">str</span>)
+student1[<span class="hljs-number">3</span>] -&gt; <span class="hljs-literal">True</span>    (<span class="hljs-built_in">bool</span>)
+</code></pre>
+<p>🖨️출력결과: 딕셔너리 데이터 꺼내기 및 출력결과</p>
+<pre><code class="hljs language-python">student2 = { 
+    <span class="hljs-string">&quot;이름&quot;</span>: <span class="hljs-string">&quot;홍길동&quot;</span>, 
+    <span class="hljs-string">&quot;나이&quot;</span>: <span class="hljs-number">20</span>, 
+    <span class="hljs-string">&quot;반&quot;</span>: <span class="hljs-string">&quot;A반&quot;</span>, 
+    <span class="hljs-string">&quot;출석여부&quot;</span>: <span class="hljs-literal">True</span> 
+}
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;이름:&quot;</span>, student2[<span class="hljs-string">&quot;이름&quot;</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이:&quot;</span>, student2[<span class="hljs-string">&quot;나이&quot;</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;반:&quot;</span>, student2[<span class="hljs-string">&quot;반&quot;</span>])
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;출석여부:&quot;</span>, student2[<span class="hljs-string">&quot;출석여부&quot;</span>])
+
+<span class="hljs-comment"># 출력결과</span>
+이름: 홍길동
+나이: <span class="hljs-number">20</span>
+반: A반
+출석여부: <span class="hljs-literal">True</span>
+</code></pre>
+<p>✅딕셔너리의 동작 방식:</p>
+<pre><code class="hljs language-python">student2[<span class="hljs-string">&quot;이름&quot;</span>] → 파이썬이 메모리에서 <span class="hljs-string">&quot;이름&quot;</span>이라는 주소를 찾아감
+→ 그 주소에 저장된 값 <span class="hljs-string">&quot;홍길동&quot;</span>을 꺼내서 출력함
+</code></pre>
+<hr>
+<h4>6️⃣ 프로그램의 확장성 높이기</h4>
+<pre><code>처음부터 적절한 자료형을 사용하면 나중에 프로그램을 확장하기 쉽습니다.
+</code></pre>
+<h5>🐣예시:</h5>
+<p>처음부터 튼튼한 기초를 다져야 건물을 높이 올릴 수 있습니다. 자료형을 제대로 설계하면 프로그램도 더 크게 성장할 수 있습니다.</p>
+<hr>
+<h3>🔹 자료형 확인하기</h3>
+<pre><code>type() 함수를 사용하여 무슨 자료형이지 확인할수 있어요.
+</code></pre>
+<pre><code class="hljs language-python">    <span class="hljs-comment"># 정수형 (Integer)</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(<span class="hljs-number">10</span>))        
+    출력결과: &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;int&#x27;</span>&gt;
+    
+    <span class="hljs-comment"># 실수형 (Float)</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(<span class="hljs-number">0.2</span>))       
+    출력결과: &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;float&#x27;</span>&gt;
+    
+    <span class="hljs-comment"># 문자열 (String)</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(<span class="hljs-string">&quot;hi&quot;</span>))      
+    출력결과: &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;str&#x27;</span>&gt;
+    
+    <span class="hljs-comment"># 불리언 (Boolean)</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(<span class="hljs-literal">True</span>))      
+    출력결과: &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;bool&#x27;</span>&gt;
+    
+    <span class="hljs-comment"># 리스트 (List)</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))  
+    출력결과: &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;list&#x27;</span>&gt;
+    
+    <span class="hljs-comment"># 딕셔너리 (Dictionary)</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>({<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Eunice&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">30</span>}))  
+    출력결과: &lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;dict&#x27;</span>&gt;    
+</code></pre>
+<p>📝 문제 1]
+숫자 <code>7</code>을 변수 <code>a</code>에 저장한 뒤, <code>a</code>의 자료형을 출력하면 어떤 자료형이 나오는지 생각후 확인해보세요. (스스로 문제를 만들어보세요.)</p>
+<pre><code class="hljs language-python">a = <span class="hljs-number">7</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(a))
+</code></pre>
+<p>📝문제 2]
+문자열 <code>&quot;Python&quot;</code>을 변수 <code>b</code>에 저장한 뒤, <code>b</code>의 자료형을 출력하면 어떤 자료형이 나오는지 생각후 확인해보세요.</p>
+<pre><code class="hljs language-python">b = <span class="hljs-string">&quot;Python&quot;</span> <span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(b))
+</code></pre>
+<p>📝문제 3]
+숫자 <code>1</code>, <code>2</code>, <code>3</code>을 담은 리스트를 변수 <code>c</code>에 저장하고, <code>c</code>의 자료형을 출력하면 어떤 자료형이 나오는지 생각후 확인해보세요.</p>
+<pre><code class="hljs language-python">c = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(c))
+</code></pre>
+<p>🖨️출력결과:</p>
+<pre><code class="hljs language-python">&lt;<span class="hljs-keyword">class</span> <span class="hljs-string">&#x27;list&#x27;</span>&gt;
+</code></pre>
+<p>📝문제 4]
+students = [&quot;민수&quot;, &quot;지영&quot;, &quot;수빈&quot;, &quot;민수&quot;, &quot;영희&quot;, &quot;지영&quot;, &quot;철수&quot;, &quot;수빈&quot;, &quot;영희&quot;]</p>
+<ol>
+<li>중복된 이름을 제거하세요.</li>
+<li>중복 제거된 이름들을 리스트로 변환하세요.</li>
+<li>&quot;지영&quot;을 출력하고, 리스트에서 몇 번 인덱스에 있는지 출력하세요.</li>
+<li>정리된 리스트를 출력하세요.</li>
+</ol>
+<p>✅정답 및 출력결과</p>
+<pre><code class="hljs language-python">students = [<span class="hljs-string">&quot;민수&quot;</span>, <span class="hljs-string">&quot;지영&quot;</span>, <span class="hljs-string">&quot;수빈&quot;</span>, <span class="hljs-string">&quot;민수&quot;</span>, <span class="hljs-string">&quot;영희&quot;</span>, <span class="hljs-string">&quot;지영&quot;</span>, <span class="hljs-string">&quot;철수&quot;</span>, <span class="hljs-string">&quot;수빈&quot;</span>, <span class="hljs-string">&quot;영희&quot;</span><span class="hljs-string">&quot;민수&quot;</span>, <span class="hljs-string">&quot;지영&quot;</span>, <span class="hljs-string">&quot;수빈&quot;</span>,<span class="hljs-string">&quot;지영&quot;</span>, <span class="hljs-string">&quot;수빈&quot;</span>, <span class="hljs-string">&quot;민수&quot;</span>, <span class="hljs-string">&quot;영희&quot;</span>]
+unique_students = <span class="hljs-built_in">set</span>(students)
+student_list = <span class="hljs-built_in">list</span>(unique_students)
+ 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;지영:&quot;</span>, <span class="hljs-string">&quot;지영&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;인덱스:&quot;</span>, student_list.index(<span class="hljs-string">&quot;지영&quot;</span>))
+<span class="hljs-built_in">print</span>(student_list)
+
+<span class="hljs-comment"># 출력결과</span>
+지영: 지영
+인덱스: <span class="hljs-number">5</span>
+[<span class="hljs-string">&#x27;영희&#x27;</span>, <span class="hljs-string">&#x27;수빈&#x27;</span>, <span class="hljs-string">&#x27;영희민수&#x27;</span>, <span class="hljs-string">&#x27;철수&#x27;</span>, <span class="hljs-string">&#x27;민수&#x27;</span>, <span class="hljs-string">&#x27;지영&#x27;</span>]
+</code></pre>
+<p>❓그러나 단점은 매번 인덱스가 변경된다. 여기까지가 정답</p>
+<p>💡해결 방법 &lt;/&gt; 코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 리스트로 변환 + 정렬 (가나다순 고정)하는 함수를 사용한다.</span>
+student_list = <span class="hljs-built_in">sorted</span>(<span class="hljs-built_in">list</span>(unique_students))
+
+<span class="hljs-comment"># 출력결과</span>
+지영: 지영
+인덱스: <span class="hljs-number">4</span>
+[<span class="hljs-string">&#x27;민수&#x27;</span>, <span class="hljs-string">&#x27;수빈&#x27;</span>, <span class="hljs-string">&#x27;영희&#x27;</span>, <span class="hljs-string">&#x27;영희민수&#x27;</span>, <span class="hljs-string">&#x27;지영&#x27;</span>, <span class="hljs-string">&#x27;철수&#x27;</span>]
+</code></pre>
+<hr>
+<h1>문자열 만들기</h1>
+<h3>🔹 문자열(String)이란?</h3>
+<p>String(문자열)은 글자들을 나열한 데이터로, 작은 따옴표(' ') 또는 큰 따옴표(&quot; &quot;)로 감싸서 표현합니다. 글자나 문장을 컴퓨터가 기억하려면 따옴표로 감싸야 해요.</p>
+<h4>🧾 보충설명</h4>
+<p>영어의 정식 명칭은 double 또는 single quotation marks라고 하나, 현업에서는 짧게 <strong>큰따옴표(Double Quotes)</strong>, <strong>작은따옴표(Single Quotes)</strong> 라고 부릅니다. 둘 다 문자열로, 기능은 똑같아요.</p>
+<hr>
+<h4>&lt;/&gt; 예시코드1 : 기본출력</h4>
+<pre><code class="hljs language-python">message = <span class="hljs-string">&quot;Hello, World!&quot;</span>
+<span class="hljs-built_in">print</span>(message)
+</code></pre>
+<p><strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">Hello, World!
+</code></pre>
+<p>🔍 <strong>해설:</strong><br>
+변수를 만들어서 문자열을 저장하고, <code>print()</code>로 출력하는 기본 방법이에요.</p>
+<hr>
+<h4>&lt;/&gt; 예시코드2 : 직접 문자열 출력</h4>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;Python is amazing.&#x27;</span>)
+</code></pre>
+<p>🖨️<strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">Python <span class="hljs-keyword">is</span> amazing.
+</code></pre>
+<p>🔍 <strong>해설:</strong><br>
+굳이 변수를 만들지 않고, <code>print()</code> 안에 바로 문자열을 넣어도 출력할 수 있어요.</p>
+<hr>
+<h4>&lt;/&gt; 예시코드3 : 문자열 이어붙이기 (Concatenation)</h4>
+<pre><code class="hljs language-python">first = <span class="hljs-string">&quot;I love &quot;</span>
+second = <span class="hljs-string">&quot;Python programming!&quot;</span>
+<span class="hljs-built_in">print</span>(first + second)
+</code></pre>
+<p>🖨️<strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">I love Python programming!
+</code></pre>
+<p>🔍 <strong>해설:</strong><br>
+<code>+</code> 연산자를 사용해서 문자열을 이어붙여 출력할 수 있어요. (띄어쓰기 주의!)</p>
+<hr>
+<h4>&lt;/&gt; 예시코드4 : 문자열과 변수 함께 출력하기</h4>
+<pre><code class="hljs language-python">language = <span class="hljs-string">&quot;Python&quot;</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;I am learning&quot;</span>, language)
+</code></pre>
+<p>🖨️<strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">I am learning Python
+</code></pre>
+<p>🔍 <strong>해설:</strong><br>
+<code>,</code>를 사용하면 <strong>띄어쓰기가 자동으로 추가</strong>돼서 여러 값을 한 번에 출력할 수 있어요.</p>
+<hr>
+<h4>&lt;/&gt; 예시코드5 : f-string 사용하기 (현업에서도 많이 사용!)</h4>
+<pre><code class="hljs language-python">language = <span class="hljs-string">&quot;Python&quot;</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;I am learning <span class="hljs-subst">{language}</span> programming!&quot;</span>)
+</code></pre>
+<p>🖨️<strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">I am learning Python programming!
+</code></pre>
+<p>🔍 <strong>해설:</strong><br>
+<code>f&quot;문자열 {변수}&quot;</code> 형식으로, <strong>변수를 문자열 안에 깔끔하게 삽입</strong>할 수 있어요. 매우 많이 쓰는 방식이에요!</p>
+<p>🥸실제 장고에서 활용되는 f-string 방식</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">from</span> django.http <span class="hljs-keyword">import</span> HttpResponse
+
+topics = [ 
+    {<span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;title&#x27;</span>: <span class="hljs-string">&#x27;routing&#x27;</span>, <span class="hljs-string">&#x27;body&#x27;</span>: <span class="hljs-string">&#x27;Routing is..&#x27;</span>}, 
+    {<span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;title&#x27;</span>: <span class="hljs-string">&#x27;view&#x27;</span>, <span class="hljs-string">&#x27;body&#x27;</span>: <span class="hljs-string">&#x27;View is ..&#x27;</span>}, 
+    {<span class="hljs-string">&#x27;id&#x27;</span>: <span class="hljs-number">3</span>, <span class="hljs-string">&#x27;title&#x27;</span>: <span class="hljs-string">&#x27;Model&#x27;</span>, <span class="hljs-string">&#x27;body&#x27;</span>: <span class="hljs-string">&#x27;Model is..&#x27;</span>}, 
+] 
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">index</span>(<span class="hljs-params">request</span>): 
+    <span class="hljs-keyword">global</span> topics 
+    ol = <span class="hljs-string">&#x27;&#x27;</span>
+    <span class="hljs-keyword">for</span> topic <span class="hljs-keyword">in</span> topics: 
+        ol += <span class="hljs-string">f&#x27;&lt;li&gt;<span class="hljs-subst">{topic[<span class="hljs-string">&quot;title&quot;</span>]}</span>&lt;/li&gt;&#x27;</span> 
+    
+    <span class="hljs-keyword">return</span> HttpResponse(<span class="hljs-string">f&#x27;&#x27;&#x27; 
+    &lt;html&gt; 
+    &lt;body&gt; 
+        &lt;h1&gt;Django&lt;/h1&gt; 
+        &lt;ol&gt; 
+            <span class="hljs-subst">{ol}</span> 
+        &lt;/ol&gt; 
+        &lt;h2&gt;Welcome&lt;/h2&gt; 
+        Hello, Django 
+    &lt;/body&gt; 
+    &lt;/html&gt; 
+    &#x27;&#x27;&#x27;</span>)
+
+</code></pre>
+<p>📝 문제 1] 다음 변수들을 이용하여 아래 조건을 만족하는 문장을 출력하세요.
+name = &quot;지민&quot;
+age = 25
+hobby = &quot;사진 찍기&quot;</p>
+<p>[조건]</p>
+<ol>
+<li>이름은 그냥 문자열로 직접 출력</li>
+<li>나이는 변수로 출력 (print 함수에 직접)</li>
+<li>취미는 문자열 + 변수 이어붙이기로 출력</li>
+<li>마지막 문장은 f-string으로 &quot;지민은 25살이고, 사진 찍기를 좋아합니다.&quot; 형식으로 출력</li>
+</ol>
+<p>🖨️ 출력결과는 다음과 같습니다.</p>
+<pre><code class="hljs language-python">이름: 지민 <span class="hljs-comment"># 1번 조건</span>
+나이: <span class="hljs-number">25</span>  <span class="hljs-comment"># 2번 조건</span>
+취미: 사진 찍기 <span class="hljs-comment"># 3번 조건</span>
+지민은 <span class="hljs-number">25</span>살이고, 사진 찍기를 좋아합니다. <span class="hljs-comment"># 4번 조건</span>
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;지민&quot;</span>
+age = <span class="hljs-number">25</span>
+hobby = <span class="hljs-string">&quot;사진 찍기&quot;</span>
+
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;이름: 지민&quot;</span>)                   <span class="hljs-comment"># 1. 문자열 직접 출력</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;나이:&quot;</span>, age)                  <span class="hljs-comment"># 2. 변수 직접 출력</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;취미: &quot;</span> + hobby)              <span class="hljs-comment"># 3. 문자열 이어붙이기</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{name}</span>은 <span class="hljs-subst">{age}</span>살이고, <span class="hljs-subst">{hobby}</span>를 좋아합니다.&quot;</span>)  <span class="hljs-comment"># 4. f-string</span>
+</code></pre>
+<hr>
+<h3>🔹문자열 내부에 따옴표 넣기 (String inside String)</h3>
+<pre><code>큰따옴표 안에 작은따옴표를 넣거나,작은따옴표 안에 큰따옴표를 넣으면 
+문자열 안에 따옴표를 자연스럽게 표현할 수 있어요.
+</code></pre>
+<p>&lt;/&gt; 예시코드: 큰따옴표로 감싸고, 안에 작은따옴표 넣기</p>
+<pre><code class="hljs language-python">quote = <span class="hljs-string">&quot;She said &#x27;Hi&#x27;&quot;</span> <span class="hljs-comment"># 바깥쪽에 큰따옴표와 안쪽에 작은 따옴표</span>
+<span class="hljs-built_in">print</span>(quote)
+
+<span class="hljs-comment"># 출력결과:</span>
+She said <span class="hljs-string">&#x27;Hi&#x27;</span>
+</code></pre>
+<p>📝 문제 1] 따옴표가 섞인 인용문을 출력 결과와 같이 작성하세요.
+He said,  &quot;It's a beautiful day,&quot; and smild.
+단,  따옴표와 연결연산자만 사용해야 합니다.</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;He said,&quot;</span> + <span class="hljs-string">&#x27;&quot;&#x27;</span> + <span class="hljs-string">&quot;It&quot;</span> + <span class="hljs-string">&quot;&#x27;s a beautiful day&quot;</span> + <span class="hljs-string">&#x27;,&quot; and smiled.&#x27;</span> )
+</code></pre>
+<h3>🔹 이스케이프 문자 사용해 문자열 만들기</h3>
+<pre><code>이스케이프 문자(Escape Character)는 문자열 안에서 특별한 기능을 하게
+ 만드는 기호예요.  
+보통 `\` (백슬래시)를 먼저 쓰고, 그 다음에 특수 문자를 붙여 사용합니다.
+</code></pre>
+<p>![✨] 쉽게 설명하면 이스케이프 문자는 그냥 글자처럼 보이지만, 컴퓨터에게 &quot;특별한 행동을 해!&quot;라고 알려주는 비밀 신호에요.</p>
+<h4>◽ 이스케이프 문자 정리</h4>
+<table>
+<thead>
+<tr>
+<th>이스케이프 문자</th>
+<th>기능 설명</th>
+<th>해석</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\n</code></td>
+<td>줄바꿈 (New Line)</td>
+<td>엔터 키를 누른 것처럼 줄을 바꿔줘요</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>탭 (Tab)</td>
+<td>키보드 탭 키처럼 일정 간격으로 띄워줘요</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>백슬래시 출력 (Backslash)</td>
+<td><code>\</code> 자체를 글자로 출력하고 싶을 때 사용해요</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h5>&lt;/&gt; 예시 코드: <code>\n</code> 줄바꿈 (New Line)</h5>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;안녕하세요.\n반갑습니다.&quot;</span>)
+</code></pre>
+<p><strong>🖨️ 출력결과:</strong></p>
+<pre><code class="hljs language-python">안녕하세요.
+반갑습니다.
+</code></pre>
+<p><strong>🔍 해설:</strong></p>
+<ul>
+<li>
+<p><code>\n</code>은 &quot;여기서 줄을 바꿔라&quot;는 뜻이에요.</p>
+</li>
+<li>
+<p>그래서 &quot;안녕하세요.&quot;가 출력된 뒤 줄이 바뀌고, &quot;반갑습니다.&quot;가 새 줄에 출력돼요.</p>
+</li>
+</ul>
+<hr>
+<h5>&lt;/&gt; 예시 코드: <code>\t</code> 탭 (Tab)</h5>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Python\tis\teasy!&quot;</span>)
+</code></pre>
+<p><strong>🖨️ 출력결과:</strong></p>
+<pre><code class="hljs language-python">Python  <span class="hljs-keyword">is</span>      easy!
+</code></pre>
+<p><strong>🔍 해설:</strong></p>
+<ul>
+<li>
+<p><code>\t</code>는 단순히 공백을 넣는 것이 아니라, <strong>다음 8칸 단위 위치</strong>까지 커서를 이동시켜요.</p>
+</li>
+<li>
+<p>예시 기준:</p>
+<ul>
+<li>
+<p><code>Python</code> (6글자)</p>
+</li>
+<li>
+<p>첫 번째 <code>\t</code> → 커서가 8 위치가 될 때까지 2칸 띄움</p>
+</li>
+<li>
+<p><code>is</code> (2글자) → 커서가 10</p>
+</li>
+<li>
+<p>두 번째 <code>\t</code> → 다음 탭 위치인 16까지 6칸 띄움</p>
+</li>
+<li>
+<p><code>easy!</code>는 16 위치부터 출력돼요.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5>&lt;/&gt; 예시 코드: <code>\\</code> 백슬래시 자체 출력 (Backslash)</h5>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;경로는 C:\\Users\\username 입니다.&quot;</span>)
+</code></pre>
+<p><strong>🖨️ 출력결과:</strong></p>
+<pre><code class="hljs language-python">경로는 C:\Users\username 입니다.
+</code></pre>
+<p><strong>🔍 해설:</strong></p>
+<ul>
+<li><code>\</code>는 특수 기능을 가진 문자라서, 그냥 하나만 쓰면 다른 의미로 해석돼요.</li>
+<li>
+<h2>글자 그대로 출력하고 싶으면 <code>\\</code>처럼 두 번 써야 해요.</h2>
+</li>
+</ul>
+<h2>💡 추가 예시 비교표</h2>
+<table>
+<thead>
+<tr>
+<th>코드</th>
+<th>출력 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>print(&quot;A\nB\nC&quot;)</code></td>
+<td>A B C</td>
+</tr>
+<tr>
+<td><code>print(&quot;A\tB\tC&quot;)</code></td>
+<td>A (탭 간격) B (탭 간격) C</td>
+</tr>
+<tr>
+<td><code>print(&quot;C:\\Program Files\\&quot;)</code></td>
+<td>C:\Program Files|</td>
+</tr>
+</tbody>
+</table>
+<h3>🔹 줄바꿈 없이 문자열 만들기</h3>
+<pre><code>코드를 여러 줄로 나누어 써도 실제로는 하나의 긴 문자열이 됩니다. 
+( ) 괄호를 이용해 이어붙여요.
+</code></pre>
+<p>&lt;/&gt; 예시코드: 긴 문장을 두 줄로 나누기</p>
+<pre><code class="hljs language-python">long_string = (
+    <span class="hljs-string">&quot;This is the first part &quot;</span>
+    <span class="hljs-string">&quot;and this is the second part.&quot;</span>
+)
+<span class="hljs-built_in">print</span>(long_string)
+</code></pre>
+<p>**🖨️출력결과:</p>
+<pre><code class="hljs language-python">This <span class="hljs-keyword">is</span> the first part <span class="hljs-keyword">and</span> this <span class="hljs-keyword">is</span> the second part.
+</code></pre>
+<p>🔍해설:
+줄을 나눠서 코드를 작성했지만, 실제로는 <strong>한 줄로 연결</strong>돼서 출력돼요.
+튜플데이터가 아니다.  튜플 데이터는 콤마로 구분한다.</p>
+<hr>
+<h3>🔹문자열 연결 연산자 <code>+</code></h3>
+<pre><code>두 문자열을 이어붙여서 하나의 문자열을 만드는 연산자예요.
+</code></pre>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python"> python
+<span class="hljs-string">&quot;Hello, &quot;</span> + <span class="hljs-string">&quot;Python!&quot;</span>  <span class="hljs-comment"># &#x27;Hello, Python!&#x27;</span>
+</code></pre>
+<p>**🖨️출력결과:</p>
+<pre><code class="hljs language-python">Hello, Python!
+</code></pre>
+<h3>🔹문자열 반복 연산자 <code>*</code></h3>
+<pre><code>문자열을 지정한 횟수만큼 반복하여 새로운 문자열을 만듭니다.
+</code></pre>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python"> 
+<span class="hljs-string">&quot;Hi! &quot;</span> * <span class="hljs-number">3</span>  
+</code></pre>
+<p>**🖨️출력결과:</p>
+<pre><code class="hljs language-python">Hi! Hi! Hi!
+</code></pre>
+<h3>🔹문자열 선택 연산자(인덱싱) <code>[]</code></h3>
+<pre><code>문자열(String)은 글자 하나하나가 순서(번호, index)를 가지고 있어요.
+ 파이썬에서는 인덱스 번호가 0부터 시작합니다. 
+ 글자마다 번호를 붙여서, 그번호로 특정 글자를 뽑아낼 수 있어요!
+</code></pre>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python">word = <span class="hljs-string">&quot;Python&quot;</span> 
+<span class="hljs-built_in">print</span>(word[<span class="hljs-number">0</span>]) <span class="hljs-comment"># 첫 번째 글자 </span>
+<span class="hljs-built_in">print</span>(word[<span class="hljs-number">3</span>]) <span class="hljs-comment"># 네 번째 글자 </span>
+<span class="hljs-built_in">print</span>(word[-<span class="hljs-number">1</span>]) <span class="hljs-comment"># 마지막 글자</span>
+</code></pre>
+<p>**🖨️출력결과:</p>
+<pre><code class="hljs language-python">P 
+h 
+n
+</code></pre>
+<hr>
+<h3>🔹 문자열 범위 선택 연산자(슬라이싱) <code>[:]</code></h3>
+<p>문자열에서 일정 범위를 잘라내는 방법입니다. 시작 인덱스부터 <strong>끝 인덱스 전까지</strong> 잘라냅니다.<br>
+<strong>형식 또는 구문 (syntax)</strong>: <code>문자열[시작:끝]</code></p>
+<hr>
+<h4>&lt;/&gt; 예시코드 (Python):</h4>
+<pre><code class="hljs language-python">word = <span class="hljs-string">&quot;ADGJMLMNFF&quot;</span>
+<span class="hljs-built_in">print</span>(word[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>])    <span class="hljs-comment"># 0번부터 1번까지 (2번은 포함하지 않음)</span>
+<span class="hljs-built_in">print</span>(word[<span class="hljs-number">2</span>:])     <span class="hljs-comment"># 2번부터 끝까지</span>
+<span class="hljs-built_in">print</span>(word[::<span class="hljs-number">3</span>])    <span class="hljs-comment"># 전체 범위에서 3칸씩 건너뜀</span>
+<span class="hljs-built_in">print</span>(word[-<span class="hljs-number">3</span>:])    <span class="hljs-comment"># 뒤에서 3글자</span>
+<span class="hljs-built_in">print</span>(word[:<span class="hljs-number">5</span>])     <span class="hljs-comment"># 0번부터 4번까지</span>
+</code></pre>
+<h3>🖨️ 출력결과:</h3>
+<p>1️⃣ <code>AD</code><br>
+2️⃣ <code>GJMLMNFF</code><br>
+3️⃣ <code>AJMF</code><br>
+4️⃣ <code>NFF</code><br>
+5️⃣ <code>ADGJM</code></p>
+<hr>
+<h4>✅ 기준 문자열</h4>
+<pre><code class="hljs language-python">word = <span class="hljs-string">&quot;ADGJMLMNFF&quot;</span>
+인덱스:   <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">6</span> <span class="hljs-number">7</span> <span class="hljs-number">8</span> <span class="hljs-number">9</span>
+문자:     A D G J M L M N F F
+</code></pre>
+<h3>🔍 해설</h3>
+<p><strong>1️⃣ <code>print(word[0:2])</code></strong></p>
+<ul>
+<li>
+<p>의미: 0번부터 2번 앞까지, 즉 0번, 1번 인덱스 문자</p>
+</li>
+<li>
+<p>해설: A(0번), D(1번)를 잘라냅니다. 2번 인덱스(G)는 포함되지 않음</p>
+</li>
+</ul>
+<p><strong>2️⃣ <code>print(word[2:])</code></strong></p>
+<ul>
+<li>
+<p>의미: 2번부터 끝까지</p>
+</li>
+<li>
+<p>해설: G(2번)부터 마지막 문자 F(9번)까지 모두 출력</p>
+</li>
+</ul>
+<p><strong>3️⃣ <code>print(word[::3])</code></strong></p>
+<ul>
+<li>
+<p>의미: 전체 범위에서 3칸씩 건너뛰며 출력</p>
+</li>
+<li>
+<p>해설: 인덱스 0, 3, 6, 9의 문자 → A, J, M, F</p>
+</li>
+</ul>
+<p><strong>4️⃣ <code>print(word[-3:])</code></strong></p>
+<ul>
+<li>
+<p>의미: 뒤에서 3글자</p>
+</li>
+<li>
+<p>해설: 음수 인덱스 사용 → N(-3), F(-2), F(-1)</p>
+</li>
+</ul>
+<p><strong>5️⃣ <code>print(word[:5])</code></strong></p>
+<ul>
+<li>
+<p>의미: 0번부터 5번 앞까지, 즉 0~4번 인덱스 문자</p>
+</li>
+<li>
+<p>해설: A, D, G, J, M 출력</p>
+</li>
+</ul>
+<hr>
+<h3>❌ IndexError (index out of range) 예외</h3>
+<p><strong>IndexError</strong>란? 문자열, 리스트 등에서 <strong>존재하지 않는 인덱스</strong>에 접근하려 할 때 발생하는 오류입니다.</p>
+<h3>🐣 쉽게 말하면:</h3>
+<p>책에서 300페이지를 보려 했는데, 책이 200페이지뿐이라면? → 오류 발생</p>
+<hr>
+<h4>&lt;/&gt; 예시코드: 문자열 인덱싱 오류</h4>
+<pre><code class="hljs language-python">이름 = <span class="hljs-string">&quot;홍길동&quot;</span>
+<span class="hljs-built_in">print</span>(이름[<span class="hljs-number">0</span>])  <span class="hljs-comment"># 홍</span>
+<span class="hljs-built_in">print</span>(이름[<span class="hljs-number">1</span>])  <span class="hljs-comment"># 길</span>
+<span class="hljs-built_in">print</span>(이름[<span class="hljs-number">2</span>])  <span class="hljs-comment"># 동</span>
+<span class="hljs-built_in">print</span>(이름[<span class="hljs-number">3</span>])  <span class="hljs-comment"># 오류 발생</span>
+</code></pre>
+<h4>🖨️ 출력결과:</h4>
+<pre><code class="hljs language-python">홍
+길
+동
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+IndexError: string index out of <span class="hljs-built_in">range</span>
+</code></pre>
+<h3>🔍 해설:</h3>
+<p>&quot;홍길동&quot;은 3글자이므로 인덱스는 0, 1, 2까지만 존재합니다. 3에 접근하려 하면 IndexError 발생</p>
+<hr>
+<h3>&lt;/&gt; 예시코드: 음수 인덱스 오류</h3>
+<pre><code class="hljs language-python">단어 = <span class="hljs-string">&quot;파이썬&quot;</span>
+<span class="hljs-built_in">print</span>(단어[-<span class="hljs-number">1</span>])  <span class="hljs-comment"># 썬</span>
+<span class="hljs-built_in">print</span>(단어[-<span class="hljs-number">2</span>])  <span class="hljs-comment"># 이</span>
+<span class="hljs-built_in">print</span>(단어[-<span class="hljs-number">4</span>])  <span class="hljs-comment"># 오류 발생</span>
+</code></pre>
+<h4>🖨️ 출력결과:</h4>
+<pre><code class="hljs language-python">
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+IndexError: string index out of <span class="hljs-built_in">range</span>
+</code></pre>
+<h4>🔍 해설:</h4>
+<p>&quot;파이썬&quot;은 3글자 → 유효한 음수 인덱스는 -1, -2, -3까지.<br>
+-4는 범위를 벗어나므로 오류 발생.</p>
+<hr>
+<p>◽IndexError 방지하기 (조건문으로)</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;홍길동&quot;</span>
+idx = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;몇 번째 글자를 보고 싶나요? (0부터 시작): &quot;</span>)) -&gt; <span class="hljs-built_in">int</span>(<span class="hljs-number">3</span>)<span class="hljs-string">&quot;3&quot;</span>
+
+<span class="hljs-keyword">if</span> idx &lt; <span class="hljs-built_in">len</span>(name):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;선택한 글자:&quot;</span>, name[idx])
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;인덱스가 범위를 벗어났습니다.&quot;</span>)
+</code></pre>
+<p>✅설명: try - except 구조</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-comment"># 오류가 발생할 수 있는 코드</span>
+<span class="hljs-keyword">except</span> 예외클래스:
+    <span class="hljs-comment"># 오류가 발생했을 때 실행되는 코드</span>
+</code></pre>
+<hr>
+<p>◻ 예외처리 IndexError (index out of range)<br>
+리스트나 문자열처럼 순서가 있는 자료형에서, 존재하지 않는 인덱스를 사용하려고 할 때 발생하는 오류입니다.<br>
+즉, 범위를 벗어날 번호를 사용할 경우 나타날 수 있어요.</p>
+<p>❌ &lt;/&gt; 예시코드: 존재하지 않는 인덱스를 참조하려고 하면 발생</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;Hi&quot;</span>
+<span class="hljs-built_in">print</span>(text[<span class="hljs-number">3</span>])   <span class="hljs-comment"># 오류 발생!</span>
+
+my_list = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
+<span class="hljs-built_in">print</span>(my_list[<span class="hljs-number">3</span>])  <span class="hljs-comment"># 오류 발생!</span>
+</code></pre>
+<p>🖨️ 출력결과: ❌오류 메시지</p>
+<pre><code class="hljs language-python">IndexError: string index out of <span class="hljs-built_in">range</span>
+</code></pre>
+<p>🔍 해설:<br>
+&quot;Hi&quot;는 인덱스가 0, 1까지만 있는데 3을 요청해서 오류 발생<br>
+[10, 20, 30]도 인덱스가 0, 1, 2까지만 있음</p>
+<pre><code class="hljs language-python"><span class="hljs-comment">#예외처리</span>
+
+name = <span class="hljs-string">&quot;홍길동&quot;</span>
+idx = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;몇 번째 글자를 보고 싶나요? (0부터 시작): &quot;</span>))
+
+<span class="hljs-keyword">if</span> idx &lt; <span class="hljs-built_in">len</span>(name):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;선택한 글자:&quot;</span>, name[idx])
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;인데스가 범위를 벗어날습니다.&quot;</span>)
+
+
+</code></pre>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 예외처리</span>
+text = <span class="hljs-string">&quot;Hi&quot;</span>
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-built_in">print</span>(text[<span class="hljs-number">3</span>])
+<span class="hljs-keyword">except</span> IndexError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;문자열 인덱스 범위를 벗어났습니다.&quot;</span>)
+</code></pre>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 예외처리</span>
+my_list = [<span class="hljs-number">10</span>, <span class="hljs-number">20</span>, <span class="hljs-number">30</span>]
+<span class="hljs-built_in">print</span>(my_list[<span class="hljs-number">3</span>]) 
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-built_in">print</span>(my_list[<span class="hljs-number">3</span>])
+<span class="hljs-keyword">except</span> IndexError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;리스트 인덱스 범위를 벗었났습니다.&quot;</span>)
+</code></pre>
+<hr>
+<p>◻ IndexError 방지하기(예외처리로)</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;홍길동&quot;</span>
+idx = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;몇 번째 글자를 보고 싶나요? (0부터 시작): &quot;</span>))  <span class="hljs-comment"># 예) int(3) or &quot;3&quot;</span>
+
+<span class="hljs-keyword">try</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;선택한 글자:&quot;</span>, name[idx])
+<span class="hljs-keyword">except</span> IndexError:  <span class="hljs-comment"># 내장 예외 클래스</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;존재하지 않는 인데스입니다.&quot;</span>)
+</code></pre>
+<hr>
+<p>✅ 설명:  try - except 구조</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-comment"># 오류가 발생할 수 있는 코드</span>
+<span class="hljs-keyword">except</span> 예외클래스:
+    <span class="hljs-comment"># 오류가 발생했을 때 실행되는 코드</span>
+</code></pre>
+<p>📏 문자열 길이 구하기 — len( ) 함수</p>
+<h3>🔹 <strong>len( ) 함수란?</strong></h3>
+<ul>
+<li>리스트, 문자열, 튜플 같은 반복 가능한 객체(iterable object)의
+요소 개수(길이)를 구하는 함수입니다.</li>
+<li>문자열이나 리스트처럼 여러 개로 이루어진 데이터를 다룰 때,
+&quot;총 몇 개나 있어?&quot;를 알고 싶을 때 사용하는 함수예요.</li>
+</ul>
+<p>🧐 <strong>문자열에서 글자 수 세기</strong></p>
+<ul>
+<li>띄어쓰기, 특수문자, 줄바꿈 문자(\n)도 모두 하나의 글자로 세어집니다.</li>
+</ul>
+<p>&lt;/&gt; <strong>예시코드1 :  기본 문자열 길이 구하기</strong></p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;Hello, Python!&quot;</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">len</span>(text))
+</code></pre>
+<p>🖨️ <strong>출력결과:</strong></p>
+<pre><code class="hljs language-python"><span class="hljs-number">14</span>
+</code></pre>
+<p>🔍 <strong>해설:</strong>
+&quot;Hello, Python!&quot;은 알파벳, 쉼표, 공백(스페이스), 느낌표까지 모두 글자 하나하나로 세어져서 총 14개가 됩니다.</p>
+<p>이 문자열 &quot;Hello, Python!&quot;을 한 글자씩 세보면:</p>
+<table>
+<thead>
+<tr>
+<th>문자</th>
+<th>H</th>
+<th>e</th>
+<th>l</th>
+<th>l</th>
+<th>o</th>
+<th>,</th>
+<th>(공백)</th>
+<th>P</th>
+<th>y</th>
+<th>t</th>
+<th>h</th>
+<th>o</th>
+<th>n</th>
+<th>!</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>번호</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>13</td>
+<td>14</td>
+</tr>
+</tbody>
+</table>
+<h4>📜문자열 문제 풀이</h4>
+<p>📝 문제1: 문자열 구성하기 (연결 + 반복 + 인덱싱)</p>
+<ul>
+<li>
+<p>&quot;Hi&quot;와 &quot;!&quot;를 연결한 후 3번 반복하여 출력하고,</p>
+</li>
+<li>
+<p>생성된 문자열에서 5번째 문자를 인덱싱하여 출력합니다.</p>
+</li>
+</ul>
+<pre><code class="hljs language-python">text1 = (<span class="hljs-string">&quot;Hi&quot;</span> + <span class="hljs-string">&quot;!&quot;</span>) * <span class="hljs-number">3</span>
+<span class="hljs-built_in">print</span>(text1)          <span class="hljs-comment"># 출력: Hi!Hi!Hi!</span>
+<span class="hljs-built_in">print</span>(text1[<span class="hljs-number">4</span>])       <span class="hljs-comment"># 출력: H (문자열 인덱싱은 0부터 시작)</span>
+</code></pre>
+<p>✅<strong>설명:</strong></p>
+<ul>
+<li>
+<p>문자열 연결은 <code>+</code>, 반복은 <code>*</code> 연산자로 수행할 수 있습니다.</p>
+</li>
+<li>
+<p>인덱싱은 0부터 시작하므로 <code>text1[4]</code>는 다섯 번째 문자를 의미합니다.</p>
+</li>
+</ul>
+<hr>
+<p>📝 문제2: 슬라이싱과 연결연산자</p>
+<ul>
+<li>&quot;PythonProgramming&quot;에서 일부를 잘라낸 후 &quot;_&quot;와 함께 연결하여 다음과 같은 형식으로 출력합니다: <code>Py_tho_nProgra_mmin_g</code></li>
+</ul>
+<pre><code class="hljs language-python">text2 = <span class="hljs-string">&quot;PythonProgramming&quot;</span>
+part1 = text2[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>]      <span class="hljs-comment"># Py</span>
+part2 = text2[<span class="hljs-number">2</span>:<span class="hljs-number">5</span>]      <span class="hljs-comment"># tho</span>
+part3 = text2[<span class="hljs-number">5</span>:<span class="hljs-number">12</span>]     <span class="hljs-comment"># nProgra</span>
+part4 = text2[<span class="hljs-number">12</span>:<span class="hljs-number">16</span>]    <span class="hljs-comment"># mmin</span>
+part5 = text2[<span class="hljs-number">16</span>:]      <span class="hljs-comment"># g</span>
+result2 = part1 + <span class="hljs-string">&quot;_&quot;</span> + part2 + <span class="hljs-string">&quot;_&quot;</span> + part3 + <span class="hljs-string">&quot;_&quot;</span> + part4 + <span class="hljs-string">&quot;_&quot;</span> + part5
+<span class="hljs-built_in">print</span>(result2)          <span class="hljs-comment"># 출력: Py_tho_nProgra_mmin_g</span>
+</code></pre>
+<p>✅<strong>설명:</strong></p>
+<ul>
+<li>문자열의 일부를 추출할 때는 슬라이싱 <code>text[start:end]</code>을 사용합니다.</li>
+<li>인덱스는 <code>start</code> 포함, <code>end</code> 미포함입니다.</li>
+<li>추출한 문자열은 <code>+</code> 연산자로 연결할 수 있습니다.</li>
+</ul>
+<hr>
+<p>📝 문제3: 중첩 인덱싱과 슬라이싱</p>
+<ul>
+<li>&quot;BeautifulCode&quot; 문자열에서 &quot;ful&quot;만 출력합니다.</li>
+</ul>
+<pre><code class="hljs language-python">msg = <span class="hljs-string">&quot;BeautifulCode&quot;</span>
+<span class="hljs-built_in">print</span>(msg[<span class="hljs-number">5</span>:<span class="hljs-number">8</span>])         <span class="hljs-comment"># 출력: ful</span>
+</code></pre>
+<p>✅<strong>설명:</strong></p>
+<ul>
+<li>원하는 부분의 인덱스를 정확히 지정하여 슬라이싱합니다. <code>msg[5:8]</code>은 5번째부터 7번째 문자까지 추출합니다.</li>
+</ul>
+<hr>
+<p>📝 문제4: 문자열 거꾸로 출력</p>
+<ul>
+<li>&quot;Python&quot;을 거꾸로 출력합니다.</li>
+</ul>
+<pre><code class="hljs language-python">text4 = <span class="hljs-string">&quot;Python&quot;</span>
+<span class="hljs-built_in">print</span>(text4[::-<span class="hljs-number">1</span>])      <span class="hljs-comment"># 출력: nohtyP</span>
+</code></pre>
+<p>✅<strong>설명:</strong></p>
+<ul>
+<li>슬라이싱에서 <code>[::-1]</code>은 문자열을 역순으로 뒤집어 줍니다.</li>
+</ul>
+<hr>
+<p>📝 문제5: 주민등록번호 마스킹 처리</p>
+<ul>
+<li>&quot;900101-1234567&quot; 문자열에서 뒷자리를 <code>*</code>로 마스킹 처리하여 출력합니다.</li>
+</ul>
+<pre><code class="hljs language-python">ssn = <span class="hljs-string">&quot;900101-1234567&quot;</span>
+masked_ssn = ssn[:<span class="hljs-number">7</span>] + <span class="hljs-string">&quot;******&quot;</span>
+<span class="hljs-built_in">print</span>(masked_ssn)       <span class="hljs-comment"># 출력: 900101-1******</span>
+</code></pre>
+<p>✅<strong>설명:</strong></p>
+<ul>
+<li>
+<p>주민등록번호에서 앞 7자(생년월일과 성별 코드)만 남기고, 나머지는 <code>*</code>로 대체합니다.</p>
+</li>
+<li>
+<p>슬라이싱과 문자열 연결을 이용해 마스킹 처리를 간단하게 구현할 수 있습니다.</p>
+</li>
+</ul>
+<hr>
+<p>📝 문제 1: 문자열 생성과 이스케이프 문자</p>
+<p>🖨️ <strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">그는 말했다: <span class="hljs-string">&quot;나는 파이썬을 좋아해요!&quot;</span>
+</code></pre>
+<p>✅ 코드</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;그는 말했다: \&quot;나는 파이썬을 좋아해요!\&quot;&quot;</span>)
+</code></pre>
+<p>🔍 설명
+문자열 내에서 큰따옴표(<code>&quot;</code>)를 직접 사용하면 문자열의 시작과 끝으로 인식되기 때문에, 내부에서 큰따옴표를 출력하려면 역슬래시(<code>\\</code>)로 이스케이프 처리해야 합니다.</p>
+<hr>
+<p>📝 문제 2: 문자열 길이와 슬라이싱</p>
+<p>🧪 <strong>입력 문자열:</strong></p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;DataScience&quot;</span>
+</code></pre>
+<p>🖨️ <strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">nce
+</code></pre>
+<p>✅ 코드</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;DataScience&quot;</span>
+<span class="hljs-built_in">print</span>(text[<span class="hljs-built_in">len</span>(text) - <span class="hljs-number">3</span>:])
+</code></pre>
+<p>🔍 설명</p>
+<ul>
+<li><code>len(text)</code>는 문자열의 전체 길이를 반환합니다.</li>
+<li><code>text[len(text)-3:]</code>는 문자열의 마지막 3글자를 의미하는 슬라이싱입니다.</li>
+<li>슬라이싱은 음수 인덱스도 가능하므로 <code>text[-3:]</code>로 간단히 쓸 수도 있습니다.</li>
+</ul>
+<hr>
+<p>📝 문제 3: 문자열 연산자 응용</p>
+<p>🖨️ <strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">HiHiHi~
+</code></pre>
+<p>✅ 코드</p>
+<pre><code class="hljs language-python">word = <span class="hljs-string">&quot;Hi&quot;</span>
+<span class="hljs-built_in">print</span>(word * <span class="hljs-number">3</span> + <span class="hljs-string">&quot;~&quot;</span>)
+</code></pre>
+<p>🔍 설명</p>
+<ul>
+<li><code>*</code> 연산자는 문자열을 반복합니다.</li>
+<li><code>+</code> 연산자는 문자열을 이어붙입니다.</li>
+<li><code>&quot;Hi&quot; * 3</code> → <code>&quot;HiHiHi&quot;</code>, 여기에 <code>&quot;~&quot;</code>를 더하면 <code>&quot;HiHiHi~&quot;</code>가 됩니다.</li>
+</ul>
+<hr>
+<p>📝 문제 4: 인덱싱과 예외 처리</p>
+<p>📥 <strong>입력 예시 (사용자 입력):</strong></p>
+<pre><code class="hljs language-python"><span class="hljs-number">10</span>
+</code></pre>
+<p>🖨️ <strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">인덱스가 범위를 벗어났습니다.
+</code></pre>
+<p>✅ 코드</p>
+<pre><code class="hljs language-python">word = <span class="hljs-string">&quot;python&quot;</span>
+<span class="hljs-keyword">try</span>:
+    idx = <span class="hljs-built_in">int</span>(<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;인덱스를 입력하세요: &quot;</span>))
+    <span class="hljs-built_in">print</span>(word[idx])
+<span class="hljs-keyword">except</span> IndexError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;인덱스가 범위를 벗어났습니다.&quot;</span>)
+<span class="hljs-keyword">except</span> ValueError:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;숫자를 입력해주세요.&quot;</span>)
+</code></pre>
+<p>🔍 설명</p>
+<ul>
+<li>사용자가 입력한 인덱스가 문자열 길이를 벗어날 경우 <code>IndexError</code>가 발생합니다.</li>
+<li><code>try-except</code> 문으로 예외를 처리하여 프로그램이 중단되지 않고 안내 메시지를 출력하게 합니다.</li>
+<li>추가로 <code>ValueError</code>도 처리해 숫자가 아닌 값을 입력했을 경우를 대비했습니다.</li>
+</ul>
+<hr>
+<p>📝 문제 5: 줄바꿈 없는 출력</p>
+<p>🖨️ <strong>출력결과:</strong></p>
+<pre><code class="hljs language-python">Life <span class="hljs-keyword">is</span> short. Python <span class="hljs-keyword">is</span> fun.
+</code></pre>
+<p>✅ 코드</p>
+<pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Life is short. &quot;</span>, end=<span class="hljs-string">&quot;&quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Python is fun.&quot;</span>)
+
+line=(
+	<span class="hljs-string">&quot;Life is short.&quot;</span>
+	<span class="hljs-string">&quot;Python is fun.&quot;</span>
+)
+<span class="hljs-built_in">print</span>(line)
+</code></pre>
+<p>🔍 설명</p>
+<ul>
+<li>기본적으로 <code>print()</code> 함수는 출력 후 줄바꿈(<code>\n</code>)을 수행합니다.</li>
+<li><code>end=&quot;&quot;</code> 파라미터를 이용하면 줄바꿈을 없애고 한 줄로 출력할 수 있습니다.</li>
+<li>따라서 두 문장이 한 줄에 이어집니다.</li>
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+</body>
+</html>
