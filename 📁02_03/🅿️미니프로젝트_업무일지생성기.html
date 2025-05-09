@@ -1,32 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>🅿️미니프로젝트_업무일지생성기.md</title>
+  <title>🅿️미니프로젝트 업무일지생성기 | Django 강의노트</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
+  <meta name="description" content="🅿️미니프로젝트 업무일지생성기에 대한 Django 및 Python 강의 내용 정리">
+  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, 🅿️미니프로젝트 업무일지생성기">
+  <meta name="author" content="macaronics.net">
+  <meta name="robots" content="index, follow">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-    body {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      font-family:"Noto Sans KR", sans-serif;
-      line-height: 1.6;      
-      font-optical-sizing: auto;
-      font-weight: 400;
-     font-style: normal;
-    }
-    pre {
-      overflow-x: auto;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<p>프로젝트 코드명: WorkLogCard_PY_v2
+  <header>
+    <div class="logo">PyDjango Note</div>
+    <nav><div><a href="../📁01/📜01_01.html">📁01</a><ul><li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></div><div><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">📁02_01</a><ul><li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></div><div><a href="../📁02_02/📜우선순의 및 예외 Error.html">📁02_02</a><ul><li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></div><div><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">📁02_03</a><ul><li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></div><div><a href="../📁02_04/🅿️미니프로젝트2.html">📁02_04</a><ul><li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></div></nav>
+  </header>
+
+
+
+  <div class="mobile-wrapper">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden />
+  <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+  
+    <aside id="mobileSidebar">
+      
+    <div class="toggle-all-wrapper">
+      <button class="toggle-all-btn" data-target-type="mobile">🗂️ 전체 열기 / 닫기</button>
+    </div>
+    <ul class="sidebar">
+  
+      <li>
+        <a href="../📁01/📜01_01.html" class="toggle-btn" data-target="mobile-submenu-0">📁01</a>
+        <ul id="mobile-submenu-0" class="submenu ml-4">
+    <li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></li>
+      <li>
+        <a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html" class="toggle-btn" data-target="mobile-submenu-1">📁02_01</a>
+        <ul id="mobile-submenu-1" class="submenu ml-4">
+    <li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_02/📜우선순의 및 예외 Error.html" class="toggle-btn" data-target="mobile-submenu-2">📁02_02</a>
+        <ul id="mobile-submenu-2" class="submenu ml-4">
+    <li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></li>
+      <li>
+        <a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html" class="toggle-btn" data-target="mobile-submenu-3">📁02_03</a>
+        <ul id="mobile-submenu-3" class="submenu ml-4">
+    <li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_04/🅿️미니프로젝트2.html" class="toggle-btn" data-target="mobile-submenu-4">📁02_04</a>
+        <ul id="mobile-submenu-4" class="submenu ml-4">
+    <li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></li></ul>
+    </aside>
+  </div>
+
+
+
+  <div class="container">     
+    <aside id="pcSidebar">
+          
+    <div class="toggle-all-wrapper">
+      <button class="toggle-all-btn" data-target-type="pc">🗂️ 전체 열기 / 닫기</button>
+    </div>
+    <ul class="sidebar">
+  
+      <li>
+        <a href="../📁01/📜01_01.html" class="toggle-btn" data-target="pc-submenu-0">📁01</a>
+        <ul id="pc-submenu-0" class="submenu ml-4">
+    <li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></li>
+      <li>
+        <a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html" class="toggle-btn" data-target="pc-submenu-1">📁02_01</a>
+        <ul id="pc-submenu-1" class="submenu ml-4">
+    <li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_02/📜우선순의 및 예외 Error.html" class="toggle-btn" data-target="pc-submenu-2">📁02_02</a>
+        <ul id="pc-submenu-2" class="submenu ml-4">
+    <li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></li>
+      <li>
+        <a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html" class="toggle-btn" data-target="pc-submenu-3">📁02_03</a>
+        <ul id="pc-submenu-3" class="submenu ml-4">
+    <li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_04/🅿️미니프로젝트2.html" class="toggle-btn" data-target="pc-submenu-4">📁02_04</a>
+        <ul id="pc-submenu-4" class="submenu ml-4">
+    <li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></li></ul>
+     </aside>
+   
+
+<div id="search-container" class="mb-6 hidden">
+  <input type="text" id="search-input" placeholder="파일 제목 검색..." class="w-full p-2 rounded bg-[#444] text-white" />
+  <ul id="search-results" class="mt-2 text-sm text-white space-y-1"></ul>
+</div>
+
+
+    <main>
+      <h1>🅿️미니프로젝트 업무일지생성기 | Django 강의노트</h1>
+      <p>프로젝트 코드명: WorkLogCard_PY_v2
 프로젝트 유형:  업무일지 생성기</p>
 <pre><code class="hljs language-python">코드명: WorkLogCard_PY_v2
 사용언어 Python: PY
@@ -130,6 +204,41 @@ card = <span class="hljs-string">f&quot;&quot;&quot;
 
 </code></pre>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-content">
+      ⓒ 2025 PyDjango Note. All rights reserved.
+    </div>
+  </footer>
+  <a id="topBtn" href="#">TOP</a>
+  <script>
+    lang = 'python';
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+
+  <script>
+fetch('../search-index.json')
+  .then(res => res.json())
+  .then(data => {
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+
+    input.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      results.innerHTML = '';
+      if (query.length === 0) return;
+
+      const matched = data.filter(item => item.title.toLowerCase().includes(query));
+      matched.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="../${item.path}" class="hover:underline">${item.title}</a>`;
+        results.appendChild(li);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

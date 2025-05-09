@@ -1,32 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>🅿️미니프로젝트_자기소개 생성기.md</title>
+  <title>🅿️미니프로젝트 자기소개 생성기 | Django 강의노트</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
+  <meta name="description" content="🅿️미니프로젝트 자기소개 생성기에 대한 Django 및 Python 강의 내용 정리">
+  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, 🅿️미니프로젝트 자기소개 생성기">
+  <meta name="author" content="macaronics.net">
+  <meta name="robots" content="index, follow">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-    body {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      font-family:"Noto Sans KR", sans-serif;
-      line-height: 1.6;      
-      font-optical-sizing: auto;
-      font-weight: 400;
-     font-style: normal;
-    }
-    pre {
-      overflow-x: auto;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<p>프로젝트 코드명: <code>SELF_INTRO_GEN_PY_v1</code></p>
+  <header>
+    <div class="logo">PyDjango Note</div>
+    <nav><div><a href="../📁01/📜01_01.html">📁01</a><ul><li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></div><div><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">📁02_01</a><ul><li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></div><div><a href="../📁02_02/📜우선순의 및 예외 Error.html">📁02_02</a><ul><li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></div><div><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">📁02_03</a><ul><li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></div><div><a href="../📁02_04/🅿️미니프로젝트2.html">📁02_04</a><ul><li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></div></nav>
+  </header>
+
+
+
+  <div class="mobile-wrapper">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden />
+  <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+  
+    <aside id="mobileSidebar">
+      
+    <div class="toggle-all-wrapper">
+      <button class="toggle-all-btn" data-target-type="mobile">🗂️ 전체 열기 / 닫기</button>
+    </div>
+    <ul class="sidebar">
+  
+      <li>
+        <a href="../📁01/📜01_01.html" class="toggle-btn" data-target="mobile-submenu-0">📁01</a>
+        <ul id="mobile-submenu-0" class="submenu ml-4">
+    <li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></li>
+      <li>
+        <a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html" class="toggle-btn" data-target="mobile-submenu-1">📁02_01</a>
+        <ul id="mobile-submenu-1" class="submenu ml-4">
+    <li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_02/📜우선순의 및 예외 Error.html" class="toggle-btn" data-target="mobile-submenu-2">📁02_02</a>
+        <ul id="mobile-submenu-2" class="submenu ml-4">
+    <li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></li>
+      <li>
+        <a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html" class="toggle-btn" data-target="mobile-submenu-3">📁02_03</a>
+        <ul id="mobile-submenu-3" class="submenu ml-4">
+    <li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_04/🅿️미니프로젝트2.html" class="toggle-btn" data-target="mobile-submenu-4">📁02_04</a>
+        <ul id="mobile-submenu-4" class="submenu ml-4">
+    <li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></li></ul>
+    </aside>
+  </div>
+
+
+
+  <div class="container">     
+    <aside id="pcSidebar">
+          
+    <div class="toggle-all-wrapper">
+      <button class="toggle-all-btn" data-target-type="pc">🗂️ 전체 열기 / 닫기</button>
+    </div>
+    <ul class="sidebar">
+  
+      <li>
+        <a href="../📁01/📜01_01.html" class="toggle-btn" data-target="pc-submenu-0">📁01</a>
+        <ul id="pc-submenu-0" class="submenu ml-4">
+    <li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></li>
+      <li>
+        <a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html" class="toggle-btn" data-target="pc-submenu-1">📁02_01</a>
+        <ul id="pc-submenu-1" class="submenu ml-4">
+    <li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_02/📜우선순의 및 예외 Error.html" class="toggle-btn" data-target="pc-submenu-2">📁02_02</a>
+        <ul id="pc-submenu-2" class="submenu ml-4">
+    <li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></li>
+      <li>
+        <a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html" class="toggle-btn" data-target="pc-submenu-3">📁02_03</a>
+        <ul id="pc-submenu-3" class="submenu ml-4">
+    <li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_04/🅿️미니프로젝트2.html" class="toggle-btn" data-target="pc-submenu-4">📁02_04</a>
+        <ul id="pc-submenu-4" class="submenu ml-4">
+    <li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></li></ul>
+     </aside>
+   
+
+<div id="search-container" class="mb-6 hidden">
+  <input type="text" id="search-input" placeholder="파일 제목 검색..." class="w-full p-2 rounded bg-[#444] text-white" />
+  <ul id="search-results" class="mt-2 text-sm text-white space-y-1"></ul>
+</div>
+
+
+    <main>
+      <h1>🅿️미니프로젝트 자기소개 생성기 | Django 강의노트</h1>
+      <p>프로젝트 코드명: <code>SELF_INTRO_GEN_PY_v1</code></p>
 <p>프로젝트 유형: 복습을 위한 미니 프로젝트</p>
 <pre><code class="hljs language-python">
 코드명: SELF_INTRO_GEN_PY_v1
@@ -41,65 +115,108 @@ Generator (생성기) 또는 Generation : GEN
 
 </code></pre>
 <h3>🖥️ 프로젝트 개요</h3>
-<p>본 프로젝트는 사용자의 이름, 나이, 취미 정보를 입력받아</p>
-<p>포맷팅된 자기소개 카드를 콘솔에 출력하는 Python 기초 문법 종합</p>
-<p>실습 과제입니다.</p>
+<p>본 프로젝트는 사용자의 이름, 나이, 취미 정보를 입력받아  
+    포맷팅된 자기소개 카드를 콘솔에 출력하는 Python 기초 문법 종합
+    실습 과제입니다.</p>
 <p>이 프로젝트를 통해 다음 내용을 자연스럽게 적용합니다:</p>
 <ul>
-<li>
-<p>입력/처리/출력의 흐름 제어</p>
-</li>
-<li>
-<p>변수 선언 및 네이밍 규칙 준수</p>
-</li>
-<li>
-<p>표현식, 문장, 주석, 연산자, 자료형, 출력 포맷 등의 실전 활용</p>
-</li>
+<li>입력/처리/출력의 흐름 제어</li>
+<li>변수 선언 및 네이밍 규칙 준수</li>
+<li>표현식, 문장, 주석, 연산자, 자료형, 출력 포맷 등의 실전 활용</li>
 </ul>
 <p>최종 출력은 사용자의 입력값을 바탕으로 조건문과 리스트 처리 기능을 포함한 구조화된 메시지 형태로 완성되어야 합니다.</p>
 <h3>📄 기능 요구사항 (Functional Requirements)</h3>
-<p>| 기능 번호 ...... | 기능 설명                   | 세부 설명                                        |</p>
-<p>| ------------ | ----------------------- | -------------------------------------------- |</p>
-<p>| FR-01        | 사용자 입력 수집 ............. | 이름, 나이, 취미를 <code>input()</code>으로 입력받음                 |</p>
-<p>| FR-02        | 변수 저장 및 가공              | 입력값을 적절한 식별자에 저장하고, 필요 시 형 변환 수행             |</p>
-<p>| FR-03        | 출력 포맷 구성                | 자기소개 카드를 f-string 기반 포맷으로 구성                 |</p>
-<p>| FR-04        | 조건 분기 처리                | 나이에 따라 성인/미성년자를 분기 출력                        |</p>
-<p>| FR-05        | 주석 작성                   | 코드 흐름에 맞는 설명 주석 최소 3개 이상 작성                  |</p>
-<p>| FR-06        | 심화 기능 1                 | 취미를 리스트로 분해 후 포맷팅 (<code>split</code>, <code>strip</code>, <code>join</code>) |</p>
-<p>| FR-07        | 심화 기능 2                 | 내년 나이를 계산하여 출력 (<code>+1</code>)                        |</p>
-<p>| FR-08        | 심화 기능 3                 | 첫 번째 취미 항목을 별도로 강조 출력                        |</p>
+<table>
+<thead>
+<tr>
+<th><strong>기능 번호</strong></th>
+<th><strong>기능 설명</strong></th>
+<th><strong>세부 설명</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FR-01</strong></td>
+<td>사용자 입력 수집</td>
+<td>이름, 나이, 취미를 <code>input()</code>으로 입력받음</td>
+</tr>
+<tr>
+<td><strong>FR-02</strong></td>
+<td>변수 저장 및 가공</td>
+<td>입력값을 적절한 식별자에 저장하고, 필요 시 형 변환 수행</td>
+</tr>
+<tr>
+<td><strong>FR-03</strong></td>
+<td>출력 포맷 구성</td>
+<td>자기소개 카드를 <code>f-string</code> 기반 포맷으로 구성</td>
+</tr>
+<tr>
+<td><strong>FR-04</strong></td>
+<td>조건 분기 처리</td>
+<td>나이에 따라 성인/미성년자를 분기 출력</td>
+</tr>
+<tr>
+<td><strong>FR-05</strong></td>
+<td>주석 작성</td>
+<td>코드 흐름에 맞는 설명 주석 최소 3개 이상 작성</td>
+</tr>
+<tr>
+<td><strong>FR-06</strong></td>
+<td>심화 기능 1</td>
+<td>취미를 리스트로 분해 후 포맷팅 (<code>split</code>, <code>strip</code>, <code>join</code>) 사용</td>
+</tr>
+<tr>
+<td><strong>FR-07</strong></td>
+<td>심화 기능 2</td>
+<td>내년 나이를 계산하여 출력 (<code>+1</code>)</td>
+</tr>
+<tr>
+<td><strong>FR-08</strong></td>
+<td>심화 기능 3</td>
+<td>첫 번째 취미 항목을 별도로 강조 출력</td>
+</tr>
+</tbody>
+</table>
 <p>FR은 보통 Feature Requirement(기능 요구사항)를 줄여서 쓰는 약어라, 개발 문서나 실제 회사 프로젝트에서도 저렇게 <code>FR-01</code>, <code>FR-02</code> 식으로 관리합니다.</p>
 <h3>📄  비기능 요구사항 (Non-Functional Requirements)</h3>
-<p>| 항목            | 세부 설명                                                             |</p>
-<p>| ------------- | ----------------------------------------------------------------- |</p>
-<p>| 코드 스타일        | - 식별자 규칙 준수 (키워드 사용 금지)  &lt;br&gt;- snake_case 또는 camelCase 네이밍 컨벤션 적용 |</p>
-<p>| 에러방지처리 ...... | 숫자 입력 오류 등으로 코드가 중단되지 않도록 <code>int()</code> 변환 위치 명확히 처리                    |</p>
-<p>| 코드 가독성        | - 한 줄에 너무 많은 로직 지양  &lt;br&gt;- 주석 / 들여쓰기 / 공백 규칙 준수                    |</p>
-<p>| 출력 디자인        | - <code>=====</code> 구분선 포함  &lt;br&gt;- 사용자 친화적 표현 사용  &lt;br&gt;- f-string 기반 구조 유지    |</p>
+<table>
+<thead>
+<tr>
+<th><strong>항목</strong></th>
+<th><strong>세부 설명</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>코드 스타일</strong></td>
+<td>- 식별자 규칙 준수 (키워드 사용 금지)&lt;br&gt;- <code>snake_case</code> 또는 <code>camelCase</code> 네이밍 컨벤션 적용</td>
+</tr>
+<tr>
+<td><strong>에러방지처리</strong></td>
+<td>숫자 입력 오류 등으로 코드가 중단되지 않도록 <code>int()</code> 변환 위치 명확히 처리</td>
+</tr>
+<tr>
+<td><strong>코드 가독성</strong></td>
+<td>- 한 줄에 너무 많은 로직 지양&lt;br&gt;- 주석 / 들여쓰기 / 공백 규칙 준수</td>
+</tr>
+<tr>
+<td><strong>출력 디자인</strong></td>
+<td>- <code>=====</code> 구분선 포함&lt;br&gt;- 사용자 친화적 표현 사용&lt;br&gt;- <code>f-string</code> 기반 구조 유지</td>
+</tr>
+</tbody>
+</table>
 <h3>🔀 작업 가이드</h3>
 <p>1️⃣ 사용자 입력 처리</p>
 <ul>
-<li>
-<p>이름, 나이, 취미 입력</p>
-</li>
-<li>
-<p>나이는 정수형으로 형 변환</p>
-</li>
-<li>
-<p>취미는 쉼표로 구분된 문자열 입력 → 리스트로 처리</p>
-</li>
+<li>이름, 나이, 취미 입력</li>
+<li>나이는 정수형으로 형 변환</li>
+<li>취미는 쉼표로 구분된 문자열 입력 → 리스트로 처리</li>
 </ul>
 <p>2️⃣ 데이터 가공</p>
 <ul>
-<li>
-<p>취미 리스트 처리 (<code>split + strip + join</code>)</p>
-</li>
-<li>
-<p>내년 나이 계산 (<code>user_age + 1</code>)</p>
-</li>
-<li>
-<p>첫 번째 취미 추출 (<code>hobby_list[0]</code>)</p>
-</li>
+<li>취미 리스트 처리 (<code>split + strip + join</code>)</li>
+<li>내년 나이 계산 (<code>user_age + 1</code>)</li>
+<li>첫 번째 취미 추출 (<code>hobby_list[0]</code>)</li>
 </ul>
 <p>3️⃣ 출력 포맷 구성</p>
 <ul>
@@ -162,19 +279,60 @@ Generator (생성기) 또는 Generation : GEN
 
 </code></pre>
 <h3>📚 문법 사용 체크리스트</h3>
-<p>| 배운 내용                             | 프로젝트 코드에 이렇게 녹아들어야 합니다                         |</p>
-<p>| --------------------------------- | ---------------------------------------------- |</p>
-<p>| <strong>표현식</strong> (Expression)              | <code>input()</code>, <code>user_age + 1</code> 같은 계산식, 문자열 가공       |</p>
-<p>| <strong>문장</strong> (Statement)                | <code>x = input()</code>, <code>print()</code>, <code>if</code> 등의 &quot;행동&quot;         |</p>
-<p>| <strong>키워드</strong> (Keywords)                | <code>if</code>, <code>else</code>, <code>def</code>(선택 시), <code>class</code>는 사용 금지 확인 등 |</p>
-<p>| <strong>식별자</strong> (Identifiers)             | <code>user_name</code>, <code>user_age</code> 같은 올바른 변수명 작성          |</p>
-<p>| <strong>주석</strong> (Comment)                  | 최소 3개 이상의 설명용 주석 작성                            |</p>
-<p>| <strong>산술 연산자</strong> (Arithmetic Operators) | 나이 입력을 숫자로 바꿔서, <code>+</code>, <code>-</code>, <code>//</code> 같은 계산 활용 가능     |</p>
-<p>| <strong>비교 연산자</strong> (Comparison Operators) | 나이(<code>user_age &gt;= 20</code>)를 비교해서 성인/미성년자 분기          |</p>
-<p>| <strong>논리 연산자</strong> (Logical Operators)    | 필요 시 여러 조건을 <code>and</code>, <code>or</code>로 연결 (선택 과제)            |</p>
-<p>| <strong>대입 연산자</strong> (Assignment Operators) | <code>=</code>, <code>+=</code> 같은 값 저장 및 갱신 작업                      |</p>
-<p>| <strong>자료형</strong> (Data types)              | 문자열(str), 숫자(int) 적절히 구분                       |</p>
-<p>| <strong>print 함수</strong> (print())            | 여러 가지 포맷팅(<code>sep</code>, <code>end</code>, <code>f-string</code>)을 활용해서 출력</p>
+<table>
+<thead>
+<tr>
+<th><strong>배운 내용</strong></th>
+<th><strong>프로젝트 코드에 이렇게 녹아들어야 합니다</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>표현식</strong> (Expression)</td>
+<td><code>input()</code>, <code>user_age + 1</code> 같은 계산식, 문자열 가공</td>
+</tr>
+<tr>
+<td><strong>문장</strong> (Statement)</td>
+<td><code>x = input()</code>, <code>print()</code>, <code>if</code> 등의 &quot;행동&quot;</td>
+</tr>
+<tr>
+<td><strong>키워드</strong> (Keywords)</td>
+<td><code>if</code>, <code>else</code>, <code>def</code>(선택 시), <code>class</code>는 사용 금지 확인 등</td>
+</tr>
+<tr>
+<td><strong>식별자</strong> (Identifiers)</td>
+<td><code>user_name</code>, <code>user_age</code> 같은 올바른 변수명 작성</td>
+</tr>
+<tr>
+<td><strong>주석</strong> (Comment)</td>
+<td>최소 3개 이상의 설명용 주석 작성</td>
+</tr>
+<tr>
+<td><strong>산술 연산자</strong> (Arithmetic Operators)</td>
+<td>나이 입력을 숫자로 바꿔서, <code>+</code>, <code>-</code>, <code>//</code> 같은 계산 활용 가능</td>
+</tr>
+<tr>
+<td><strong>비교 연산자</strong> (Comparison Operators)</td>
+<td>나이(<code>user_age &gt;= 20</code>)를 비교해서 성인/미성년자 분기</td>
+</tr>
+<tr>
+<td><strong>논리 연산자</strong> (Logical Operators)</td>
+<td>필요 시 여러 조건을 <code>and</code>, <code>or</code>로 연결 (선택 과제)</td>
+</tr>
+<tr>
+<td><strong>대입 연산자</strong> (Assignment Operators)</td>
+<td><code>=</code>, <code>+=</code> 같은 값 저장 및 갱신 작업</td>
+</tr>
+<tr>
+<td><strong>자료형</strong> (Data types)</td>
+<td>문자열(str), 숫자(int) 적절히 구분</td>
+</tr>
+<tr>
+<td><strong>print 함수</strong> (print())</td>
+<td>여러 가지 포맷팅(<code>sep</code>, <code>end</code>, <code>f-string</code>)을 활용해서 출력</td>
+</tr>
+</tbody>
+</table>
 <p>✅ 정답:</p>
 <pre><code class="hljs language-python">
 <span class="hljs-comment"># 사용자로부터 기본 정보를 입력받습니다 (문자열로 입력됨)</span>
@@ -294,6 +452,41 @@ next_year_age = user_age + <span class="hljs-number">1</span>  <span class="hlj
 
 <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;=========================&quot;</span>)</code></pre>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-content">
+      ⓒ 2025 PyDjango Note. All rights reserved.
+    </div>
+  </footer>
+  <a id="topBtn" href="#">TOP</a>
+  <script>
+    lang = 'python';
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+
+  <script>
+fetch('../search-index.json')
+  .then(res => res.json())
+  .then(data => {
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+
+    input.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      results.innerHTML = '';
+      if (query.length === 0) return;
+
+      const matched = data.filter(item => item.title.toLowerCase().includes(query));
+      matched.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="../${item.path}" class="hover:underline">${item.title}</a>`;
+        results.appendChild(li);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

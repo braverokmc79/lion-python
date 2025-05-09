@@ -2,10 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📝문제 | Django 강의노트</title>
+  <title>READ | Django 강의노트</title>
   <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
-  <meta name="description" content="📝문제에 대한 Django 및 Python 강의 내용 정리">
-  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, 📝문제">
+  <meta name="description" content="READ에 대한 Django 및 Python 강의 내용 정리">
+  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, READ">
   <meta name="author" content="macaronics.net">
   <meta name="robots" content="index, follow">
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
@@ -99,167 +99,8 @@
 
 
     <main>
-      <h1>📝문제 | Django 강의노트</h1>
-      <h2>💼 프로젝트 문서: WorkLogCard_PY_v2</h2>
-<p><strong>코드명</strong>: <code>WorkLogCard_PY_v2</code><br>
-<strong>사용 언어</strong>: Python (PY)<br>
-<strong>버전</strong>: v2</p>
-<hr>
-<h3>🖥️ 프로젝트 개요</h3>
-<p>사용자로부터 <strong>작성일자</strong>, <strong>담당업무</strong>, <strong>업무내용</strong>, <strong>담당자 이름</strong>을 입력받아<br>
-문자열 가공을 통해 <strong>콘솔 기반의 깔끔한 업무일지</strong>를 생성하는 프로젝트입니다.</p>
-<p><strong>주요 기능 요소:</strong></p>
-<ul>
-<li>
-<p>문자열 슬라이싱</p>
-</li>
-<li>
-<p>대소문자 처리 (<code>capitalize()</code> 등)</p>
-</li>
-<li>
-<p>공백 제거 (<code>strip()</code>)</p>
-</li>
-<li>
-<p>문자열 길이 측정 (<code>len()</code>)</p>
-</li>
-<li>
-<p>포맷 정리 및 예외 처리</p>
-</li>
-</ul>
-<p>📌 본 프로젝트를 통해 실습되는 문법:</p>
-<ul>
-<li>
-<p>문자열 연결 (<code>+</code>, <code>f-string</code>)</p>
-</li>
-<li>
-<p>슬라이싱과 인덱싱 (<code>[:n]</code>)</p>
-</li>
-<li>
-<p>문자열 메서드 (<code>strip()</code>, <code>capitalize()</code> 등)</p>
-</li>
-<li>
-<p>이스케이프 문자 (<code>\n</code>, <code>\t</code>)</p>
-</li>
-<li>
-<p>여러 줄 문자열 (<code>&quot;&quot;&quot;...&quot;&quot;&quot;</code>)</p>
-</li>
-<li>
-<p>IndexError 예외 방지 처리</p>
-</li>
-</ul>
-<hr>
-<h3>📄 기능 요구사항 (Functional Requirements)</h3>
-<ul>
-<li>
-<p><strong>FR-01</strong>: 작성일자, 담당업무, 업무내용, 담당자 이름을 사용자로부터 입력받는다.</p>
-</li>
-<li>
-<p><strong>FR-02</strong>: 업무내용이 20자 이상일 경우, 앞의 20자까지만 출력한다.</p>
-</li>
-<li>
-<p><strong>FR-03</strong>: 담당업무는 첫 글자만 대문자로 출력한다 (<code>capitalize</code>).</p>
-</li>
-<li>
-<p><strong>FR-04</strong>: 업무일지를 카드 형태로 보기 좋게 출력한다.</p>
-</li>
-</ul>
-<hr>
-<h3>📄 비기능 요구사항 (Non-Functional Requirements)</h3>
-<ul>
-<li>
-<p>줄바꿈(<code>\n</code>) 및 탭(<code>\t</code>)을 사용해 가독성 높이기</p>
-</li>
-<li>
-<p>업무내용과 담당업무 각각의 <strong>문자열 길이</strong> 출력</p>
-</li>
-<li>
-<p>입력값에 존재할 수 있는 <strong>불필요한 공백 제거 (<code>strip()</code>)</strong></p>
-</li>
-<li>
-<p><strong>IndexError 예외 처리</strong>를 포함한 안정성 고려</p>
-</li>
-</ul>
-<hr>
-<h3>🔀 작업 가이드</h3>
-<h4>1️⃣ 사용자 입력 처리</h4>
-<pre><code class="hljs language-python">date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 작성일을 입력하세요 (예: 2025-05-06): &quot;</span>).strip()
-task = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당 업무를 입력하세요: &quot;</span>).strip()
-content = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 내용을 입력하세요: &quot;</span>).strip()
-name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당자 이름을 입력하세요: &quot;</span>).strip()
-</code></pre>
-<h4>2️⃣ 문자열 가공 및 출력 처리</h4>
-<pre><code class="hljs language-python">task = task.capitalize()
-content_summary = content[:<span class="hljs-number">20</span>] <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(content) &gt; <span class="hljs-number">20</span> <span class="hljs-keyword">else</span> content
-
-<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;&quot;
-============================== 📋 업무일지 카드 ------------------------------
-작성일자: {}
-담당 업무: {}
-업무 내용: {}
-업무 내용 길이: {}자
-담당 업무 길이: {}자
-담당자 이름: {}
-===============================
-&quot;&quot;&quot;</span>.<span class="hljs-built_in">format</span>(date, task, content_summary, <span class="hljs-built_in">len</span>(content), <span class="hljs-built_in">len</span>(task), name))
-</code></pre>
-<pre><code class="hljs language-python">  
-
-date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 작성일을 입력하세요 (예: 2025-05-06): &quot;</span>).strip()
-task = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당 업무를 입력하세요: &quot;</span>).strip()
-content = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 내용을 입력하세요: &quot;</span>).strip()
-name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당자 이름을 입력하세요: &quot;</span>).strip()
-
-<span class="hljs-keyword">try</span>:
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;==============================&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;📋 업무일지 카드&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;------------------------------&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;작성일자 :&quot;</span>, date)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;담당 업무 :&quot;</span>, task.capitalize())
-
-   <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(content[:<span class="hljs-number">20</span>]) &gt;= <span class="hljs-number">20</span>:
-       <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;업무 내용 :&quot;</span>, content[:<span class="hljs-number">20</span>])    
-   <span class="hljs-keyword">else</span>:
-      <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;업무 내용 :&quot;</span>, content)
-
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;업무 내용 길이 : <span class="hljs-subst">{<span class="hljs-built_in">len</span>(content)}</span>자&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;담당 업무 길이 : <span class="hljs-subst">{<span class="hljs-built_in">len</span>(task)}</span>자&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;담당자 이름 :&quot;</span>, name)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;==============================&quot;</span>)
-
-<span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> e:
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;오류 발생: <span class="hljs-subst">{e}</span>&quot;</span>)
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;입력값을 확인해주세요.&quot;</span>)
-</code></pre>
-<hr>
-<h3>🖨️ 출력 예시 (Console)</h3>
-<pre><code class="hljs language-python">============================== 📋 업무일지 카드 ------------------------------
-작성일자: <span class="hljs-number">2025</span>-05-06
-담당 업무: 장고개발
-업무 내용: 오늘 수행한 업무는 API 개발이였다.
-업무 내용 길이: <span class="hljs-number">21</span>자
-담당 업무 길이: <span class="hljs-number">4</span>자
-담당자 이름: 이유정
-===============================
-</code></pre>
-<hr>
-<p>✅ <strong>Tip</strong>: <code>strip()</code>은 문자열의 앞뒤 공백을 제거합니다. 중간 공백까지 제거하려면 <code>replace(&quot; &quot;, &quot;&quot;)</code>나 정규표현식을 추가로 사용해야 합니다.</p>
-<hr>
-<p>🧩 더 확장하고 싶다면?</p>
-<ul>
-<li>
-<p>파일 저장 기능 추가 (<code>with open()</code>)</p>
-</li>
-<li>
-<p>여러 건 입력 받아 리스트로 출력하기</p>
-</li>
-<li>
-<p>GUI 버전으로 확장 (예: Tkinter)</p>
-</li>
-<li>
-<p>날짜 유효성 검사 추가 (<code>datetime</code> 모듈 활용)</p>
-</li>
-</ul>
-
+      <h1>READ | Django 강의노트</h1>
+      
     </main>
   </div>
   <footer>

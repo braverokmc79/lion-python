@@ -1,32 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📜숫자와 문자열의 다양한 기능.md</title>
+  <title>📜숫자와 문자열의 다양한 기능 | Django 강의노트</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
+  <meta name="description" content="📜숫자와 문자열의 다양한 기능에 대한 Django 및 Python 강의 내용 정리">
+  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, 📜숫자와 문자열의 다양한 기능">
+  <meta name="author" content="macaronics.net">
+  <meta name="robots" content="index, follow">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/atom-one-dark.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <style>
-    body {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
-      font-family:"Noto Sans KR", sans-serif;
-      line-height: 1.6;      
-      font-optical-sizing: auto;
-      font-weight: 400;
-     font-style: normal;
-    }
-    pre {
-      overflow-x: auto;
-      padding: 1rem;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/common.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<h3>🔹 <code>format()</code> 함수란?</h3>
+  <header>
+    <div class="logo">PyDjango Note</div>
+    <nav><div><a href="../📁01/📜01_01.html">📁01</a><ul><li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></div><div><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">📁02_01</a><ul><li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></div><div><a href="../📁02_02/📜우선순의 및 예외 Error.html">📁02_02</a><ul><li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></div><div><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">📁02_03</a><ul><li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></div><div><a href="../📁02_04/🅿️미니프로젝트2.html">📁02_04</a><ul><li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></div></nav>
+  </header>
+
+
+
+  <div class="mobile-wrapper">
+  <input type="checkbox" id="menu-toggle" class="menu-toggle" hidden />
+  <label for="menu-toggle" class="hamburger"><span></span><span></span><span></span></label>
+  
+    <aside id="mobileSidebar">
+      
+    <div class="toggle-all-wrapper">
+      <button class="toggle-all-btn" data-target-type="mobile">🗂️ 전체 열기 / 닫기</button>
+    </div>
+    <ul class="sidebar">
+  
+      <li>
+        <a href="../📁01/📜01_01.html" class="toggle-btn" data-target="mobile-submenu-0">📁01</a>
+        <ul id="mobile-submenu-0" class="submenu ml-4">
+    <li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></li>
+      <li>
+        <a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html" class="toggle-btn" data-target="mobile-submenu-1">📁02_01</a>
+        <ul id="mobile-submenu-1" class="submenu ml-4">
+    <li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_02/📜우선순의 및 예외 Error.html" class="toggle-btn" data-target="mobile-submenu-2">📁02_02</a>
+        <ul id="mobile-submenu-2" class="submenu ml-4">
+    <li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></li>
+      <li>
+        <a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html" class="toggle-btn" data-target="mobile-submenu-3">📁02_03</a>
+        <ul id="mobile-submenu-3" class="submenu ml-4">
+    <li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_04/🅿️미니프로젝트2.html" class="toggle-btn" data-target="mobile-submenu-4">📁02_04</a>
+        <ul id="mobile-submenu-4" class="submenu ml-4">
+    <li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></li></ul>
+    </aside>
+  </div>
+
+
+
+  <div class="container">     
+    <aside id="pcSidebar">
+          
+    <div class="toggle-all-wrapper">
+      <button class="toggle-all-btn" data-target-type="pc">🗂️ 전체 열기 / 닫기</button>
+    </div>
+    <ul class="sidebar">
+  
+      <li>
+        <a href="../📁01/📜01_01.html" class="toggle-btn" data-target="pc-submenu-0">📁01</a>
+        <ul id="pc-submenu-0" class="submenu ml-4">
+    <li><a href="../📁01/📜01_01.html">📜01_01</a></li><li><a href="../📁01/📜01_미니프로젝트.html">📜01_미니프로젝트</a></li></ul></li>
+      <li>
+        <a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html" class="toggle-btn" data-target="pc-submenu-1">📁02_01</a>
+        <ul id="pc-submenu-1" class="submenu ml-4">
+    <li><a href="../📁02_01/🅿️미니프로젝트_자기소개 생성기.html">🅿️미니프로젝트_자기소개 생성기</a></li><li><a href="../📁02_01/📜자료형과 문자열.html">📜자료형과 문자열</a></li><li><a href="../📁02_01/📝문제.html">📝문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_02/📜우선순의 및 예외 Error.html" class="toggle-btn" data-target="pc-submenu-2">📁02_02</a>
+        <ul id="pc-submenu-2" class="submenu ml-4">
+    <li><a href="../📁02_02/📜우선순의 및 예외 Error.html">📜우선순의 및 예외 Error</a></li></ul></li>
+      <li>
+        <a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html" class="toggle-btn" data-target="pc-submenu-3">📁02_03</a>
+        <ul id="pc-submenu-3" class="submenu ml-4">
+    <li><a href="../📁02_03/🅿️미니프로젝트_업무일지생성기.html">🅿️미니프로젝트_업무일지생성기</a></li><li><a href="../📁02_03/📜변수와 입력.html">📜변수와 입력</a></li><li><a href="../📁02_03/📝종합문제.html">📝종합문제</a></li></ul></li>
+      <li>
+        <a href="../📁02_04/🅿️미니프로젝트2.html" class="toggle-btn" data-target="pc-submenu-4">📁02_04</a>
+        <ul id="pc-submenu-4" class="submenu ml-4">
+    <li><a href="../📁02_04/🅿️미니프로젝트2.html">🅿️미니프로젝트2</a></li><li><a href="../📁02_04/📜숫자와 문자열의 다양한 기능.html">📜숫자와 문자열의 다양한 기능</a></li><li><a href="../📁02_04/📝02_04 문제와 정답.html">📝02_04 문제와 정답</a></li></ul></li></ul>
+     </aside>
+   
+
+<div id="search-container" class="mb-6 hidden">
+  <input type="text" id="search-input" placeholder="파일 제목 검색..." class="w-full p-2 rounded bg-[#444] text-white" />
+  <ul id="search-results" class="mt-2 text-sm text-white space-y-1"></ul>
+</div>
+
+
+    <main>
+      <h1>📜숫자와 문자열의 다양한 기능 | Django 강의노트</h1>
+      <h3>🔹 <code>format()</code> 함수란?</h3>
 <pre><code>현업 개발자들은 문자열 안에 변수나 값을 깔끔하게 삽입할 때 
 format() 함수를 매우 자주 사용합니다. 코드 가독성을 높이고,복잡한 
 문자열을 쉽게 조합할 수 있도록 해주기 때문입니다.
@@ -131,6 +205,7 @@ age = <span class="hljs-number">20</span>
 <p>🖨️ 출력 결과:</p>
 <pre><code class="hljs language-python">Eunice가 <span class="hljs-number">25</span>살입니다.
 </code></pre>
+<hr>
 <p>&lt;/&gt; 예시코드:  키워드 인자 예시</p>
 <pre><code class="hljs language-python"><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;{name}님의 나이는 {age}살입니다.&quot;</span>.<span class="hljs-built_in">format</span>(name=<span class="hljs-string">&quot;지민&quot;</span>, age=<span class="hljs-number">20</span>))
 </code></pre>
@@ -385,7 +460,1455 @@ format() 함수를 사용하여 조건적으로 포맷팅할 수 있습니다.
 </code></pre>
 <p>🔍 해설:
 위의 코드에서 <code>{:.0f}</code> 형식 지정자는 소수점 이하를 출력하지 않습니다. 이는 주로 사용자 인터페이스에서 정수값을 깔끔하게 표시하고자 할 때 유용합니다.</p>
+<hr>
+<h3>🔹 문자열 관련 메서드 총정리</h3>
+<h5>🔹 문자열 조사 및 판별 메서드</h5>
+<pre><code>문자열이 특정한 형식이나 조건을 만족하는지 판단해주는 도구로,
+문자열이 &quot;어떤 종류의 문자들로만 이루어져 있는가?&quot;,  
+또는 &quot;특정한 형태로 시작하거나 끝나는가?&quot;를 참(True) 또는 
+거짓(False)으로 알려주는 기능이에요.
+</code></pre>
+<p>📘 사용 목적:
+입력값이 문자만 있는지, 숫자인지, 대소문자 구성이 맞는지, 공백만
+있는지등  조건 검사를 자동으로 해주는 편리한 도구입니다.
+사용자 입력을 검증하거나 문자열의 형태를 확인할 때 자주 사용됩니다.</p>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isalpha()</code></td>
+<td>문자로만 구성되었는가</td>
+<td><code>&quot;abc&quot;.isalpha()</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>isdigit()</code></td>
+<td>숫자로만 구성되었는가</td>
+<td><code>&quot;123&quot;.isdigit()</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>isalnum()</code></td>
+<td>알파벳 또는 숫자로만 구성</td>
+<td><code>&quot;abc123&quot;.isalnum()</code> → <code>True</code>&lt;br&gt;&quot;www&quot;.isalnum()<code>→</code>True`</td>
+</tr>
+<tr>
+<td><code>islower()</code></td>
+<td>모두 소문자인가</td>
+<td><code>&quot;hello&quot;.islower()</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>isupper()</code></td>
+<td>모두 대문자인가</td>
+<td><code>&quot;HELLO&quot;.isupper()</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>isspace()</code></td>
+<td>공백으로만 구성</td>
+<td><code>&quot; &quot;.isspace()</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>istitle()</code></td>
+<td>제목 형식인가 (각 단어 첫 글자 대문자)</td>
+<td><code>&quot;Hello World&quot;.istitle()</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>startswith(substr)</code></td>
+<td>지정 문자열로 시작하는가</td>
+<td><code>&quot;hello&quot;.startswith(&quot;he&quot;)</code> → <code>True</code></td>
+</tr>
+<tr>
+<td><code>endswith(substr)</code></td>
+<td>지정 문자열로 끝나는가</td>
+<td><code>&quot;hello&quot;.endswith(&quot;lo&quot;)</code> → <code>True</code></td>
+</tr>
+<tr>
+<td>&lt;/&gt; 예시코드:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="hljs language-python"><span class="hljs-comment"># isalpha()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;abc&quot;</span>.isalpha())         <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;한글&quot;</span>.isalpha())        <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;abc123&quot;</span>.isalpha())      <span class="hljs-comment"># False</span>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+<span class="hljs-comment"># isdigit()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;123&quot;</span>.isdigit())         <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;12a3&quot;</span>.isdigit())        <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># isalnum()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;abc123&quot;</span>.isalnum())      <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;www&quot;</span>.isalnum())         <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;abc 123&quot;</span>.isalnum())     <span class="hljs-comment"># False  (공백 포함)</span>
+
+<span class="hljs-comment"># islower()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>.islower())       <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello&quot;</span>.islower())       <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># isupper()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;HELLO&quot;</span>.isupper())       <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello&quot;</span>.isupper())       <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># isspace()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;     &quot;</span>.isspace())       <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;  \t\n  &quot;</span>.isspace())    <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;  a  &quot;</span>.isspace())       <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># istitle()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello World&quot;</span>.istitle()) <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello world&quot;</span>.istitle()) <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># startswith()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>.startswith(<span class="hljs-string">&quot;he&quot;</span>))  <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>.startswith(<span class="hljs-string">&quot;lo&quot;</span>))  <span class="hljs-comment"># False</span>
+
+<span class="hljs-comment"># endswith()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>.endswith(<span class="hljs-string">&quot;lo&quot;</span>))    <span class="hljs-comment"># True</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>.endswith(<span class="hljs-string">&quot;he&quot;</span>))    <span class="hljs-comment"># False</span>
+</code></pre>
+<p>◽  문자열 조사 및 판별 메서드:
+웹 개발, 데이터 처리, 사용자 입력 검증등에 활용되며 사용 예 및 활용 맥락은 다음과 같다:</p>
+<p>1️⃣ <code>startswith(substr)</code><br>
+→ 문자열이 특정 문자열로 시작하는지 확인
+(URL, 로그 등에서 매우 자주 사용)</p>
+<p>2️⃣ <code>endswith(substr)</code><br>
+→ 문자열이 특정 문자열로 끝나는지 확인
+(파일 확장자, 로그 포맷 등에서 활용)</p>
+<p>3️⃣ <code>isdigit()</code><br>
+→ 숫자만 포함되어 있는지 확인
+(나이, 금액 등 사용자 입력 검증 시 자주 사용)</p>
+<p>4️⃣ <code>isalnum()</code><br>
+→ 영문자 또는 숫자로만 구성되어 있는지 확인
+(아이디, 비밀번호 등 유효성 검사)</p>
+<p>5️⃣ <code>isalpha()</code><br>
+→ 영문자 또는 한글만 포함되었는지 확인
+(이름 등 검증 시 활용)</p>
+<p>6️⃣ <code>isspace()</code><br>
+→ 공백 문자만 포함되어 있는지 확인
+(데이터 클렌징, 전처리 시 사용)</p>
+<p>7️⃣ <code>islower()</code><br>
+→ 모든 문자가 소문자인지 확인
+(텍스트 정규화, NLP 분야에서 사용됨)</p>
+<p>8️⃣ <code>isupper()</code><br>
+→ 모든 문자가 대문자인지 확인
+(강조 텍스트 필터링 등 일부 경우)</p>
+<p>9️⃣ <code>istitle()</code><br>
+→ 문자열이 제목 형식인지 확인
+(문장 스타일 체크 시 사용 빈도 낮음)</p>
+<hr>
+<p>📖 문법, 구문(syntax):</p>
+<pre><code class="hljs language-python">문자열.startswith(찾을_문자열[, 시작인덱스[, 끝인덱스]])
+</code></pre>
+<p>◽ 매개변수:
+찾을_문자열: 문자열이 이 값으로 시작하는지 확인
+시작인덱스: (선택) 시작 위치 지정
+끝인덱스: (선택) 끝 위치 지정</p>
+<p>&lt;/&gt;예시코드: 문자열이 특정 접두사로 시작하는지 확인</p>
+<pre><code class="hljs language-python">url = <span class="hljs-string">&quot;https://openai.com&quot;</span>
+
+<span class="hljs-keyword">if</span> url.startswith(<span class="hljs-string">&quot;https://&quot;</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;보안 연결된 URL입니다.&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;비보안 URL입니다.&quot;</span>)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">보안 연결된 URL입니다.
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>startswith(&quot;https://&quot;)</code>는 문자열이 <code>&quot;https://&quot;</code>로 시작하면 <code>True</code>를 반환합니다.</li>
+<li>실제 웹개발에서 URL 유효성 검사 시 자주 사용됩니다.</li>
+</ul>
+<hr>
+<p>📖 <code>endswith(substr)</code> 문법, 구문(syntax):</p>
+<pre><code class="hljs language-python">문자열.endswith(<span class="hljs-string">&quot;확인할_문자열&quot;</span>[, 시작인덱스[, 끝인덱스]])
+</code></pre>
+<p>◽ 매개변수:
+확인할_문자열: &quot;문자열&quot; 이 이 값으로 끝나는지 확인합니다
+시작인덱스: (선택) 시작 위치 지정
+끝인덱스: (선택) 끝 위치 지정</p>
+<p>&lt;/&gt;예시코드: 이미지 파일 필터링</p>
+<pre><code class="hljs language-python">filename = <span class="hljs-string">&quot;holiday_photo.png&quot;</span>
+
+<span class="hljs-keyword">if</span> filename.endswith(<span class="hljs-string">&quot;.png&quot;</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;PNG 이미지 파일입니다.&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;다른 형식의 파일입니다.&quot;</span>)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">PNG 이미지 파일입니다.
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;holiday_photo.png&quot;.endswith(&quot;.png&quot;)</code>는 <code>True</code>를 반환하므로 <code>if</code> 블록이 실행됩니다.</li>
+<li><code>endswith()</code>는 문자열이 특정 확장자로 끝나는지 확인할 때 매우 유용합니다.</li>
+</ul>
+<hr>
+<h6>📝 문제1] 사용자로부터 입력 받은 문자열이 알파벳으로만 구성되어 있고, 모두 소문자인지 확인하세요.</h6>
+<p>✨ 힌트:
+<code>isalpha()</code>와 <code>islower()</code>를 동시에 사용해야 합니다.
+사용자가 입력한 문자가  숫자, 공백, 특수문자가 섞이면 <code>False</code>가 됩니다.</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;소문자 알파벳만 입력하세요:&quot;</span>)
+result = text.isalpha() <span class="hljs-keyword">and</span> text.islower()
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;소문자 알파벳으로만 구성됐나요?&quot;</span>, result)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">소문자 알파벳으로만 구성됐나요? <span class="hljs-literal">True</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>isalpha()</code>는 입력한 문자열이 알파벳(문자)만으로 이루어졌는지 확인합니다.<br>
+→ 숫자, 공백, 특수문자가 섞이면 <code>False</code>가 됩니다.</li>
+<li><code>islower()</code>는 입력한 문자열이 모두 소문자인지 확인합니다.<br>
+→ 대문자가 하나라도 있으면 <code>False</code>입니다.</li>
+<li><code>and</code>는 두 조건이 모두 True일 때만 True를 반환합니다.</li>
+</ul>
+<p>✅ 예: <code>hello</code> → True / <code>Hello</code> → False / <code>hello123</code> → False</p>
+<hr>
+<p>📝 문제2] 문자열 <code>&quot;DATA2025!&quot;</code>이 알파벳 또는 숫자로만 되어 있는지 확인하세요.</p>
+<p>✨ 힌트:
+<code>isalnum()</code>은 알파벳 + 숫자 조합이면 <code>True</code>
+특수문자(<code>!</code>, <code>@</code>, 등)가 섞이면 <code>False</code></p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;DATA2025!&quot;</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;알파벳 또는 숫자로만 구성됐나요?&quot;</span>, text.isalnum())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">알파벳 또는 숫자로만 구성됐나요? <span class="hljs-literal">False</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>isalnum()</code>는 문자열이 알파벳 또는 숫자만으로 구성됐는지 확인합니다.<br>
+→ 공백, 느낌표 <code>!</code>, 기타 특수문자가 들어가면 <code>False</code>가 됩니다.</li>
+<li><code>&quot;DATA2025!&quot;</code>에는 느낌표 <code>!</code>가 포함되어 있으므로 <code>False</code>가 출력됩니다.</li>
+</ul>
+<p>✅ 예: <code>Data2025</code> → True / <code>DATA2025!</code> → False</p>
+<hr>
+<p>📝 문제3] 사용자로부터 입력 받은 문자열이 공백만으로 구성되어 있는지와 동시에 탭 또는 줄바꿈 문자가 포함되어 있는지를 확인하세요.</p>
+<p>✨ 힌트:
+<code>isspace()</code>는 공백, 탭(<code>\t</code>), 줄바꿈(<code>\n</code>)을 포함하면 <code>True</code>
+<code>&quot;\t\n &quot;</code>도 <code>True</code>로 평가됨</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;공백, 탭, 줄바꿈만 입력하세요: &quot;</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;공백 문자만 포함됐나요?&quot;</span>, text.isspace())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">공백 문자만 포함됐나요? <span class="hljs-literal">True</span>
+</code></pre>
+<p>🔍 <strong>해설:</strong></p>
+<ul>
+<li><code>isspace()</code>는 문자열이 오로지 공백 문자(스페이스, 탭, 줄바꿈)로만 구성되었는지를 확인합니다.
+<ul>
+<li>공백 <code>&quot; &quot;</code></li>
+<li>탭 <code>&quot;\t&quot;</code></li>
+<li>줄바꿈 <code>&quot;\n&quot;</code><br>
+이 세 가지가 혼합되어 있어도 True가 됩니다.</li>
+</ul>
+</li>
+<li>문자나 숫자가 하나라도 섞이면 <code>False</code>가 됩니다.</li>
+</ul>
+<p>✅ 예: <code>&quot; \t\n&quot;</code> → True / <code>&quot; \t1&quot;</code> → False</p>
+<hr>
+<p>📝 문제4] 문자열 <code>&quot; Python3 &quot;</code>에서 좌우 공백을 제거한 후, 알파벳과 숫자로만 구성되어 있는지 확인하세요.</p>
+<p>✨ 힌트:
+<code>strip()</code>으로 공백 제거 후 <code>isalnum()</code>으로 검사</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">알파벳 또는 숫자로만 구성됐나요? <span class="hljs-literal">True</span>
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;  Python3 &quot;</span>
+cleaned = text.strip()
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;알파벳 또는 숫자로만 구성됐나요?&quot;</span>, cleaned.isalnum())
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>문자열 양쪽에 있는 공백 <code>&quot; &quot;</code>은 <code>strip()</code>을 사용해서 제거합니다.</li>
+<li><code>&quot;Python3&quot;</code>가 되면, 이건 알파벳과 숫자의 조합이므로 <code>isalnum()</code>은 True를 반환합니다.</li>
+<li>만약 공백을 제거하지 않으면 <code>&quot; Python3 &quot;</code>는 공백이 포함되어 있어서 <code>isalnum()</code>은 False가 됩니다.</li>
+</ul>
+<p>✅ 예: <code>&quot; Python3 &quot;</code> → True (공백 제거 후)</p>
+<hr>
+<p>📝 문제5] 문자열 <code>&quot;Hello World&quot;</code>를 소문자로 바꾼 후, 완전히 소문자로만 구성되어 있는지 확인하세요.</p>
+<p>✨ 힌트:
+<code>lower()</code>로 소문자로 만든 후 <code>islower()</code> 사용
+공백은 영향을 주지 않음</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;Hello World&quot;</span>
+lowered = text.lower()
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;완전히 소문자인가요?&quot;</span>, lowered.islower())
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">완전히 소문자인가요? <span class="hljs-literal">True</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>lower()</code>는 문자열의 모든 알파벳을 <strong>소문자</strong>로 바꿉니다.</li>
+<li><code>islower()</code>는 문자열이 소문자로만 구성되어 있는지 확인합니다.</li>
+<li>공백 <code>&quot; &quot;</code>은 소문자도 대문자도 아니므로 검사에서 제외됩니다.<br>
+→ 즉, <code>hello world</code>처럼 되어 있으면 <code>islower()</code>는 True를 반환합니다.</li>
+</ul>
+<p>✅ 예: <code>&quot;Hello World&quot;</code> → <code>lower()</code> 후 → <code>&quot;hello world&quot;</code> → True</p>
+<hr>
+<p>📝 문제6] 사용자 ID 형식 검사하기</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 문제설명</span>
+사용자에게 아이디를 입력받아, 다음 조건을 만족하는지 검사하세요:
+
+<span class="hljs-number">1.</span> 아이디는 영문 또는 숫자로만 구성되어야 한다.
+<span class="hljs-number">2.</span> 아이디는 대문자가 포함되면 안 된다.
+
+조건을 만족하면 <span class="hljs-string">&quot;사용자 등록 가능&quot;</span>을, 하나라도 어기면 <span class="hljs-string">&quot;잘못된 아이디 형식&quot;</span>을 출력하세요.
+</code></pre>
+<p>🌟 힌트:
+<code>isalnum()</code> → 문자와 숫자로만 되어 있는지 판별
+<code>islower()</code> → 입력된 모든 문자가 소문자인지 판별
+두 조건을 동시에 만족해야 등록 가능</p>
+<p>🖨️ 출력 예시:</p>
+<pre><code class="hljs language-python">아이디를 입력하세요: john123
+사용자 등록 가능
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">user_id = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;아이디를 입력하세요: &quot;</span>)
+
+<span class="hljs-keyword">if</span> user_id.isalnum() <span class="hljs-keyword">and</span> user_id.islower():
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;사용자 등록 가능&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;잘못된 아이디 형식&quot;</span>)
+</code></pre>
+<hr>
+<p>📝 문제7] 문장 입력 시 제목 형식인지 검사하기</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 문제 설명</span>
+사용자에게 문장을 입력받아, 각 단어의 첫 글자가 대문자인 <span class="hljs-string">&quot;제목 형식&quot;</span>인지 검사하세요.
+
+- 제목 형식이면: <span class="hljs-string">&quot;올바른 제목입니다.&quot;</span>
+- 아니면: <span class="hljs-string">&quot;제목 형식이 아닙니다.&quot;</span> 를 출력하세요.
+</code></pre>
+<p>🌟 힌트:
+<code>istitle()</code>은 &quot;The Great Escape&quot;처럼 각 단어의 첫 글자만 대문자이면 True를 반환함
+전체 대문자(<code>&quot;THE GREAT ESCAPE&quot;</code>)나 전체 소문자(<code>&quot;the great escape&quot;</code>)는 False가 됨</p>
+<p>🖨️ 출력 예시:</p>
+<pre><code class="hljs language-python">제목을 입력하세요: The Great Escape
+올바른 제목입니다.
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">title = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;제목을 입력하세요: &quot;</span>)
+
+<span class="hljs-keyword">if</span> title.istitle():
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;올바른 제목입니다.&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;제목 형식이 아닙니다.&quot;</span>)
+</code></pre>
+<hr>
+<h5>🔹 문자열 변경 (새 문자열 반환)</h5>
+<pre><code>문자열의 모양을 바꾸거나, 특정 문자를 교체하거나, 공백이나 형식을 
+다듬는 데 사용되는 문자열 가공 도구들입니다.
+즉, &quot;문자열을 그대로 두지 않고 변형하거나 정리하는 작업을 자동으로 
+처리&quot;해 줍니다.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lower()</code></td>
+<td>모두 소문자로</td>
+<td><code>&quot;HELLO&quot;.lower()</code> → <code>&quot;hello&quot;</code></td>
+</tr>
+<tr>
+<td><code>upper()</code></td>
+<td>모두 대문자로</td>
+<td><code>&quot;hello&quot;.upper()</code> → <code>&quot;HELLO&quot;</code></td>
+</tr>
+<tr>
+<td><code>capitalize()</code></td>
+<td>첫 글자만 대문자</td>
+<td><code>&quot;hello world&quot;.capitalize()</code> → <code>&quot;Hello world&quot;</code></td>
+</tr>
+<tr>
+<td><code>title()</code></td>
+<td>각 단어 첫 글자 대문자</td>
+<td><code>&quot;hello world&quot;.title()</code> → <code>&quot;Hello World&quot;</code></td>
+</tr>
+<tr>
+<td><code>swapcase()</code></td>
+<td>대소문자 뒤집기</td>
+<td><code>&quot;Hello&quot;.swapcase()</code> → <code>&quot;hELLO&quot;</code></td>
+</tr>
+<tr>
+<td><code>strip()</code></td>
+<td>양쪽 공백 제거</td>
+<td><code>&quot; hi &quot;.strip()</code> → <code>&quot;hi&quot;</code></td>
+</tr>
+<tr>
+<td><code>lstrip()</code></td>
+<td>왼쪽 공백 제거</td>
+<td><code>&quot; hi&quot;.lstrip()</code> → <code>&quot;hi&quot;</code></td>
+</tr>
+<tr>
+<td><code>rstrip()</code></td>
+<td>오른쪽 공백 제거</td>
+<td><code>&quot;hi &quot;.rstrip()</code> → <code>&quot;hi&quot;</code></td>
+</tr>
+<tr>
+<td><code>replace(a, b)</code></td>
+<td>문자열 교체</td>
+<td><code>&quot;apple&quot;.replace(&quot;p&quot;, &quot;b&quot;)</code> → <code>&quot;abble&quot;</code></td>
+</tr>
+<tr>
+<td><code>zfill(width)</code></td>
+<td>0으로 채워 고정 길이 만들기</td>
+<td><code>&quot;42&quot;.zfill(5)</code> → <code>&quot;00042&quot;</code></td>
+</tr>
+<tr>
+<td>&lt;/&gt; 예시코드:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="hljs language-python"><span class="hljs-comment"># lower()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;HELLO&quot;</span>.lower())            <span class="hljs-comment"># hello</span>
+
+<span class="hljs-comment"># upper()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello&quot;</span>.upper())            <span class="hljs-comment"># HELLO</span>
+
+<span class="hljs-comment"># capitalize() </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello world&quot;</span>.capitalize()) <span class="hljs-comment"># Hello world</span>
+<span class="hljs-comment"># → 문장의 첫 글자만 대문자, 나머지는 소문자 </span>
+
+<span class="hljs-comment"># title()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hello world&quot;</span>.title())      <span class="hljs-comment"># Hello World</span>
+<span class="hljs-comment"># → 각 단어의 첫 글자가 대문자</span>
+
+<span class="hljs-comment"># swapcase() </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello&quot;</span>.swapcase())         <span class="hljs-comment"># hELLO</span>
+<span class="hljs-comment"># → 대소문자 뒤집기 (A ↔ a)  </span>
+
+<span class="hljs-comment"># strip()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;  hi  &quot;</span>.strip())           <span class="hljs-comment"># hi</span>
+<span class="hljs-comment"># → 앞뒤 공백 모두 제거</span>
+
+<span class="hljs-comment"># lstrip() </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;  hi&quot;</span>.lstrip())            <span class="hljs-comment"># hi</span>
+<span class="hljs-comment"># 엘스트립</span>
+
+<span class="hljs-comment"># rstrip()</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;hi  &quot;</span>.rstrip())            <span class="hljs-comment"># hi</span>
+
+<span class="hljs-comment"># replace(&quot;p&quot;, &quot;b&quot;)</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;apple&quot;</span>.replace(<span class="hljs-string">&quot;p&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>))  <span class="hljs-comment"># abble</span>
+
+<span class="hljs-comment"># zfill(5) </span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;42&quot;</span>.zfill(<span class="hljs-number">5</span>))              <span class="hljs-comment"># 00042</span>
+<span class="hljs-comment"># → 전체 길이를 5로 만들고, 부족한 앞자리에 0을 채움 </span>
+</code></pre>
+<hr>
+<h6>📝 문제 1] 사용자 입력 정리 및 검증</h6>
+<p>사용자로부터 이름을 입력받습니다.<br>
+다음 조건을 만족하면 &quot;등록 완료&quot;, 아니면 &quot;형식 오류&quot;를 출력하세요:</p>
+<ul>
+<li>이름의 앞뒤 공백을 제거하고(<code>strip()</code>)</li>
+<li>모든 문자가 소문자여야 하고(<code>islower()</code>)</li>
+<li>길이가 3글자 이상이어야 함</li>
+</ul>
+<p>🌟 힌트:
+<code>strip()</code>으로 공백 제거 후 <code>islower()</code>와 <code>len()</code>을 사용하세요.</p>
+<p>🖨️ 출력 예시:</p>
+<pre><code class="hljs language-python">입력:   john  
+출력: 등록 완료
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;이름을 입력하세요: &quot;</span>).strip()
+
+<span class="hljs-keyword">if</span> name.islower() <span class="hljs-keyword">and</span> <span class="hljs-built_in">len</span>(name) &gt;= <span class="hljs-number">3</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;등록 완료&quot;</span>)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;형식 오류&quot;</span>)
+</code></pre>
+<p>🔍 해설:
+<code>&quot; john &quot;</code> → <code>&quot;john&quot;</code> → 소문자이며 길이 4 → 조건 통과</p>
+<hr>
+<p>📝 문제 2] 비밀번호 포맷 처리
+비밀번호는 숫자 문자열로 구성됩니다. 사용자가 <code>&quot;42&quot;</code>를 입력하면, 길이가 6이 되도록 앞을 0으로 채운 문자열을 출력하세요.</p>
+<p>🖨️ 출력 예시:</p>
+<pre><code class="hljs language-python">입력: <span class="hljs-number">42</span>
+출력: 000042
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">password = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;숫자 비밀번호를 입력하세요: &quot;</span>)
+<span class="hljs-built_in">print</span>(password.zfill(<span class="hljs-number">6</span>))
+</code></pre>
+<p>🔍 해설:
+<code>&quot;42&quot;.zfill(6)</code> → <code>&quot;000042&quot;</code></p>
+<hr>
+<p>📝 문제 3] 문장 스타일 변환기
+문장 <code>&quot;hello world&quot;</code>를 아래 형식으로 출력해보세요:</p>
+<ul>
+<li>각 단어 첫 글자만 대문자 (<code>title()</code>)</li>
+<li>대소문자를 반전시킨 형태 (<code>swapcase()</code>)</li>
+</ul>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">hELLO wORLD
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;hello world&quot;</span>
+step1 = text.title()       <span class="hljs-comment"># &quot;Hello World&quot;</span>
+step2 = step1.swapcase()   <span class="hljs-comment"># &quot;hELLO wORLD&quot;</span>
+<span class="hljs-built_in">print</span>(step2)
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>title()</code> → <code>&quot;Hello World&quot;</code></li>
+<li><code>swapcase()</code> → <code>&quot;hELLO wORLD&quot;</code></li>
+</ul>
+<hr>
+<p>📝 문제 4] 잘못된 단어 교정
+다음 문장 <code>&quot;apple pen pineapple pen&quot;</code>에서 <code>&quot;pen&quot;</code>을 <code>&quot;PEN&quot;</code>으로 교체한 뒤,<br>
+전체 문장을 대문자로 출력하세요.</p>
+<p>🌟 힌트:</p>
+<ul>
+<li><code>replace()</code> → <code>&quot;pen&quot; → &quot;PEN&quot;</code></li>
+<li>그다음 <code>upper()</code>로 전체 대문자 처리</li>
+</ul>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">APPLE PEN PINEAPPLE PEN
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;apple pen pineapple pen&quot;</span>
+replaced = text.replace(<span class="hljs-string">&quot;pen&quot;</span>, <span class="hljs-string">&quot;PEN&quot;</span>)
+<span class="hljs-built_in">print</span>(replaced.upper())
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;pen&quot;</code> → <code>&quot;PEN&quot;</code></li>
+<li>이후 전체 대문자 처리: <code>&quot;APPLE PEN PINEAPPLE PEN&quot;</code></li>
+</ul>
+<hr>
+<p>📝 문제 5] 사용자 메시지 포맷팅
+사용자로부터 메시지를 입력받아 다음 조건으로 정리하여 출력하세요:</p>
+<ul>
+<li>앞뒤 공백 제거 (<code>strip()</code>)</li>
+<li>첫 글자만 대문자로 (<code>capitalize()</code>)</li>
+<li>&quot;badword&quot;가 포함되어 있다면 <code>&quot;****&quot;</code>로 대체 (<code>replace()</code>)</li>
+</ul>
+<p>🌟 힌트:
+순서 중요: 먼저 공백 제거 → 단어 필터링 → 문장 형태 정리</p>
+<p>🖨️ 출력 예시:</p>
+<pre><code class="hljs language-python">입력:   badword <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> allowed    
+출력: **** <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> allowed
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">message = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;메시지를 입력하세요: &quot;</span>).strip()
+message = message.replace(<span class="hljs-string">&quot;badword&quot;</span>, <span class="hljs-string">&quot;****&quot;</span>)
+<span class="hljs-built_in">print</span>(message.capitalize())
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>공백 제거 후 <code>&quot;badword&quot;</code>를 <code>&quot;****&quot;</code>로 바꾸고</li>
+<li><code>capitalize()</code>로 문장 형태로 정리</li>
+</ul>
+<hr>
+<h5>🔹 문자열 나누기와 결합</h5>
+<pre><code>문자열을 특정 기준(구분자)으로 잘라서 나누거나, 여러 조각(리스트)을
+다시 하나의 문자열로 합치는 기능을 합니다.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>split()</code></td>
+<td>공백 기준 나누기</td>
+<td><code>&quot;a b c&quot;.split()</code> → <code>['a', 'b', 'c']</code></td>
+</tr>
+<tr>
+<td><code>split(',')</code></td>
+<td>쉼표 기준 나누기</td>
+<td><code>&quot;a,b,c&quot;.split(',')</code> → <code>['a', 'b', 'c']</code></td>
+</tr>
+<tr>
+<td><code>rsplit()</code></td>
+<td>오른쪽부터 나누기</td>
+<td><code>&quot;a b c&quot;.rsplit(' ', 1)</code> → <code>['a b', 'c']</code></td>
+</tr>
+<tr>
+<td><code>partition()</code></td>
+<td>처음 나오는 구분자 기준으로 분리 (3개 튜플 반환)</td>
+<td><code>&quot;user:pass&quot;.partition(&quot;:&quot;)</code> → <code>('user', ':', 'pass')</code></td>
+</tr>
+<tr>
+<td><code>join(list)</code></td>
+<td>리스트를 문자열로 결합</td>
+<td><code>&quot;,&quot;.join(['a', 'b'])</code> → <code>&quot;a,b&quot;</code></td>
+</tr>
+<tr>
+<td>&lt;/&gt; 예시코드</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="hljs language-python"><span class="hljs-comment"># split() - 공백 기준 나누기</span>
+text1 = <span class="hljs-string">&quot;a b c&quot;</span>
+<span class="hljs-built_in">print</span>(text1.split())  
+<span class="hljs-comment"># 출력: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span>
+<span class="hljs-comment"># 설명: 공백을 기준으로 문자열을 나누면 각각 리스트 항목이 됨</span>
+
+<span class="hljs-comment"># split(&#x27;,&#x27;) - 쉼표 기준 나누기</span>
+text2 = <span class="hljs-string">&quot;a,b,c&quot;</span>
+<span class="hljs-built_in">print</span>(text2.split(<span class="hljs-string">&#x27;,&#x27;</span>))  
+<span class="hljs-comment"># 출력: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span>
+<span class="hljs-comment"># 설명: 쉼표를 기준으로 나누기. 데이터 파일(CSV 등)에 자주 사용됨</span>
+
+<span class="hljs-comment"># rsplit(&#x27; &#x27;, 1) - 오른쪽에서 1번만 나누기</span>
+text3 = <span class="hljs-string">&quot;a b c&quot;</span>
+<span class="hljs-built_in">print</span>(text3.rsplit(<span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-number">1</span>))  
+<span class="hljs-comment"># 출력: [&#x27;a b&#x27;, &#x27;c&#x27;]</span>
+<span class="hljs-comment"># 설명: 오른쪽에서 한 번만 공백을 기준으로 나눠서 두 조각으로 분리</span>
+
+<span class="hljs-comment"># partition(&#x27;:&#x27;) - 가장 먼저 나오는 : 기준으로 3부분 나누기 (튜플)</span>
+text4 = <span class="hljs-string">&quot;user:pass&quot;</span>
+<span class="hljs-built_in">print</span>(text4.partition(<span class="hljs-string">&quot;:&quot;</span>))  
+<span class="hljs-comment"># 출력: (&#x27;user&#x27;, &#x27;:&#x27;, &#x27;pass&#x27;)</span>
+<span class="hljs-comment"># 설명: 첫 번째 &#x27;:&#x27; 기준으로 앞, 구분자, 뒤를 튜플로 나눔</span>
+
+<span class="hljs-comment"># join() - 리스트를 문자열로 결합</span>
+list1 = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>]
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;,&quot;</span>.join(list1))  
+<span class="hljs-comment"># 출력: &quot;a,b&quot;</span>
+<span class="hljs-comment"># 설명: 리스트의 요소를 쉼표로 연결하여 하나의 문자열로 만듦</span>
+</code></pre>
+<p>◽  문자열 나누기와 결합 메서드 활용:
+1️⃣ 데이터 분리: 이름, 이메일, 날짜처럼 한 줄에 묶인 데이터를 나눌 때</p>
+<p>2️⃣ 파일 처리: CSV 파일 등에서 쉼표로 구분된 항목을 나눌 때</p>
+<p>3️⃣ 사용자 입력 분석: 띄어쓰기, 쉼표, 콜론 등으로 입력값을 쪼갤 때</p>
+<p>4️⃣ 출력 형식 제어: 리스트나 결과를 문자열로 깔끔하게 합칠 때</p>
+<hr>
+<p>📝 문제 1] 공백으로 분리한 후 결합하기
+사용자 입력 <code>&quot;one two three&quot;</code>를 공백 기준으로 나눈 뒤,<br>
+리스트로 만든 후 각 단어를 하이픈(-)으로 연결된 문자열로 출력하세요.</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">[<span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>, <span class="hljs-string">&#x27;three&#x27;</span>]
+one-two-three
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;one two three&quot;</span>
+words = text.split()
+result = <span class="hljs-string">&quot;-&quot;</span>.join(words)
+<span class="hljs-built_in">print</span>(words)
+<span class="hljs-built_in">print</span>(result)
+</code></pre>
+<p>🔍 해설:
+<code>&quot;one two three&quot;.split()</code> → <code>['one', 'two', 'three']</code>
+<code>'-'.join(...)</code>으로 하이픈 연결</p>
+<hr>
+<p>📝 문제 2] 이메일 아이디와 도메인 분리하기</p>
+<ul>
+<li>이메일 <code>&quot;user01@gmail.com&quot;</code>을 데이터를</li>
+<li>아이디만 출력되도록 하세요.</li>
+</ul>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">user01
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">email = <span class="hljs-string">&quot;user01@gmail.com&quot;</span>
+id_part = email.partition(<span class="hljs-string">&quot;@&quot;</span>)[<span class="hljs-number">0</span>]
+<span class="hljs-built_in">print</span>(id_part)
+</code></pre>
+<p>🔍 해설:
+<code>partition(&quot;@&quot;)</code> → <code>('user01', '@', 'gmail.com')</code>
+<code>[0]</code> 번째 인덱스가 아이디 부분</p>
+<p><code>split()</code>은 리스트 <code>[ ]</code>
+<code>partition()</code>은 튜플을 반환합니다. <code>( )</code></p>
+<hr>
+<p>📝 문제 3] ## 쉼표로 구분된 문자열을 오른쪽에서만 1번 나누기
+문자열 <code>&quot;apple,banana,grape&quot;</code>를 오른쪽 쉼표 기준으로 1번만 나눠서
+앞부분과 뒷부분을 리스트로 출력하세요.</p>
+<p>🌟 힌트:</p>
+<ul>
+<li><code>rsplit(',', 1)</code> 사용</li>
+</ul>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python">[<span class="hljs-string">&#x27;apple,banana&#x27;</span>, <span class="hljs-string">&#x27;grape&#x27;</span>]
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">fruits = <span class="hljs-string">&quot;apple,banana,grape&quot;</span>
+result = fruits.rsplit(<span class="hljs-string">&#x27;,&#x27;</span>, <span class="hljs-number">1</span>)
+<span class="hljs-built_in">print</span>(result)
+</code></pre>
+<p>🔍 해설:
+오른쪽에서 1번만 나눔 → 앞은 <code>&quot;apple,banana&quot;</code>, 뒤는 <code>&quot;grape&quot;</code></p>
+<hr>
+<p>📝 문제 4] ## 문자열에서 마지막 단어만 추출하기
+문자열 <code>&quot;Learn Python Programming&quot;</code>에서 가장 마지막 단어만 출력하세요.</p>
+<p>🌟 힌트:</p>
+<ul>
+<li><code>rsplit(' ', 1)</code>을 사용해서 뒤에서 나누기</li>
+</ul>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Programming
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;Learn Python Programming&quot;</span>
+last_word = text.rsplit(<span class="hljs-string">&#x27; &#x27;</span>, <span class="hljs-number">1</span>)[<span class="hljs-number">1</span>]
+<span class="hljs-built_in">print</span>(last_word)
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>rsplit(' ', 1)</code> → <code>['Learn Python', 'Programming']</code></li>
+<li><code>[1]</code> 번째가 마지막 단어</li>
+</ul>
+<hr>
+<p>📝 문제 5] 리스트를 문자열로 만들고, 다시 리스트로 만들기
+리스트 <code>[&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]</code>를 <code>;</code>로 연결해 문자열을 만들고,<br>
+그 문자열을 다시 리스트로 복원해서 출력하세요.</p>
+<p>🌟 힌트:</p>
+<ul>
+<li><code>join()</code>으로 문자열 만들고, <code>split()</code>으로 다시 나눔</li>
+</ul>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">red;green;blue
+[<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;blue&#x27;</span>]
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">colors = [<span class="hljs-string">&quot;red&quot;</span>, <span class="hljs-string">&quot;green&quot;</span>, <span class="hljs-string">&quot;blue&quot;</span>]
+joined = <span class="hljs-string">&quot;;&quot;</span>.join(colors)
+restored = joined.split(<span class="hljs-string">&quot;;&quot;</span>)
+<span class="hljs-built_in">print</span>(joined)
+<span class="hljs-built_in">print</span>(restored)
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>join()</code> → <code>&quot;red;green;blue&quot;</code></li>
+<li><code>split(&quot;;&quot;)</code> → 원래 리스트로 복원</li>
+</ul>
+<hr>
+<h5>🔹 문자열 정렬</h5>
+<pre><code>center(), ljust(), rjust()는 문자열을 지정된 너비(width) 안에서
+가운데, 왼쪽, 오른쪽 중 원하는 위치로 정렬시켜주는 메서드입니다.
+부족한 공간은 공백(또는 원하는 문자)으로 채워집니다.
+즉, 문자열을 지정된 길이 안에서 보기 좋게 정렬하고, 빈 공간을 채워주
+는 도구입니다.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>center(width)</code></td>
+<td>가운데 정렬</td>
+<td><code>&quot;hi&quot;.center(5)</code> → <code>&quot; hi &quot;</code></td>
+</tr>
+<tr>
+<td><code>ljust(width)</code></td>
+<td>왼쪽 정렬</td>
+<td><code>&quot;hi&quot;.ljust(5)</code> → <code>&quot;hi &quot;</code></td>
+</tr>
+<tr>
+<td><code>rjust(width)</code></td>
+<td>오른쪽 정렬</td>
+<td><code>&quot;hi&quot;.rjust(5)</code> → <code>&quot; hi&quot;</code></td>
+</tr>
+<tr>
+<td>&lt;/&gt; 예시코드:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="hljs language-python"><span class="hljs-comment"># center(width) - 가운데 정렬</span>
+text1 = <span class="hljs-string">&quot;hi&quot;</span>
+<span class="hljs-built_in">print</span>(text1.center(<span class="hljs-number">5</span>))
+<span class="hljs-comment"># 출력: &quot; hi &quot;</span>
+<span class="hljs-comment"># 설명: 문자열 &#x27;hi&#x27;를 너비 5에 맞춰 가운데 정렬 → 앞뒤로 공백이 추가됨</span>
+
+<span class="hljs-comment"># ljust(width) - 왼쪽 정렬</span>
+text2 = <span class="hljs-string">&quot;hi&quot;</span>
+<span class="hljs-built_in">print</span>(text2.ljust(<span class="hljs-number">5</span>))
+<span class="hljs-comment"># 출력: &quot;hi   &quot;</span>
+<span class="hljs-comment"># 설명: 문자열 &#x27;hi&#x27;를 너비 5에 맞춰 왼쪽 정렬 → 오른쪽에 공백이 생김</span>
+
+<span class="hljs-comment"># rjust(width) - 오른쪽 정렬</span>
+text3 = <span class="hljs-string">&quot;hi&quot;</span>
+<span class="hljs-built_in">print</span>(text3.rjust(<span class="hljs-number">5</span>))
+<span class="hljs-comment"># 출력: &quot;   hi&quot;</span>
+<span class="hljs-comment"># 설명: 문자열 &#x27;hi&#x27;를 너비 5에 맞춰 오른쪽 정렬 → 왼쪽에 공백이 생김</span>
+</code></pre>
+<p>◽  문자열 정렬 메서드 활용
+1️⃣ 표 형태의 출력 정렬 :
+데이터를 보기 좋게 나열할 때 사용 (예: 이름, 점수, 금액 등 출력 정렬)
+2️⃣ 간단한 텍스트 UI 만들기
+제목 가운데 정렬, 표 제목 꾸미기 등
+3️⃣ 문자열 채우기 작업
+숫자/문자 길이를 맞춰 일정한 출력 형식 만들기</p>
+<hr>
+<p>📝 문제 1] 제목 가운데 정렬하기
+문자열 <code>&quot;Chapter 1&quot;</code>을 너비 20으로 설정하여 가운데 정렬된 형태로 출력하세요.  단, 빈 공간은 <code>&quot;-&quot;</code> 문자로 채우세요.</p>
+<p>🌟 힌트:
+<code>center()</code>는 공백 대신 다른 문자로도 채울 수 있습니다.<br>
+<code>text.center(너비, 채울문자)</code> 형태 사용</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">-----Chapter <span class="hljs-number">1</span>------
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">title = <span class="hljs-string">&quot;Chapter 1&quot;</span> 
+<span class="hljs-built_in">print</span>(title.center(<span class="hljs-number">20</span>, <span class="hljs-string">&quot;-&quot;</span>))
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;Chapter 1&quot;</code> 길이 9 → 총 20자리 중 남는 11칸</li>
+<li>왼쪽에 5개, 오른쪽에 6개 <code>-</code>로 채워짐</li>
+</ul>
+<hr>
+<p>📝 문제 2] 오른쪽 정렬로 금액 정렬하기
+다음 금액 리스트에서 각 항목을 <strong>오른쪽 정렬</strong>하여 아래와 같이 출력되도록 하세요.</p>
+<pre><code class="hljs language-python">     <span class="hljs-number">3500</span>
+     <span class="hljs-number">200</span>
+    <span class="hljs-number">10000</span>
+</code></pre>
+<p>🌟 힌트:</p>
+<ul>
+<li>각 숫자를 문자열로 변환한 뒤, <code>rjust()</code>로 너비 6~7 정도로 맞추기</li>
+</ul>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">prices = [<span class="hljs-number">3500</span>, <span class="hljs-number">200</span>, <span class="hljs-number">10000</span>] 
+
+<span class="hljs-keyword">for</span> price <span class="hljs-keyword">in</span> prices:     
+	<span class="hljs-built_in">print</span>(<span class="hljs-built_in">str</span>(price).rjust(<span class="hljs-number">6</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">  <span class="hljs-number">3500</span>
+   <span class="hljs-number">200</span>
+ <span class="hljs-number">10000</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>숫자를 문자열로 바꾼 후 <code>rjust(6)</code> → 6자리 안에서 오른쪽 정렬됨</li>
+</ul>
+<hr>
+<p>📝 문제 3] 좌우 여백을 포함한 꾸민 메시지 출력
+문자열 <code>&quot;Welcome&quot;</code>을 왼쪽 정렬(<code>ljust()</code>),  오른쪽 정렬(<code>rjust()</code>),
+가운데 정렬(<code>center()</code>)로 각각 너비 20에 맞춰 꾸며서 다음과 같이 출력되게 하세요.</p>
+<pre><code class="hljs language-python">Welcome             
+             Welcome
+       Welcome       
+</code></pre>
+<p>🌟 힌트:</p>
+<ul>
+<li>각 정렬 메서드에 너비 20을 지정하면 됩니다.</li>
+<li>공백은 기본값으로 자동 채워짐</li>
+</ul>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;Welcome&quot;</span>
+<span class="hljs-built_in">print</span>(text.ljust(<span class="hljs-number">20</span>))
+<span class="hljs-built_in">print</span>(text.rjust(<span class="hljs-number">20</span>))
+<span class="hljs-built_in">print</span>(text.center(<span class="hljs-number">20</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">Welcome             
+             Welcome
+       Welcome  
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;Welcome&quot;</code>은 길이 7 → 나머지 칸을 공백으로 채워 각각 위치에 정렬됨</li>
+<li>UI 출력, 표 꾸미기에 자주 사용되는 패턴</li>
+</ul>
+<hr>
+<h5>🔹 문자열 찾기</h5>
+<pre><code>문자열 속에서 특정 문자가 어디에 있는지 찾거나, 몇 번 등장했는지를 
+확인할 수 있는 도구입니다.  
+즉, 문자열에서 특정 부분 문자열(단어, 문자 등)의 위치나 개수를 
+알려줍니다.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>find(substr)</code></td>
+<td>왼쪽부터 찾고 인덱스 반환 (없으면 -1)</td>
+<td><code>&quot;apple&quot;.find(&quot;p&quot;)</code> → <code>1</code></td>
+</tr>
+<tr>
+<td><code>rfind(substr)</code></td>
+<td>오른쪽부터 찾고 인덱스 반환</td>
+<td><code>&quot;apple&quot;.rfind(&quot;p&quot;)</code> → <code>2</code></td>
+</tr>
+<tr>
+<td><code>index(substr)</code></td>
+<td><code>find()</code>와 같지만 없으면 오류</td>
+<td><code>&quot;apple&quot;.index(&quot;p&quot;)</code> → <code>1</code></td>
+</tr>
+<tr>
+<td><code>count(substr)</code></td>
+<td>부분 문자열 개수</td>
+<td><code>&quot;apple pie&quot;.count(&quot;p&quot;)</code> → <code>2</code></td>
+</tr>
+<tr>
+<td>&lt;/&gt; 예시코드:</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="hljs language-python"><span class="hljs-comment"># find(substr) - 왼쪽부터 찾아 첫 번째 인덱스 반환, 없으면 -1</span>
+text1 = <span class="hljs-string">&quot;apple&quot;</span>
+result1 = text1.find(<span class="hljs-string">&quot;p&quot;</span>)
+<span class="hljs-built_in">print</span>(result1)
+<span class="hljs-comment"># 출력: 1</span>
+<span class="hljs-comment"># 설명: &#x27;p&#x27;가 처음 등장한 위치는 인덱스 1 (0부터 시작)</span>
+
+<span class="hljs-comment"># ❌실패</span>
+result1_fail = text1.find(<span class="hljs-string">&quot;z&quot;</span>)
+<span class="hljs-built_in">print</span>(result1_fail)
+<span class="hljs-comment"># 출력: -1</span>
+<span class="hljs-comment"># 설명: &#x27;z&#x27;는 존재하지 않으므로 -1 반환</span>
+
+
+<span class="hljs-comment"># rfind(substr) - 오른쪽부터 찾아 첫 번째 인덱스 반환, 없으면 -1</span>
+text2 = <span class="hljs-string">&quot;apple&quot;</span>
+result2 = text2.rfind(<span class="hljs-string">&quot;p&quot;</span>)
+<span class="hljs-built_in">print</span>(result2)
+<span class="hljs-comment"># 출력: 2</span>
+<span class="hljs-comment"># 설명: 오른쪽에서 찾기 때문에 두 번째 &#x27;p&#x27;(인덱스 2)가 반환됨</span>
+
+<span class="hljs-comment"># index(substr) - find()와 같지만, 못 찾으면 오류 발생</span>
+text3 = <span class="hljs-string">&quot;apple&quot;</span>
+result3 = text3.index(<span class="hljs-string">&quot;p&quot;</span>)
+<span class="hljs-built_in">print</span>(result3)
+<span class="hljs-comment"># 출력: 1</span>
+<span class="hljs-comment"># 설명: &#x27;p&#x27;가 처음 등장한 위치는 인덱스 1</span>
+
+<span class="hljs-comment"># ❌오류</span>
+<span class="hljs-comment"># result3_fail = text3.index(&quot;z&quot;)  # 주석 해제 시 오류 발생!</span>
+<span class="hljs-comment"># print(result3_fail)</span>
+<span class="hljs-comment"># 오류: ValueError: substring not found</span>
+<span class="hljs-comment"># 설명: &#x27;z&#x27;는 없기 때문에 예외 발생 → find()와의 차이점</span>
+
+<span class="hljs-comment"># count(substr) - 특정 문자열이 몇 번 나오는지 개수 세기</span>
+text4 = <span class="hljs-string">&quot;apple pie&quot;</span>
+result4 = text4.count(<span class="hljs-string">&quot;p&quot;</span>)
+<span class="hljs-built_in">print</span>(result4)
+<span class="hljs-comment"># 출력: 3</span>
+<span class="hljs-comment"># 설명: &#x27;p&#x27;는 &quot;apple pie&quot;에 3번 등장함</span>
+
+text4 = <span class="hljs-string">&quot;apple pie&quot;</span>
+result4_none = text4.count(<span class="hljs-string">&quot;z&quot;</span>)
+<span class="hljs-built_in">print</span>(result4_none)
+<span class="hljs-comment"># 출력: 0</span>
+<span class="hljs-comment"># 설명: &#x27;z&#x27;는 등장하지 않음 → 0 반환 (오류 없음)</span>
+</code></pre>
+<hr>
+<p>📝 문제 1] 마지막으로 등장한 문자의 위치 찾기
+문자열 <code>&quot;banana banana banana&quot;</code>에서 <strong>마지막으로 등장한 <code>&quot;b&quot;</code>의 위치</strong>를 구하세요.</p>
+<p>🌟 힌트:</p>
+<ul>
+<li><code>rfind()</code>는 <strong>오른쪽부터</strong> 탐색하여 가장 마지막에 나온 위치를 반환합니다.</li>
+</ul>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;banana banana banana&quot;</span> 
+<span class="hljs-built_in">print</span>(text.rfind(<span class="hljs-string">&quot;b&quot;</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">14</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;b&quot;</code>는 세 번 등장하며, 마지막 <code>&quot;b&quot;</code>는 <code>&quot;banana&quot;</code> 세 번째에서 시작 → 인덱스 14</li>
+</ul>
+<hr>
+<p>📝 문제 2] 특정 단어가 존재하는지 확인하고 처리하기
+문자열 <code>&quot;access denied&quot;</code>에서 <code>&quot;success&quot;</code>라는 단어가 존재하지 않을 경우,<br>
+<code>&quot;단어 없음&quot;</code>을 출력하고, 있을 경우 해당 인덱스를 출력하세요.</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">단어 없음
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;access denied&quot;</span> 
+index = text.find(<span class="hljs-string">&quot;success&quot;</span>)  
+
+<span class="hljs-keyword">if</span> index == -<span class="hljs-number">1</span>:     
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;단어 없음&quot;</span>) 
+<span class="hljs-keyword">else</span>:     
+	<span class="hljs-built_in">print</span>(index)
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;success&quot;</code>는 문자열에 없으므로 <code>find()</code>는 -1을 반환 → 조건문에서 걸러냄</li>
+</ul>
+<hr>
+<p>📝 문제 3] 문자열에서 단어의 개수 세기
+문자열 <code>&quot;red, green, red, blue, red&quot;</code>에서 <code>&quot;red&quot;</code>라는 단어가 <strong>몇 번 나오는지</strong> 출력하세요.</p>
+<p>◽ 보충설명:
+<code>count()</code>는 문자열 안에서 <strong>해당 단어가 몇 번 나오는지</strong> 알려줍니다.</p>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">colors = <span class="hljs-string">&quot;red, green, red, blue, red&quot;</span> 
+<span class="hljs-built_in">print</span>(colors.count(<span class="hljs-string">&quot;red&quot;</span>))
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-number">3</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;red&quot;</code>는 총 3번 등장 → <code>count(&quot;red&quot;)</code>는 3 반환</li>
+</ul>
+<hr>
+<h5>🔹 형식 지정</h5>
+<pre><code>형식 지정 메서드는 문자열 안에 {}를 넣고,  
+그 자리에 값을 자동으로 채워주는 문자열 기능이에요.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format()</code></td>
+<td>문자열에 변수 삽입</td>
+<td><code>&quot;{}점입니다&quot;.format(100)</code> → <code>&quot;100점입니다&quot;</code></td>
+</tr>
+<tr>
+<td><code>format_map(dict)</code></td>
+<td>딕셔너리를 이용한 포맷</td>
+<td><code>&quot;{name}&quot;.format_map({&quot;name&quot;: &quot;Tom&quot;})</code> → <code>&quot;Tom&quot;</code></td>
+</tr>
+<tr>
+<td>◽ format_map(dict)함수</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<pre><code>딕셔너리에서 키에 해당하는 값을 꺼내서,  문자열의 `{}` 자리에 채워주는 포맷팅 함수입니다.
+</code></pre>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python">info = {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tom&quot;</span>, <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">25</span>}
+result = <span class="hljs-string">&quot;이름: {name}, 나이: {age}&quot;</span>.format_map(info)
+<span class="hljs-built_in">print</span>(result)
+</code></pre>
+<p>🖨️ 출력 결과</p>
+<pre><code class="hljs language-python">이름: Tom, 나이: <span class="hljs-number">25</span>
+</code></pre>
+<p>🔍 해설</p>
+<ul>
+<li><code>{name}</code>과 <code>{age}</code>는 비어 있는 자리(포맷 문자열)입니다.</li>
+<li><code>format_map(info)</code>는 딕셔너리 <code>info</code>에서 값을 찾아서 <code>{name}</code> → <code>&quot;Tom&quot;</code>, <code>{age}</code> → <code>25</code>로 채워줍니다.</li>
+<li>딕셔너리에 키와 일치하는 항목이 없으면 오류가 발생하므로 주의해야 합니다.</li>
+</ul>
+<p>◽ format_map( ) VS format( ) 차이점
+<code>format()</code>은 자유도가 높고 다양한 인자 전달 가능,<br>
+<code>format_map()</code>은 딕셔너리 하나로 빠르게 포맷할 때 유용.</p>
+<hr>
+<p>📝 문제 1] 사용자 정보 포맷 출력하기
+딕셔너리 <code>user = {&quot;name&quot;: &quot;Alice&quot;, &quot;job&quot;: &quot;Engineer&quot;}</code>를 이용하여<br>
+문장 <code>&quot;이름: {name}, 직업: {job}&quot;</code>의 <code>{}</code> 부분을 <code>format_map()</code>으로 채워 출력하세요.</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">이름: Alice, 직업: Engineer
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">user = {<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Alice&quot;</span>, <span class="hljs-string">&quot;job&quot;</span>: <span class="hljs-string">&quot;Engineer&quot;</span>} 
+
+sentence = <span class="hljs-string">&quot;이름: {name}, 직업: {job}&quot;</span> 
+<span class="hljs-built_in">print</span>(sentence.format_map(user))
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>format_map()</code>은 <code>user</code> 딕셔너리의 값을 가져와 <code>{name}</code>과 <code>{job}</code>에 각각 <code>&quot;Alice&quot;</code>와 <code>&quot;Engineer&quot;</code>를 채워 넣습니다.</li>
+</ul>
+<hr>
+<p>📝 문제 2] 누락된 키에 대한 오류 상황 다루기
+딕셔너리 <code>data = {&quot;title&quot;: &quot;Python&quot;}</code>가 주어졌을 때,<br>
+문장 <code>&quot;제목: {title}, 작성자: {author}&quot;</code>를 <code>format_map()</code>으로 출력하면 어떤 일이 발생할까요?   오류가 발생하는 이유와 함께, 이를 해결하는 방법을 작성하세요.</p>
+<p>🌟 힌트:</p>
+<ul>
+<li><code>format_map()</code>은 <code>{}</code> 안의 키가 딕셔너리에 없으면 <code>KeyError</code>를 발생시킵니다.</li>
+<li><code>collections.defaultdict</code> 또는 <code>dict subclass</code>를 활용하면 오류 없이 처리할 수 있습니다.</li>
+</ul>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">제목: Python, 작성자: &lt;author 없음&gt;
+</code></pre>
+<p>✅ 정답 코드 (해결 방법 포함):</p>
+<pre><code class="hljs language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SafeDict</span>(<span class="hljs-title class_ inherited__">dict</span>):     
+	<span class="hljs-keyword">def</span> <span class="hljs-title function_">__missing__</span>(<span class="hljs-params">self, key</span>):         
+		<span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;&lt;<span class="hljs-subst">{key}</span> 없음&gt;&quot;</span>  
+		
+data = {<span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;Python&quot;</span>} 
+template = <span class="hljs-string">&quot;제목: {title}, 작성자: {author}&quot;</span> 
+
+<span class="hljs-built_in">print</span>(template.format_map(SafeDict(data)))
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>원래는 <code>KeyError: 'author'</code>가 발생합니다.</li>
+<li><code>SafeDict</code>는 없는 키가 오면 <code>&lt;키 없음&gt;</code>으로 대신 채워주므로 오류 없이 출력됩니다.</li>
+<li>실무에서는 <strong>포맷 문자열에 누락 키가 있을 가능성</strong>이 있을 때 이렇게 처리합니다.</li>
+</ul>
+<hr>
+<h5>🔹 인코딩</h5>
+<pre><code>encode()는 문자열(사람이 읽을 수 있는 글자)을 바이트(컴퓨터가 읽는
+숫자 코드)로 바꾸는 작업입니다.
+decode()는 바이트 데이터를 다시 문자열로 되돌리는 작업입니다.
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>메서드</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>encode()</code></td>
+<td>문자열을 바이트로 인코딩</td>
+<td><code>&quot;한글&quot;.encode()</code> → <code>b'\xed\x95\x9c\xea\xb8\x80'</code></td>
+</tr>
+<tr>
+<td><code>decode()</code></td>
+<td>바이트를 문자열로 디코딩</td>
+<td><code>b'\xed\x95\x9c\xea\xb8\x80'.decode()</code> → <code>&quot;한글&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<p>&lt;/&gt;예시코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-comment"># 문자열을 바이트로 인코딩 (encode)</span>
+text = <span class="hljs-string">&quot;한글&quot;</span>
+encoded = text.encode()
+<span class="hljs-built_in">print</span>(encoded)
+<span class="hljs-comment"># 출력: b&#x27;\xed\x95\x9c\xea\xb8\x80&#x27;</span>
+<span class="hljs-comment"># 설명:</span>
+<span class="hljs-comment"># - 문자열 &quot;한글&quot;을 컴퓨터가 이해할 수 있는 바이트 형태로 바꿈</span>
+<span class="hljs-comment"># - 앞의 b는 바이트라는 뜻 (binary data)</span>
+<span class="hljs-comment"># - 각 \x코드는 16진수로 표현된 문자 조각</span>
+
+<span class="hljs-comment"># 바이트를 다시 문자열로 디코딩 (decode)</span>
+decoded = encoded.decode()
+<span class="hljs-built_in">print</span>(decoded)
+<span class="hljs-comment"># 출력: 한글</span>
+<span class="hljs-comment"># 설명:</span>
+<span class="hljs-comment"># - 위에서 인코딩한 바이트 데이터를 다시 사람이 읽을 수 있는 글자(문자열)로 변환</span>
+<span class="hljs-comment"># - 결과적으로 원래의 문자열과 동일해짐</span>
+</code></pre>
+<p>◽ 인코딩 활용:
+1️⃣ 파일 저장/읽기
+텍스트를 파일에 저장할 때는 내부적으로 바이트로 인코딩됩니다.
+다시 읽을 때는 디코딩하여 사람이 읽을 수 있는 글자로 변환합니다.</p>
+<p>2️⃣ 네트워크 통신
+웹 서버나 API는 문자 대신 바이트 데이터를 주고받습니다.
+데이터를 주고받을 때 인코딩/디코딩이 필수입니다.</p>
+<p>3️⃣ 암호화, 해시(Hash) 처리 전
+문자열을 암호화하거나 해시할 때도 바이트로 인코딩해야 합니다.</p>
+<hr>
+<p>📖 용어설명:</p>
+<ul>
+<li>
+<p>암호화(Encryption):
+사람이 읽을 수 있는 데이터(평문)를 특정 규칙(알고리즘)에 따라 읽을 수 없게 변환(암호문)했다 다시 복원(decryption)할수 있는것</p>
+</li>
+<li>
+<p>해시 (Hash):
+어떤 데이터를 넣으면, 고정된 길이의 고유한 요약 값(지문)을 만들어내는 함수</p>
+</li>
+<li>
+<p><code>encode()</code>는 문자열 → 바이트 (보낼 때, 저장할 때)</p>
+</li>
+<li>
+<p><code>decode()</code>는 바이트 → 문자열 (받을 때, 읽을 때)</p>
+</li>
+</ul>
+<p>&lt;/&gt; 예시코드:</p>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot;hello&quot;</span> → 해시 → aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d...
+</code></pre>
+<p>◽  해시는 어디에 사용되나요?</p>
+<ul>
+<li>비밀번호저장</li>
+<li>파일 무결성 검사</li>
+<li>블록체인 구조</li>
+<li>데이터 위변조 감지</li>
+</ul>
+<hr>
+<p>◽ 기본 개념: 메서드 체이닝 (method chaining)
+&quot;문자열&quot;.메서드( ).메서드( ) 처럼 연결해서 쓸수 있는것</p>
+<p>단, 앞 메서드의 결과가 다음 메서드를 쓸 수 있는 자료형이어야 합니다.<br>
+예: 문자열 메서드끼리는 대부분 가능합니다.</p>
+<p>❌ 예시 2: 불가능한 경우 (비문자열 반환)</p>
+<pre><code class="hljs language-python">email = <span class="hljs-string">&quot;user01@gmail.com&quot;</span>
+<span class="hljs-comment"># 아래는 오류 발생</span>
+<span class="hljs-comment"># email.partition(&quot;@&quot;).lower()  ❌</span>
+
+<span class="hljs-comment"># 튜플 반환: (&#x27;user01&#x27;, &#x27;@&#x27;, &#x27;gmail.com&#x27;)</span>
+</code></pre>
+<p>🔍 이유:</p>
+<ul>
+<li><code>partition(&quot;@&quot;)</code>의 반환값은 <strong>튜플</strong></li>
+<li>튜플에는 <code>lower()</code>가 없음 → 에러 발생</li>
+</ul>
+<hr>
+<p>◽ 문자열 메서드 체이닝 조합</p>
+<ul>
+<li><strong><code>strip().lower()</code></strong><br>
+→ 공백을 제거하고 소문자로 변환</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot; Hello    &quot;</span>.strip().lower()  <span class="hljs-comment"># &#x27;hello&#x27;</span>
+</code></pre>
+<ul>
+<li><strong><code>strip().upper()</code></strong><br>
+→ 공백 제거 후 대문자로 변환</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot; Hi &quot;</span>.strip().upper()  <span class="hljs-comment"># &#x27;HI&#x27;</span>
+</code></pre>
+<ul>
+<li><strong><code>strip().capitalize()</code></strong><br>
+→ 공백 제거 후 첫 글자만 대문자로</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot; hello world &quot;</span>.strip().capitalize()  <span class="hljs-comment"># &#x27;Hello world&#x27;</span>
+</code></pre>
+<ul>
+<li><strong><code>strip().title()</code></strong><br>
+→ 공백 제거 후 각 단어의 첫 글자를 대문자로</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot; hello world &quot;</span>.strip().title()  <span class="hljs-comment"># &#x27;Hello World&#x27;</span>
+</code></pre>
+<ul>
+<li><strong><code>lower().replace(&quot;old&quot;, &quot;new&quot;)</code></strong><br>
+→ 소문자 변환 후 특정 단어 치환</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot;HELLO Python&quot;</span>.lower().replace(<span class="hljs-string">&quot;hello&quot;</span>, <span class="hljs-string">&quot;hi&quot;</span>)  <span class="hljs-comment"># &#x27;hi python&#x27;</span>
+</code></pre>
+<ul>
+<li><strong><code>replace().strip()</code></strong><br>
+→ 특정 문자를 제거하고 공백도 제거</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot;@@test@@&quot;</span>.replace(<span class="hljs-string">&quot;@&quot;</span>, <span class="hljs-string">&quot;&quot;</span>).strip()  <span class="hljs-comment"># &#x27;test&#x27;</span>
+</code></pre>
+<ul>
+<li><strong><code>strip().split(&quot;,&quot;)</code></strong><br>
+→ 공백 제거 후 쉼표 기준으로 리스트 분할</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot; apple,banana &quot;</span>.strip().split(<span class="hljs-string">&quot;,&quot;</span>)  <span class="hljs-comment"># [&#x27;apple&#x27;, &#x27;banana&#x27;]</span>
+</code></pre>
+<ul>
+<li><strong><code>replace().title()</code></strong><br>
+→ 단어 변경 후 각 단어 첫 글자 대문자</li>
+</ul>
+<pre><code class="hljs language-python"><span class="hljs-string">&quot;hello_world&quot;</span>.replace(<span class="hljs-string">&quot;_&quot;</span>, <span class="hljs-string">&quot; &quot;</span>).title()  <span class="hljs-comment"># &#x27;Hello World&#x27;</span>
+</code></pre>
+<hr>
+<h6>◽ 문자열 연결 방법 비교</h6>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>설명</th>
+<th>속도</th>
+<th>용도</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code> 연산자</td>
+<td>문자열끼리 직접 더함</td>
+<td>느림 (많은 문자열 처리 시)</td>
+<td>간단한 연결</td>
+<td><code>&quot;안녕&quot; + &quot;하세요&quot;</code></td>
+</tr>
+<tr>
+<td><code>join()</code> 함수</td>
+<td>리스트나 튜플 안의 여러 문자열을 한 줄로 합침</td>
+<td>빠름 (많은 문자열 처리 시 최적)</td>
+<td>대량 문자열 연결</td>
+<td><code>&quot;, &quot;.join([&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])</code></td>
+</tr>
+<tr>
+<td><code>f-string</code></td>
+<td>변수와 문자열을 함께 표현</td>
+<td>빠름</td>
+<td>포맷팅이 필요한 경우</td>
+<td><code>f&quot;이름: {name}&quot;</code></td>
+</tr>
+<tr>
+<td><code>%</code> 포맷팅</td>
+<td>옛날 방식 포맷팅</td>
+<td>느림</td>
+<td>오래된 코드에서 사용</td>
+<td><code>&quot;이름: %s&quot; % name</code></td>
+</tr>
+<tr>
+<td><code>.format()</code></td>
+<td>포맷팅 함수</td>
+<td>보통</td>
+<td>Python 3의 대표 포맷팅</td>
+<td><code>&quot;이름: {}&quot;.format(name)</code></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>1️⃣ <code>+</code> 연산자: 문자열끼리 직접 더함</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;영희&quot;</span>
+greeting = <span class="hljs-string">&quot;안녕하세요, &quot;</span> + name + <span class="hljs-string">&quot;입니다.&quot;</span>
+<span class="hljs-built_in">print</span>(greeting)
+</code></pre>
+<p>🖨️ 출력:</p>
+<pre><code class="hljs language-python">안녕하세요, 영희입니다.
+</code></pre>
+<hr>
+<p>2️⃣ <code>join()</code> 함수: 여러개 문자열 데이터가 한개로 합쳐짐</p>
+<pre><code class="hljs language-python">words = [<span class="hljs-string">&quot;파이썬&quot;</span>, <span class="hljs-string">&quot;정말&quot;</span>, <span class="hljs-string">&quot;재미있다&quot;</span>]
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot; &quot;</span>.join(words))
+</code></pre>
+<p>🖨️ 출력:</p>
+<pre><code class="hljs language-python">파이썬 정말 재미있다
+</code></pre>
+<hr>
+<p>3️⃣ <code>f-string</code>: 변수와 문자열을 함께 표현</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;철수&quot;</span>
+age = <span class="hljs-number">20</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">{name}</span>는 <span class="hljs-subst">{age}</span>살입니다.&quot;</span>)
+</code></pre>
+<p>🖨️ 출력:</p>
+<pre><code class="hljs language-python">철수는 <span class="hljs-number">20</span>살입니다.
+</code></pre>
+<p>4️⃣ <code>.format()</code> 방식: <code>{}</code>를 사용해 문자열에 값을 넣는 방식</p>
+<pre><code class="hljs language-python">template = <span class="hljs-string">&quot;이름: {}, 나이: {}&quot;</span>
+<span class="hljs-built_in">print</span>(template.<span class="hljs-built_in">format</span>(<span class="hljs-string">&quot;지영&quot;</span>, <span class="hljs-number">22</span>))
+</code></pre>
+<p>🖨️ 출력:</p>
+<pre><code class="hljs language-python">이름: 지영, 나이: <span class="hljs-number">22</span>
+</code></pre>
+<hr>
+<p>5️⃣ <code>%</code> 포맷팅 방식: C 언어에서 유래한 오래된 방식</p>
+<pre><code class="hljs language-python">name = <span class="hljs-string">&quot;철수&quot;</span>
+age = <span class="hljs-number">25</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;이름: %s, 나이: %d&quot;</span> % (name, age))
+</code></pre>
+<p>🧾 보충설명:
+가독성이 떨어지도 느려서 현재 파이썬에서는 덜 권장되는 방식입니다.</p>
+<hr>
+<h3>🔹 문자열과 in연산자</h3>
+<pre><code>in 연산자는 어떤 값이 포함되어 있는지 확인할 때 사용하는 연산자입니
+다. 문자열에서 in을 사용하면, 특정 문자가 포함되어 있는지 여부를 
+True 또는 False로 반환합니다.
+&quot;a&quot; in &quot;apple&quot; → True
+&quot;z&quot; in &quot;apple&quot; → False
+</code></pre>
+<p>&lt;/&gt; 예시코드:  문자열 포함 여부 확인</p>
+<pre><code class="hljs language-python">	text = <span class="hljs-string">&quot;Python is easy!&quot;</span>
+
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Python&quot;</span> <span class="hljs-keyword">in</span> text)
+	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;java&quot;</span> <span class="hljs-keyword">in</span> text)
+</code></pre>
+<p>🖨️ 출력결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-literal">True</span> 
+<span class="hljs-literal">False</span>
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li><code>&quot;Python&quot;</code>이라는 단어가 <code>text</code> 안에 있으므로 → <code>True</code></li>
+<li><code>&quot;java&quot;</code>는 없으므로 → <code>False</code></li>
+<li>==대소문자를 구분==하므로 <code>&quot;python&quot;</code>과 <code>&quot;Python&quot;</code>은 다릅니다!</li>
+</ul>
+<hr>
+<p>📝 문제1] 문자열 <code>&quot;Hello, Django!&quot;</code>에 <code>&quot;Django&quot;</code>가 포함되어 있는지 확인하세요.</p>
+<pre><code class="hljs language-python">msg = <span class="hljs-string">&quot;Hello, Django!&quot;</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Django&quot;</span> <span class="hljs-keyword">in</span> msg)
+</code></pre>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python"><span class="hljs-literal">True</span>
+</code></pre>
+<hr>
+<p>📝 문제2] 사용자에게 입력받은 문장에 <code>&quot;love&quot;</code>가 포함되어 있는지 출력해보세요.</p>
+<p>🖨️ 출력 결과 (예시 입력: <code>&quot;I love Python&quot;</code>):</p>
+<pre><code class="hljs language-python">love가 포함되어 있나요? <span class="hljs-literal">True</span>
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">sentence = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;문장을 입력하세요: &quot;</span>) 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;love가 포함되어 있나요?&quot;</span>, <span class="hljs-string">&quot;love&quot;</span> <span class="hljs-keyword">in</span> sentence)
+</code></pre>
+<p>🔍 해설:</p>
+<ul>
+<li>사용자가 입력한 문장 중 <code>&quot;love&quot;</code>라는 단어가 있으면 <code>True</code>, 없으면 <code>False</code></li>
+</ul>
+<hr>
+<p>📝 문제3] 문자열 <code>&quot;DataScience&quot;</code>에 <code>&quot;data&quot;</code>가 포함되어 있는지 확인하되,
+대소문자 구분 없이 비교하세요.
+text = &quot;DataScience&quot;</p>
+<p>🖨️ 출력 결과:</p>
+<pre><code class="hljs language-python">data가 포함되어 있나요? <span class="hljs-literal">True</span>
+</code></pre>
+<p>✅ 정답 코드:</p>
+<pre><code class="hljs language-python">text = <span class="hljs-string">&quot;DataScience&quot;</span> 
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;data가 포함되어 있나요?&quot;</span>, <span class="hljs-string">&quot;data&quot;</span> <span class="hljs-keyword">in</span> text.lower())
+</code></pre>
+<p>🔍 해설:
+<code>lower()</code>를 사용해 문자열을 모두 소문자로 통일한 뒤, <code>&quot;data&quot;</code>가 포함되어 있는지 확인합니다.</p>
+
+    </main>
+  </div>
+  <footer>
+    <div class="footer-content">
+      ⓒ 2025 PyDjango Note. All rights reserved.
+    </div>
+  </footer>
+  <a id="topBtn" href="#">TOP</a>
+  <script>
+    lang = 'python';
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+
+  <script>
+fetch('../search-index.json')
+  .then(res => res.json())
+  .then(data => {
+    const input = document.getElementById('search-input');
+    const results = document.getElementById('search-results');
+
+    input.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      results.innerHTML = '';
+      if (query.length === 0) return;
+
+      const matched = data.filter(item => item.title.toLowerCase().includes(query));
+      matched.forEach(item => {
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="../${item.path}" class="hover:underline">${item.title}</a>`;
+        results.appendChild(li);
+      });
+    });
+  });
+</script>
+
 </body>
 </html>

@@ -2,10 +2,10 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📝문제 | Django 강의노트</title>
+  <title>🅿️미니프로젝트2 | Django 강의노트</title>
   <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no" />
-  <meta name="description" content="📝문제에 대한 Django 및 Python 강의 내용 정리">
-  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, 📝문제">
+  <meta name="description" content="🅿️미니프로젝트2에 대한 Django 및 Python 강의 내용 정리">
+  <meta name="keywords" content="Python, Django, 강의, 웹개발, 학습, 노트, 🅿️미니프로젝트2">
   <meta name="author" content="macaronics.net">
   <meta name="robots" content="index, follow">
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
@@ -99,166 +99,168 @@
 
 
     <main>
-      <h1>📝문제 | Django 강의노트</h1>
-      <h2>💼 프로젝트 문서: WorkLogCard_PY_v2</h2>
-<p><strong>코드명</strong>: <code>WorkLogCard_PY_v2</code><br>
-<strong>사용 언어</strong>: Python (PY)<br>
-<strong>버전</strong>: v2</p>
-<hr>
+      <h1>🅿️미니프로젝트2 | Django 강의노트</h1>
+      <p>프로젝트 코드명: `AUTO_TXT_REPO_GEN_PY_v2<br>
+프로젝트 유형:  복습을 위한 미니 프로젝트</p>
+<pre><code class="hljs language-python">코드명: AUTO_TXT_REPO_GEN_PY_v2
+텍스트 리포트 자동(Automatic text report): AUTO_TXT_REPO
+Generator (생성기) 또는 Generation : GEN
+사용언어 Python: PY
+버전 번호 : v2
+</code></pre>
 <h3>🖥️ 프로젝트 개요</h3>
-<p>사용자로부터 <strong>작성일자</strong>, <strong>담당업무</strong>, <strong>업무내용</strong>, <strong>담당자 이름</strong>을 입력받아<br>
-문자열 가공을 통해 <strong>콘솔 기반의 깔끔한 업무일지</strong>를 생성하는 프로젝트입니다.</p>
-<p><strong>주요 기능 요소:</strong></p>
+<pre><code>본 프로젝트는 사용자의 이름, 나이, 이메일, 연락처 정보를 입력받아  
+자동으로 포맷팅된 텍스트 리포트를 생성하여 콘솔에 출력하는 Python 
+기초 문법 종합 실습 과제입니다.
+</code></pre>
+<p>◽ 이 프로젝트를 통해 다음 내용을 자연스럽게 적용합니다:</p>
 <ul>
-<li>
-<p>문자열 슬라이싱</p>
-</li>
-<li>
-<p>대소문자 처리 (<code>capitalize()</code> 등)</p>
-</li>
-<li>
-<p>공백 제거 (<code>strip()</code>)</p>
-</li>
-<li>
-<p>문자열 길이 측정 (<code>len()</code>)</p>
-</li>
-<li>
-<p>포맷 정리 및 예외 처리</p>
-</li>
+<li>입력/처리/출력의 흐름 제어</li>
+<li>변수 선언 및 네이밍 규칙 준수</li>
+<li>표현식, 문장, 주석, 자료형 변환, 산술/비교/논리 연산자 활용</li>
+<li>문자열 메서드(대소문자 변환, 공백 제거, 문자열 찾기, 문자열 자르기) 실습</li>
+<li>예외 처리(ValueError, IndexError) 및 안전한 입력 처리</li>
+<li>출력 포맷(f-string 및 format 함수) 설계</li>
 </ul>
-<p>📌 본 프로젝트를 통해 실습되는 문법:</p>
-<ul>
-<li>
-<p>문자열 연결 (<code>+</code>, <code>f-string</code>)</p>
-</li>
-<li>
-<p>슬라이싱과 인덱싱 (<code>[:n]</code>)</p>
-</li>
-<li>
-<p>문자열 메서드 (<code>strip()</code>, <code>capitalize()</code> 등)</p>
-</li>
-<li>
-<p>이스케이프 문자 (<code>\n</code>, <code>\t</code>)</p>
-</li>
-<li>
-<p>여러 줄 문자열 (<code>&quot;&quot;&quot;...&quot;&quot;&quot;</code>)</p>
-</li>
-<li>
-<p>IndexError 예외 방지 처리</p>
-</li>
-</ul>
-<hr>
+<p>최종 출력은 사용자의 입력값을 바탕으로 문자열 분석, 연산 결과, 형식 검증을 수행하여  조건문과 리스트 처리 기능을 포함한 <strong>구조화된 리포트 형태</strong>로 완성되어야 합니다.</p>
 <h3>📄 기능 요구사항 (Functional Requirements)</h3>
+<table>
+<thead>
+<tr>
+<th>기능 ID ....</th>
+<th>기능 설명</th>
+<th>세부 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FR-01</td>
+<td>사용자 입력 수집</td>
+<td>이름, 나이, 이메일, 휴대폰 번호 입력받기</td>
+</tr>
+<tr>
+<td>FR-02</td>
+<td>입력값 분석</td>
+<td>문자열의 길이, 구성 체크, 형식 분석 등 수행</td>
+</tr>
+<tr>
+<td>FR-03</td>
+<td>문자열 처리</td>
+<td>strip, upper, lower, split, find, count 등 사용</td>
+</tr>
+<tr>
+<td>FR-04</td>
+<td>숫자 연산 처리</td>
+<td>나이 기반 사칙연산, 제곱, 나머지 계산 등 포함</td>
+</tr>
+<tr>
+<td>FR-05</td>
+<td>복합 대입 연산 사용 ............</td>
+<td>나이에 +1, *2 등의 누적 연산 적용</td>
+</tr>
+<tr>
+<td>FR-06</td>
+<td>포맷팅 출력</td>
+<td><code>format()</code> 또는 f-string 활용하여 정보 요약 출력</td>
+</tr>
+<tr>
+<td>FR-07</td>
+<td>예외 처리 구현</td>
+<td>나이 입력이 정수가 아닐 경우 ValueError 처리, 인덱스 접근 시 IndexError 처리</td>
+</tr>
+<tr>
+<td>FR-08</td>
+<td>요약 리포트 출력</td>
+<td>처리된 결과를 카드 형태로 출력</td>
+</tr>
+</tbody>
+</table>
+<h3>📄  비기능 요구사항 (Non-Functional</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>코드 스타일</td>
+<td>주석 5줄 이상, 적절한 식별자명, 들여쓰기 준수</td>
+</tr>
+<tr>
+<td>가독성</td>
+<td>줄바꿈, 시각적 구조화, 공백 정리</td>
+</tr>
+<tr>
+<td>에러 핸들링</td>
+<td>ValueError, IndexError 최소 1회 처리</td>
+</tr>
+<tr>
+<td>출력 포맷</td>
+<td>텍스트 기반 리포트 구조 유지 (구분선 포함)</td>
+</tr>
+</tbody>
+</table>
+<h3>🔀 작업가이드</h3>
+<p>1️⃣ 사용자 입력 처리</p>
 <ul>
-<li>
-<p><strong>FR-01</strong>: 작성일자, 담당업무, 업무내용, 담당자 이름을 사용자로부터 입력받는다.</p>
-</li>
-<li>
-<p><strong>FR-02</strong>: 업무내용이 20자 이상일 경우, 앞의 20자까지만 출력한다.</p>
-</li>
-<li>
-<p><strong>FR-03</strong>: 담당업무는 첫 글자만 대문자로 출력한다 (<code>capitalize</code>).</p>
-</li>
-<li>
-<p><strong>FR-04</strong>: 업무일지를 카드 형태로 보기 좋게 출력한다.</p>
-</li>
+<li>이름, 나이, 이메일, 연락처를 입력받기</li>
+<li>나이는 정수형으로 형 변환 (<code>int()</code>)</li>
+<li>이메일은 '@'를 기준으로 ID와 도메인 분리 처리 (<code>split(&quot;@&quot;)</code>)</li>
+<li>연락처는 문자열 그대로 입력받고 나중에 포맷 가공</li>
+</ul>
+<p>2️⃣ 데이터 가공</p>
+<ul>
+<li>이름을 모두 대문자로 변환 (<code>upper()</code>)</li>
+<li>이름 길이 구하기 (<code>len()</code>)</li>
+<li>이름의 첫 글자 추출 (<code>name[0]</code>)</li>
+<li>나이에 5를 더한 값 계산 (<code>user_age + 5</code>)</li>
+<li>나이 제곱값 계산 (<code>user_age ** 2</code>)</li>
+<li>나이를 4로 나눈 몫과 나머지 계산 (<code>//</code>, <code>%</code>)</li>
+<li>이메일 ID 길이 계산 (<code>len(id_part)</code>)</li>
+<li>연락처 문자열에서 국번과 개인번호 추출 (<code>split(&quot;-&quot;)</code> 또는 인덱싱)</li>
 </ul>
 <hr>
-<h3>📄 비기능 요구사항 (Non-Functional Requirements)</h3>
+<p>3️⃣ 데이터 검증 및 예외 처리</p>
 <ul>
-<li>
-<p>줄바꿈(<code>\n</code>) 및 탭(<code>\t</code>)을 사용해 가독성 높이기</p>
-</li>
-<li>
-<p>업무내용과 담당업무 각각의 <strong>문자열 길이</strong> 출력</p>
-</li>
-<li>
-<p>입력값에 존재할 수 있는 <strong>불필요한 공백 제거 (<code>strip()</code>)</strong></p>
-</li>
-<li>
-<p><strong>IndexError 예외 처리</strong>를 포함한 안정성 고려</p>
-</li>
+<li>나이 입력이 숫자가 아닐 경우 <code>ValueError</code> 처리</li>
+<li>이메일 입력에 '@'가 없을 경우 <code>IndexError</code> 처리</li>
 </ul>
 <hr>
-<h3>🔀 작업 가이드</h3>
-<h4>1️⃣ 사용자 입력 처리</h4>
-<pre><code class="hljs language-python">date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 작성일을 입력하세요 (예: 2025-05-06): &quot;</span>).strip()
-task = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당 업무를 입력하세요: &quot;</span>).strip()
-content = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 내용을 입력하세요: &quot;</span>).strip()
-name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당자 이름을 입력하세요: &quot;</span>).strip()
-</code></pre>
-<h4>2️⃣ 문자열 가공 및 출력 처리</h4>
-<pre><code class="hljs language-python">task = task.capitalize()
-content_summary = content[:<span class="hljs-number">20</span>] <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(content) &gt; <span class="hljs-number">20</span> <span class="hljs-keyword">else</span> content
-
-<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;&quot;&quot;
-============================== 📋 업무일지 카드 ------------------------------
-작성일자: {}
-담당 업무: {}
-업무 내용: {}
-업무 내용 길이: {}자
-담당 업무 길이: {}자
-담당자 이름: {}
-===============================
-&quot;&quot;&quot;</span>.<span class="hljs-built_in">format</span>(date, task, content_summary, <span class="hljs-built_in">len</span>(content), <span class="hljs-built_in">len</span>(task), name))
-</code></pre>
-<pre><code class="hljs language-python">  
-
-date = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 작성일을 입력하세요 (예: 2025-05-06): &quot;</span>).strip()
-task = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당 업무를 입력하세요: &quot;</span>).strip()
-content = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;업무 내용을 입력하세요: &quot;</span>).strip()
-name = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;담당자 이름을 입력하세요: &quot;</span>).strip()
-
-<span class="hljs-keyword">try</span>:
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;==============================&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;📋 업무일지 카드&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;------------------------------&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;작성일자 :&quot;</span>, date)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;담당 업무 :&quot;</span>, task.capitalize())
-
-   <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(content[:<span class="hljs-number">20</span>]) &gt;= <span class="hljs-number">20</span>:
-       <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;업무 내용 :&quot;</span>, content[:<span class="hljs-number">20</span>])    
-   <span class="hljs-keyword">else</span>:
-      <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;업무 내용 :&quot;</span>, content)
-
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;업무 내용 길이 : <span class="hljs-subst">{<span class="hljs-built_in">len</span>(content)}</span>자&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;담당 업무 길이 : <span class="hljs-subst">{<span class="hljs-built_in">len</span>(task)}</span>자&quot;</span>)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;담당자 이름 :&quot;</span>, name)
-   <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;==============================&quot;</span>)
-
-<span class="hljs-keyword">except</span> IndexError <span class="hljs-keyword">as</span> e:
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;오류 발생: <span class="hljs-subst">{e}</span>&quot;</span>)
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;입력값을 확인해주세요.&quot;</span>)
-</code></pre>
-<hr>
-<h3>🖨️ 출력 예시 (Console)</h3>
-<pre><code class="hljs language-python">============================== 📋 업무일지 카드 ------------------------------
-작성일자: <span class="hljs-number">2025</span>-05-06
-담당 업무: 장고개발
-업무 내용: 오늘 수행한 업무는 API 개발이였다.
-업무 내용 길이: <span class="hljs-number">21</span>자
-담당 업무 길이: <span class="hljs-number">4</span>자
-담당자 이름: 이유정
-===============================
-</code></pre>
-<hr>
-<p>✅ <strong>Tip</strong>: <code>strip()</code>은 문자열의 앞뒤 공백을 제거합니다. 중간 공백까지 제거하려면 <code>replace(&quot; &quot;, &quot;&quot;)</code>나 정규표현식을 추가로 사용해야 합니다.</p>
-<hr>
-<p>🧩 더 확장하고 싶다면?</p>
+<p>4️⃣ 리포트 출력 구성</p>
 <ul>
-<li>
-<p>파일 저장 기능 추가 (<code>with open()</code>)</p>
-</li>
-<li>
-<p>여러 건 입력 받아 리스트로 출력하기</p>
-</li>
-<li>
-<p>GUI 버전으로 확장 (예: Tkinter)</p>
-</li>
-<li>
-<p>날짜 유효성 검사 추가 (<code>datetime</code> 모듈 활용)</p>
-</li>
+<li>구분선(<code>=====</code>) 삽입</li>
+<li>이름/나이/취미/이메일/연락처 요약 출력</li>
+<li>분석 결과(문자열 길이, 도메인, 나이 계산 결과 등) 포함</li>
+<li>사용자 친화적 메시지 추가 (예: &quot;데이터 분석 완료!&quot;)</li>
 </ul>
+<p>5️⃣ 출력 포맷 구성</p>
+<ul>
+<li>출력 내용은 다음 양식을 참고하여 구성할 것:</li>
+</ul>
+<pre><code class="hljs language-python">===== 사용자 정보 리포트 =====
+
+이름: EUNICE
+이름 길이: <span class="hljs-number">6</span>자
+첫 글자: E
+
+나이: <span class="hljs-number">20</span>살
+<span class="hljs-number">5</span>년 후 나이: <span class="hljs-number">25</span>살
+나이 제곱: <span class="hljs-number">400</span>
+나이를 <span class="hljs-number">4</span>로 나눈 몫: <span class="hljs-number">5</span>, 나머지: <span class="hljs-number">0</span>
+
+이메일 도메인: naver.com
+이메일에 <span class="hljs-string">&#x27;@&#x27;</span> 포함 여부: <span class="hljs-literal">True</span>
+이메일 ID 길이: <span class="hljs-number">9</span>자
+
+연락처: <span class="hljs-number">0</span>10-<span class="hljs-number">1234</span>-<span class="hljs-number">5678</span>
+국번: <span class="hljs-number">1234</span>
+개인번호 끝자리: <span class="hljs-number">5678</span>
+
+💡 데이터 분석 완료!
+============================
+</code></pre>
 
     </main>
   </div>
